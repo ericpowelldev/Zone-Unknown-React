@@ -1,35 +1,43 @@
 {
-  "name": "project-2",
-  "version": "1.0.0",
-  "description": "Project 2 description",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js",
-    "lint": "eslint --quiet .",
-    "fix": "eslint --fix .",
-    "test": "npm run lint && cross-env NODE_ENV=test mocha -u tdd --reporter spec --exit"
-  },
-  "license": "ISC",
+  "name": "zone-unknown-react",
+  "version": "0.2.0",
+  "private": true,
   "dependencies": {
-    "dotenv": "^6.2.0",
-    "express": "^4.17.1",
-    "express-handlebars": "^3.0.0",
-    "fs": "0.0.1-security",
-    "http": "0.0.0",
-    "mysql2": "^1.6.4",
-    "nodemon": "^1.19.2",
-    "path": "^0.12.7",
-    "sequelize": "^4.41.2",
-    "socket.io": "^2.2.0"
+    "mongoose": "^5.7.1",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-router-dom": "^5.1.0",
+    "react-scripts": "3.1.2"
   },
-  "devDependencies": {
-    "chai": "^4.1.2",
-    "chai-http": "^4.0.0",
-    "cross-env": "^5.2.0",
-    "eslint": "^4.19.1",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-prettier": "^2.6.2",
-    "mocha": "^5.2.0",
-    "prettier": "^1.13.7"
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ericpowell3d/Zone-Unknown-React.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ericpowell3d/Zone-Unknown-React/issues"
+  },
+  "author": "Eric Powell",
+  "license": "ISC",
+  "homepage": "https://github.com/ericpowell3d/Zone-Unknown-React#readme",
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

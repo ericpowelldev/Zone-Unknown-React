@@ -4,13 +4,18 @@
 
 <p>Welcome to ZONE UNKNOWN, an adventure game based on survival. You find yourself stranded in a solar system due to your warp drive breaking down. Explore 3 planets and find parts to rebuild your warp drive. Along the way, you will encounter harsh events that will test your survival skills. You need to manage your HEALTH, OXYGEN and FUEL. You lose 1 OXYGEN per turn and will need 2 FUEL to replenish your O2 at the ship (middle hex). When your HEALTH hits 0, you lose! To advance to the next planet, collect the warp drive piece and return to your ship. Good luck and don't forget to use the chat if you get stuck.</p>
 
-### Link to Deployed Site
-https://zone-unknown-react.herokuapp.com/
+### Link to Heroku
+https://tranquil-citadel-22293.herokuapp.com/
 
 ## Node Modules
-- React
-- React Router
-- Mongoose
+- Express
+- Path
+- HTTP
+- Socket-io
+- mysql2
+- Sequelize
+- Express-Handlebars
+- Dotenv
 
 ## Description
 <p>Zone Unknown is a user interactive game where you're given random events and real choices to make that will affect your journey in unique ways each time you play. Every choice you make and every place you explore on the planet will be your own personal experience. There is a user chat as well to help you along the way. Chat with other players and learn how they have overcome the challenges of the game as their journey progresses from planet to planet, with the difficulty increasing as you travel.</p>

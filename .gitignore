@@ -35,6 +35,11 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+/.pnp
+.pnp.js
+
+# Production
+/build
 
 # TypeScript v1 declaration files
 typings/
@@ -57,9 +62,17 @@ typings/
 # dotenv environment variables file
 .env
 
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
 # next.js build output
 .next
 
-#hiding events
-events.js
-
+# Other
+.vscode
+.idea/
+.DS_Store
