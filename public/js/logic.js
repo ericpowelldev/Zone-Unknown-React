@@ -12,602 +12,610 @@
 
 
 let sav = {
-    version: `1.1.3`, // Version of game the save was created
+    version: `0.1.4`, // Version of game the save was created
     health: 10, // Health resource
     oxygen: 10, // Oxygen resource
     fuel: 0, // Fuel collected
     warpCount: 0, // Warp drive pieces collected
     itemCount: 0, // Items collected
-    planet: 1, // Current planet
-    planet1: [
+    planet: 0, // Current planet
+    planets: [
+        {
+            hexes: [
+                {
+                    hexXY: [0, 2],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [1, 2],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [2, 2],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-1, 1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [0, 1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [1, 1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [2, 1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-2, 0],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-1, 0],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [0, 0],
+                    visited: true,
+                    event: `ship`
+                },
+                {
+                    hexXY: [1, 0],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [2, 0],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-2, -1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-1, -1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [0, -1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [1, -1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-2, -2],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-1, -2],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [0, -2],
+                    visited: false,
+                    event: ``
+                }
+            ]
+        },
         {
-            hexXY: [0, 2],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [1, 2],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [2, 2],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-1, 1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [0, 1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [1, 1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [2, 1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-2, 0],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-1, 0],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [0, 0],
-            visited: true,
-            event: `ship`
-        },
-        {
-            hexXY: [1, 0],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [2, 0],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-2, -1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-1, -1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [0, -1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [1, -1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-2, -2],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-1, -2],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [0, -2],
-            visited: false,
-            event: ``
-        }
-    ],
-    planet2: [
-        {
-            hexXY: [0, 3],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [1, 3],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [2, 3],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [3, 3],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-1, 2],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [0, 2],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [1, 2],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [2, 2],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [3, 2],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-2, 1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-1, 1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [0, 1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [1, 1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [2, 1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [3, 1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-3, 0],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-2, 0],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-1, 0],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [0, 0],
-            visited: true,
-            event: `ship`
-        },
-        {
-            hexXY: [1, 0],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [2, 0],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [3, 0],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-3, -1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-2, -1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-1, -1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [0, -1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [1, -1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [2, -1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-3, -2],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-2, -2],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-1, -2],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [0, -2],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [1, -2],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-3, -3],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-2, -3],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-1, -3],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [0, -3],
-            visited: false,
-            event: ``
-        }
-    ],
-    planet3: [
-        {
-            hexXY: [0, 4],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [1, 4],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [2, 4],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [3, 4],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [4, 4],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-1, 3],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [0, 3],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [1, 3],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [2, 3],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [3, 3],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [4, 3],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-2, 2],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-1, 2],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [0, 2],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [1, 2],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [2, 2],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [3, 2],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [4, 2],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-3, 1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-2, 1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-1, 1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [0, 1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [1, 1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [2, 1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [3, 1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [4, 1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-4, 0],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-3, 0],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-2, 0],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-1, 0],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [0, 0],
-            visited: true,
-            event: `ship`
-        },
-        {
-            hexXY: [1, 0],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [2, 0],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [3, 0],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [4, 0],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-4, -1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-3, -1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-2, -1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-1, -1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [0, -1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [1, -1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [2, -1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [3, -1],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-4, -2],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-3, -2],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-2, -2],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-1, -2],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [0, -2],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [1, -2],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [2, -2],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-4, -3],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-3, -3],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-2, -3],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-1, -3],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [0, -3],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [1, -3],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-4, -4],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-3, -4],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-2, -4],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [-1, -4],
-            visited: false,
-            event: ``
-        },
-        {
-            hexXY: [0, -4],
-            visited: false,
-            event: ``
+            hexes: [
+                {
+                    hexXY: [0, 3],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [1, 3],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [2, 3],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [3, 3],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-1, 2],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [0, 2],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [1, 2],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [2, 2],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [3, 2],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-2, 1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-1, 1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [0, 1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [1, 1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [2, 1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [3, 1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-3, 0],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-2, 0],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-1, 0],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [0, 0],
+                    visited: true,
+                    event: `ship`
+                },
+                {
+                    hexXY: [1, 0],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [2, 0],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [3, 0],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-3, -1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-2, -1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-1, -1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [0, -1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [1, -1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [2, -1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-3, -2],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-2, -2],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-1, -2],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [0, -2],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [1, -2],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-3, -3],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-2, -3],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-1, -3],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [0, -3],
+                    visited: false,
+                    event: ``
+                }
+            ]
+        },
+        {
+            hexes: [
+                {
+                    hexXY: [0, 4],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [1, 4],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [2, 4],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [3, 4],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [4, 4],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-1, 3],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [0, 3],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [1, 3],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [2, 3],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [3, 3],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [4, 3],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-2, 2],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-1, 2],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [0, 2],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [1, 2],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [2, 2],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [3, 2],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [4, 2],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-3, 1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-2, 1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-1, 1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [0, 1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [1, 1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [2, 1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [3, 1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [4, 1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-4, 0],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-3, 0],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-2, 0],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-1, 0],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [0, 0],
+                    visited: true,
+                    event: `ship`
+                },
+                {
+                    hexXY: [1, 0],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [2, 0],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [3, 0],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [4, 0],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-4, -1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-3, -1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-2, -1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-1, -1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [0, -1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [1, -1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [2, -1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [3, -1],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-4, -2],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-3, -2],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-2, -2],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-1, -2],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [0, -2],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [1, -2],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [2, -2],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-4, -3],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-3, -3],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-2, -3],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-1, -3],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [0, -3],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [1, -3],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-4, -4],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-3, -4],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-2, -4],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [-1, -4],
+                    visited: false,
+                    event: ``
+                },
+                {
+                    hexXY: [0, -4],
+                    visited: false,
+                    event: ``
+                }
+            ]
         }
     ]
 }
@@ -1032,274 +1040,138 @@ function rdmInt(min, max) {
 }
 
 function generatePlanets() {
-    generatePlanet1();
-}
 
-function generatePlanet1() {
+    // Looping through each planet to generate
+    for (let inc = 0; inc < 3; inc++) {
 
-    // Declaring variables we need to generate a planet
-    let psHPCount, nsHPCount, psO2Count, nsO2Count;
-    let fuelCount, warpCount, itemCount;
-    let eventArray = [`psHP`, `nsHP`, `psO2`, `nsO2`];
-    let numArray = [];
+        // Declaring variables we need to generate a planet
+        let psHPCount, nsHPCount, psO2Count, nsO2Count;
+        let fuelCount, warpCount, itemCount;
+        let eventArray = [`psHP`, `nsHP`, `psO2`, `nsO2`];
+        let numArray = [];
 
-    // Setting default random event counts for this specific planet
-    psHPCount = 5;
-    nsHPCount = 4;
-    psO2Count = 5;
-    nsO2Count = 4;
+        // Setting default random & set event counts for each specific planet
+        if (inc === 0) {
+            psHPCount = 5;
+            nsHPCount = 4;
+            psO2Count = 5;
+            nsO2Count = 4;
+            fuelCount = 3;
+            warpCount = 1;
+            itemCount = 1;
+        }
+        else if (inc === 1) {
+            psHPCount = 9;
+            nsHPCount = 9;
+            psO2Count = 9;
+            nsO2Count = 9;
+            fuelCount = 6;
+            warpCount = 1;
+            itemCount = 1;
+        }
+        else if (inc === 2) {
+            psHPCount = 15;
+            nsHPCount = 15;
+            psO2Count = 15;
+            nsO2Count = 15;
+            fuelCount = 10;
+            warpCount = 2;
+            itemCount = 1;
+        }
+        else {
+            console.log(`WTF! How did you get here?`);
+        }
 
-    // Loop to generate random events for each hex
-    for (let i = 0; i < sav.planet1.length; i++) {
-        if (i !== 9) {
-            let rdmEvent = eventArray[Math.floor(Math.random() * eventArray.length)];
+        // Loop to generate random events for each hex
+        for (let i = 0; i < sav.planets[inc].hexes.length; i++) {
+            if (i !== (sav.planets[inc].hexes.length - 1) / 2) {
+                let rdmEvent = eventArray[Math.floor(Math.random() * eventArray.length)];
 
-            if (rdmEvent === `psHP` && psHPCount > 0) {
-                sav.planet1[i].event = rdmEvent;
-                console.log(`RANDOM EVENT ADDED "${rdmEvent}" to HEX${i}`);
-                psHPCount--;
-            }
-            else if (rdmEvent === `nsHP` && nsHPCount > 0) {
-                sav.planet1[i].event = rdmEvent;
-                console.log(`RANDOM EVENT ADDED "${rdmEvent}" to HEX${i}`);
-                nsHPCount--;
-            }
-            else if (rdmEvent === `psO2` && psO2Count > 0) {
-                sav.planet1[i].event = rdmEvent;
-                console.log(`RANDOM EVENT ADDED "${rdmEvent}" to HEX${i}`);
-                psO2Count--;
-            }
-            else if (rdmEvent === `nsO2` && nsO2Count > 0) {
-                sav.planet1[i].event = rdmEvent;
-                console.log(`RANDOM EVENT ADDED "${rdmEvent}" to HEX${i}`);
-                nsO2Count--;
+                if (rdmEvent === `psHP` && psHPCount > 0) {
+                    sav.planets[inc].hexes[i].event = rdmEvent;
+                    console.log(`RANDOM EVENT ADDED "${rdmEvent}" to HEX${i}`);
+                    psHPCount--;
+                }
+                else if (rdmEvent === `nsHP` && nsHPCount > 0) {
+                    sav.planets[inc].hexes[i].event = rdmEvent;
+                    console.log(`RANDOM EVENT ADDED "${rdmEvent}" to HEX${i}`);
+                    nsHPCount--;
+                }
+                else if (rdmEvent === `psO2` && psO2Count > 0) {
+                    sav.planets[inc].hexes[i].event = rdmEvent;
+                    console.log(`RANDOM EVENT ADDED "${rdmEvent}" to HEX${i}`);
+                    psO2Count--;
+                }
+                else if (rdmEvent === `nsO2` && nsO2Count > 0) {
+                    sav.planets[inc].hexes[i].event = rdmEvent;
+                    console.log(`RANDOM EVENT ADDED "${rdmEvent}" to HEX${i}`);
+                    nsO2Count--;
+                }
+                else {
+                    i--;
+                }
             }
             else {
-                i--;
+                sav.planets[inc].hexes[i].event = `ship`;
+                console.log(`SET EVENT ADDED "ship" to HEX${i}`);
             }
         }
-        else {
-            sav.planet1[i].event = `ship`;
-            console.log(`SET EVENT ADDED "ship" to HEX${i}`);
-        }
-    }
 
-    // Setting default set event counts for this specific planet
-    fuelCount = 3;
-    warpCount = 1;
-    itemCount = 1;
+        // Loop to generate random placements for the set events
+        for (let e = 0; e < (fuelCount + warpCount + itemCount); e++) {
+            let num = rdmInt(0, sav.planets[inc].hexes.length - 1);
 
-    // Loop to generate random placements for the set events
-    for (let e = 0; e < (fuelCount + warpCount + itemCount); e++) {
-        let num = rdmInt(0, 18);
-
-        if (num !== 4 && num !== 5 && num !== 8 && num !== 9 && num !== 10 && num !== 13 && num !== 14 && !numArray.includes(num)) {
-            numArray.push(num);
-        }
-        else {
-            e--;
-        }
-    }
-
-    // Loop to assign set events using the random number array
-    for (let f = 0; f < numArray.length; f++) {
-        if (fuelCount > 0) {
-            sav.planet1[numArray[f]].event = `fuel`;
-            console.log(`SET EVENT ADDED "fuel" to HEX${numArray[f]}`);
-            fuelCount--;
-        }
-        else if (warpCount > 0) {
-            sav.planet1[numArray[f]].event = `warp`;
-            console.log(`SET EVENT ADDED "warp" to HEX${numArray[f]}`);
-            warpCount--;
-        }
-        else if (itemCount > 0) {
-            sav.planet1[numArray[f]].event = `item`;
-            console.log(`SET EVENT ADDED "item" to HEX${numArray[f]}`);
-            itemCount--;
-        }
-    }
-
-    // Generate the next planet
-    generatePlanet2();
-}
-
-function generatePlanet2() {
-
-    // Declaring variables we need to generate a planet
-    let psHPCount, nsHPCount, psO2Count, nsO2Count;
-    let fuelCount, warpCount, itemCount;
-    let eventArray = [`psHP`, `nsHP`, `psO2`, `nsO2`];
-    let numArray = [];
-
-    // Setting default random event counts for this specific planet
-    psHPCount = 9;
-    nsHPCount = 9;
-    psO2Count = 9;
-    nsO2Count = 9;
-
-    // Loop to generate random events for each hex
-    for (let i = 0; i < sav.planet2.length; i++) {
-        if (i !== 18) {
-            let rdmEvent = eventArray[Math.floor(Math.random() * eventArray.length)];
-
-            if (rdmEvent === `psHP` && psHPCount > 0) {
-                sav.planet2[i].event = rdmEvent;
-                console.log(`RANDOM EVENT ADDED "${rdmEvent}" to HEX${i}`);
-                psHPCount--;
+            if (inc === 0) {
+                if (num !== 4 && num !== 5 && num !== 8 && num !== 9 && num !== 10 && num !== 13 && num !== 14 && !numArray.includes(num)) {
+                    numArray.push(num);
+                }
+                else {
+                    e--;
+                }
             }
-            else if (rdmEvent === `nsHP` && nsHPCount > 0) {
-                sav.planet2[i].event = rdmEvent;
-                console.log(`RANDOM EVENT ADDED "${rdmEvent}" to HEX${i}`);
-                nsHPCount--;
+            else if (inc === 1) {
+                if (num !== 11 && num !== 12 && num !== 17 && num !== 18 && num !== 19 && num !== 24 && num !== 25 && !numArray.includes(num)) {
+                    numArray.push(num);
+                }
+                else {
+                    e--;
+                }
             }
-            else if (rdmEvent === `psO2` && psO2Count > 0) {
-                sav.planet2[i].event = rdmEvent;
-                console.log(`RANDOM EVENT ADDED "${rdmEvent}" to HEX${i}`);
-                psO2Count--;
-            }
-            else if (rdmEvent === `nsO2` && nsO2Count > 0) {
-                sav.planet2[i].event = rdmEvent;
-                console.log(`RANDOM EVENT ADDED "${rdmEvent}" to HEX${i}`);
-                nsO2Count--;
+            else if (inc === 2) {
+                if (num !== 21 && num !== 22 && num !== 29 && num !== 30 && num !== 31 && num !== 38 && num !== 39 && !numArray.includes(num)) {
+                    numArray.push(num);
+                }
+                else {
+                    e--;
+                }
             }
             else {
-                i--;
+                console.log(`WTF! How did you get here?`);
             }
         }
-        else {
-            sav.planet2[i].event = `ship`;
-            console.log(`SET EVENT ADDED "ship" to HEX${i}`);
-        }
-    }
 
-    // Setting default set event counts for this specific planet
-    fuelCount = 6;
-    warpCount = 1;
-    itemCount = 1;
-
-    // Loop to generate random placements for the set events
-    for (let e = 0; e < (fuelCount + warpCount + itemCount); e++) {
-        let num = rdmInt(0, 36);
-
-        if (num !== 11 && num !== 12 && num !== 17 && num !== 18 && num !== 19 && num !== 24 && num !== 25 && !numArray.includes(num)) {
-            numArray.push(num);
-        }
-        else {
-            e--;
-        }
-    }
-
-    // Loop to assign set events using the random number array
-    for (let f = 0; f < numArray.length; f++) {
-        if (fuelCount > 0) {
-            sav.planet2[numArray[f]].event = `fuel`;
-            console.log(`SET EVENT ADDED "fuel" to HEX${numArray[f]}`);
-            fuelCount--;
-        }
-        else if (warpCount > 0) {
-            sav.planet2[numArray[f]].event = `warp`;
-            console.log(`SET EVENT ADDED "warp" to HEX${numArray[f]}`);
-            warpCount--;
-        }
-        else if (itemCount > 0) {
-            sav.planet2[numArray[f]].event = `item`;
-            console.log(`SET EVENT ADDED "item" to HEX${numArray[f]}`);
-            itemCount--;
-        }
-    }
-
-    // Generate the next planet
-    generatePlanet3();
-}
-
-function generatePlanet3() {
-
-    // Declaring variables we need to generate a planet
-    let psHPCount, nsHPCount, psO2Count, nsO2Count;
-    let fuelCount, warpCount, itemCount;
-    let eventArray = [`psHP`, `nsHP`, `psO2`, `nsO2`];
-    let numArray = [];
-
-    // Setting default random event counts for this specific planet
-    psHPCount = 15;
-    nsHPCount = 15;
-    psO2Count = 15;
-    nsO2Count = 15;
-
-    // Loop to generate random events for each hex
-    for (let i = 0; i < sav.planet3.length; i++) {
-        if (i !== 30) {
-            let rdmEvent = eventArray[Math.floor(Math.random() * eventArray.length)];
-
-            if (rdmEvent === `psHP` && psHPCount > 0) {
-                sav.planet3[i].event = rdmEvent;
-                console.log(`RANDOM EVENT ADDED "${rdmEvent}" to HEX${i}`);
-                psHPCount--;
+        // Loop to assign set events using the random number array
+        for (let f = 0; f < numArray.length; f++) {
+            if (fuelCount > 0) {
+                sav.planets[inc].hexes[numArray[f]].event = `fuel`;
+                console.log(`SET EVENT ADDED "fuel" to HEX${numArray[f]}`);
+                fuelCount--;
             }
-            else if (rdmEvent === `nsHP` && nsHPCount > 0) {
-                sav.planet3[i].event = rdmEvent;
-                console.log(`RANDOM EVENT ADDED "${rdmEvent}" to HEX${i}`);
-                nsHPCount--;
+            else if (warpCount > 0) {
+                sav.planets[inc].hexes[numArray[f]].event = `warp`;
+                console.log(`SET EVENT ADDED "warp" to HEX${numArray[f]}`);
+                warpCount--;
             }
-            else if (rdmEvent === `psO2` && psO2Count > 0) {
-                sav.planet3[i].event = rdmEvent;
-                console.log(`RANDOM EVENT ADDED "${rdmEvent}" to HEX${i}`);
-                psO2Count--;
-            }
-            else if (rdmEvent === `nsO2` && nsO2Count > 0) {
-                sav.planet3[i].event = rdmEvent;
-                console.log(`RANDOM EVENT ADDED "${rdmEvent}" to HEX${i}`);
-                nsO2Count--;
-            }
-            else {
-                i--;
+            else if (itemCount > 0) {
+                sav.planets[inc].hexes[numArray[f]].event = `item`;
+                console.log(`SET EVENT ADDED "item" to HEX${numArray[f]}`);
+                itemCount--;
             }
         }
-        else {
-            sav.planet3[i].event = `ship`;
-            console.log(`SET EVENT ADDED "ship" to HEX${i}`);
-        }
+
+        // Save the planets
+        localStorage.setItem('save', JSON.stringify(sav));
     }
-
-    // Setting default set event counts for this specific planet
-    fuelCount = 10;
-    warpCount = 2;
-    itemCount = 1;
-
-    // Loop to generate random placements for the set events
-    for (let e = 0; e < (fuelCount + warpCount + itemCount); e++) {
-        let num = rdmInt(0, 60);
-
-        if (num !== 21 && num !== 22 && num !== 29 && num !== 30 && num !== 31 && num !== 38 && num !== 39 && !numArray.includes(num)) {
-            numArray.push(num);
-        }
-        else {
-            e--;
-        }
-    }
-
-    // Loop to assign set events using the random number array
-    for (let f = 0; f < numArray.length; f++) {
-        if (fuelCount > 0) {
-            sav.planet3[numArray[f]].event = `fuel`;
-            console.log(`SET EVENT ADDED "fuel" to HEX${numArray[f]}`);
-            fuelCount--;
-        }
-        else if (warpCount > 0) {
-            sav.planet3[numArray[f]].event = `warp`;
-            console.log(`SET EVENT ADDED "warp" to HEX${numArray[f]}`);
-            warpCount--;
-        }
-        else if (itemCount > 0) {
-            sav.planet3[numArray[f]].event = `item`;
-            console.log(`SET EVENT ADDED "item" to HEX${numArray[f]}`);
-            itemCount--;
-        }
-    }
-
-    // Save the planets
-    localStorage.setItem('save', JSON.stringify(sav));
 }
 
 
@@ -1370,17 +1242,17 @@ function hideHTML() {
 }
 
 function showPlanet() {
-    if (sav.planet === 1) {
+    if (sav.planet === 0) {
         $(`#grid-sm`).show();
         $(`#grid-md`).hide();
         $(`#grid-lg`).hide();
     }
-    else if (sav.planet === 2) {
+    else if (sav.planet === 1) {
         $(`#grid-sm`).hide();
         $(`#grid-md`).show();
         $(`#grid-lg`).hide();
     }
-    else if (sav.planet === 3) {
+    else if (sav.planet === 2) {
         $(`#grid-sm`).hide();
         $(`#grid-md`).hide();
         $(`#grid-lg`).show();
@@ -1508,45 +1380,17 @@ function gridMove() {
             getEvent("ship");
         }
 
-        if (sav.planet === 1) {
-            for (let i = 0; i < sav.planet1.length; i++) {
-                if (sav.planet1[i].hexXY[0] + ", " + sav.planet1[i].hexXY[1] === coords) {
-                    sav.oxygen -= 1;
-                    if (sav.planet1[i].visited === true) {
-                        capCheck();
-                    }
-                    else {
-                        sav.planet1[i].visited = true;
-                        getEvent(sav.planet1[i].event);
-                    }
+        let curPlanet = sav.planets[sav.planet];
+
+        for (let i = 0; i < curPlanet.hexes.length; i++) {
+            if (curPlanet.hexes[i].hexXY[0] + ", " + curPlanet.hexes[i].hexXY[1] === coords) {
+                sav.oxygen -= 1;
+                if (curPlanet.hexes[i].visited === true) {
+                    capCheck();
                 }
-            }
-        }
-        else if (sav.planet === 2) {
-            for (let i = 0; i < sav.planet2.length; i++) {
-                if (sav.planet2[i].hexXY[0] + ", " + sav.planet2[i].hexXY[1] === coords) {
-                    sav.oxygen -= 1;
-                    if (sav.planet2[i].visited === true) {
-                        capCheck();
-                    }
-                    else {
-                        sav.planet2[i].visited = true;
-                        getEvent(sav.planet2[i].event);
-                    }
-                }
-            }
-        }
-        else if (sav.planet === 3) {
-            for (let i = 0; i < sav.planet3.length; i++) {
-                if (sav.planet3[i].hexXY[0] + ", " + sav.planet3[i].hexXY[1] === coords) {
-                    sav.oxygen -= 1;
-                    if (sav.planet3[i].visited === true) {
-                        capCheck();
-                    }
-                    else {
-                        sav.planet3[i].visited = true;
-                        getEvent(sav.planet3[i].event);
-                    }
+                else {
+                    curPlanet.hexes[i].visited = true;
+                    getEvent(curPlanet.hexes[i].event);
                 }
             }
         }
@@ -1622,14 +1466,15 @@ function gameAction() {
         }
     }
     else if (butText === "Save and advance to next planet") {
-        if (sav.warpCount >= sav.planet && sav.planet !== 3) {
-            sav.oxygen = 10;
+        if (sav.warpCount > sav.planet && sav.planet !== 2) {
+            if (sav.health < 5) sav.health = 5;
+            if (sav.oxygen < 10) sav.oxygen = 10;
+            sav.planet++;
             localStorage.setItem('save', JSON.stringify(sav));
             $("#modalDrop").hide();
-            sav.planet++;
             showPlanet();
         }
-        else if (sav.planet === 3) {
+        else if (sav.planet === 2) {
             alert("You must find uranium to return home!");
         }
         else {
@@ -1648,11 +1493,11 @@ function capCheck() {
         location.href = "/";
     }
 
-    if (sav.health >= 15) {
-        sav.health = 15;
+    if (sav.health >= 20) {
+        sav.health = 20;
     }
-    if (sav.oxygen >= 15) {
-        sav.oxygen = 15;
+    if (sav.oxygen >= 20) {
+        sav.oxygen = 20;
     }
 
     if (sav.oxygen <= 0) {
@@ -1670,7 +1515,7 @@ function statusCheck() {
     $(`#health`).text(`HEALTH: [ ${sav.health} ]`);
     $(`#oxygen`).text(`OXYGEN: [ ${sav.oxygen} ]`);
     $(`#fuel`).text(`FUEL: [ ${sav.fuel} ]`);
-    $(`#statPlanet`).text(`CURRENT PLANET: [ ${sav.planet} ]`);
+    $(`#statPlanet`).text(`CURRENT PLANET: [ ${sav.planet + 1} ]`);
     $(`#statHealth`).text(`HEALTH: [ ${sav.health} ]`);
     $(`#statOxygen`).text(`OXYGEN: [ ${sav.oxygen} ]`);
     $(`#statFuel`).text(`FUEL: [ ${sav.fuel} ]`);
