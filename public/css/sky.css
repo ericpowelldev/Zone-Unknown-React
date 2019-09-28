@@ -47,13 +47,13 @@
 }
 
 #stars {
-    background:#000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
-    z-index:0;
+    background:#000 url(../images/stars.png) repeat top center;
+    z-index: 0;
 }
 
 #twinkling{
-    background:transparent url(http://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
-    z-index:1;
+    background:transparent url(../images/twinkling.png) repeat top center;
+    z-index: 1;
 
     -webkit-animation:twinkleBG 540s linear infinite;
     -moz-animation:twinkleBG 540s linear infinite;
@@ -63,7 +63,7 @@
 }
 
 #gradient {
-    z-index: 3;
+    z-index: 2;
     background: linear-gradient(45deg, #00000000, #00000000, #00000000, #ff000032, #ff800032, #ffff0032, #80ff8032, #0080ff32, #3060ff32, #6000ff32, #a000ff32, #00000000, #00000000, #00000000);
 	background-size: 800% 800%;
     background-attachment: fixed;
