@@ -11,6 +11,7 @@ https://zone-unknown-react.herokuapp.com/
 - React
 - React Router
 - Mongoose
+- Axios
 
 ## Description
 <p>Zone Unknown is a user interactive game where you're given random events and real choices to make that will affect your journey in unique ways each time you play. Every choice you make and every place you explore on the planet will be your own personal experience. There is a user chat as well to help you along the way. Chat with other players and learn how they have overcome the challenges of the game as their journey progresses from planet to planet, with the difficulty increasing as you travel.</p>
