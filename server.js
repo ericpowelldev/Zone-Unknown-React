@@ -28,7 +28,7 @@ mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost/zu_db`, { useNe
 
 // Server listen
 app.listen(PORT, function () {
-    console.log(`Listening on http://localhost:${PORT}`);
+    console.log(`\n---------- Listening on http://localhost:${PORT} ----------\n`);
 });
 
 module.exports = app;

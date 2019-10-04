@@ -55,11 +55,11 @@
     background:transparent url(../images/twinkling.png) repeat top center;
     z-index: 1;
 
-    -webkit-animation:twinkleBG 540s linear infinite;
-    -moz-animation:twinkleBG 540s linear infinite;
-    -ms-animation:twinkleBG 540s linear infinite;
-    -o-animation:twinkleBG 540s linear infinite;
-    animation:twinkleBG 540s linear infinite;
+    -webkit-animation:twinkleBG 360s linear infinite;
+    -moz-animation:twinkleBG 360s linear infinite;
+    -ms-animation:twinkleBG 360s linear infinite;
+    -o-animation:twinkleBG 360s linear infinite;
+    animation:twinkleBG 360s linear infinite;
 }
 
 #gradient {

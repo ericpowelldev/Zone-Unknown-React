@@ -1,7 +1,11 @@
 {
   "name": "zone-unknown-react",
   "version": "0.2.0",
+  "description": "Zone Unknown React game",
+  "author": "Eric Powell",
+  "license": "ISC",
   "private": true,
+  "proxy": "http://localhost:3001/",
   "dependencies": {
     "axios": "^0.19.0",
     "react": "^16.9.0",
@@ -15,19 +19,6 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ericpowell3d/Zone-Unknown-React.git"
-  },
-  "bugs": {
-    "url": "https://github.com/ericpowell3d/Zone-Unknown-React/issues"
-  },
-  "author": "Eric Powell",
-  "license": "ISC",
-  "homepage": "https://github.com/ericpowell3d/Zone-Unknown-React#readme",
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -39,5 +30,16 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ericpowell3d/Zone-Unknown-React.git"
+  },
+  "homepage": "https://github.com/ericpowell3d/Zone-Unknown-React",
+  "bugs": {
+    "url": "https://github.com/ericpowell3d/Zone-Unknown-React/issues"
   }
 }

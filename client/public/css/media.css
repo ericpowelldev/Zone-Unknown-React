@@ -1,0 +1,40 @@
+@media screen and (max-width: 480px) { /* Typical for smart phones */
+    #navFix {
+        width: 300px;
+    }
+    #footerFix {
+        width: 300px;
+    }
+}
+@media screen and (min-width: 481px) and (max-width: 640px) { /* Typical for phablets */
+    #navFix {
+        width: 400px;
+    }
+    #footerFix {
+        width: 400px;
+    }
+}
+@media screen and (min-width: 641px) and (max-width: 960px) { /* Typical for low res tablets */
+    #navFix {
+        width: 600px;
+    }
+    #footerFix {
+        width: 600px;
+    }
+}
+@media screen and (min-width: 961px) and (max-width: 1280px) { /* Typical for high res tablets & low res screens */
+    #navFix {
+        width: 800px;
+    }
+    #footerFix {
+        width: 800px;
+    }
+}
+@media screen and (min-width: 1281px) { /* Typical for high res screens */
+    #navFix {
+        width: 1200px;
+    }
+    #footerFix {
+        width: 1200px;
+    }
+}

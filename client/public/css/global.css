@@ -1,0 +1,93 @@
+* {
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+::-webkit-scrollbar-track {
+    background: #ffffff20;
+}
+::-webkit-scrollbar-thumb {
+    background: #ffffff80;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #ffffff;
+}
+::-webkit-scrollbar-thumb:active {
+    background: #0060ff;
+}
+  
+body {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 12px;
+    color: #fff;
+    background: #000;
+    background-attachment: fixed;
+}
+
+nav {
+    z-index: 5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 64px;
+}
+#navFix {
+    position: relative;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer {
+    z-index: 5;
+    clear: both;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 64px;
+}
+#footerFix {
+    position: relative;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    /* z-index: 5; */
+    font-size: 48px;
+    color: #fff;
+}
+h2 {
+    /* z-index: 5; */
+    font-size: 28px;
+    color: #a0a0a0;
+}
+h2:hover {
+    color: #0060ff;
+}
+h3 {
+
+}
+h4 {
+
+}
+h5 {
+
+}
+h6 {
+
+}
+p {
+
+}
+
+#mainDrop {
+    z-index: 3;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
