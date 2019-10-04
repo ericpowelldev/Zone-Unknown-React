@@ -11,19 +11,18 @@ https://zone-unknown-react.herokuapp.com/
 
 ## Node Modules
 - axios
+- bcrypt
+- concurrently
 - express
 - if-env
 - mongoose
-
-
+- nodemon
+- passport
 - react
 - react-dom
 - react-router-dom
 - react-scripts
-
-
-- concurrently
-- nodemon
+- socket-io
 
 - - -
 
