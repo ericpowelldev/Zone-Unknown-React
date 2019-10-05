@@ -1,11 +1,28 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Nav from '../components/Nav';
+import Footer from '../components/Footer';
+import HexGridS from '../components/HexGridS';
+import HexGridM from '../components/HexGridM';
+import HexGridL from '../components/HexGridL';
 
 function Game() {
     return (
         <div id="mainDrop">
-            <h1>GAME</h1>
-            <Link to="/"><h2>Click here to go to the HOME page.</h2></Link>
+            <Nav />
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <HexGridL />
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <Footer />
         </div>
     )
 }
