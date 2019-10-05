@@ -1,4 +1,4 @@
-@keyframes twinkleBG {
+/* @keyframes twinkleBG {
     from {background-position:0 0;}
     to {background-position:-10000px 5000px;}
 }
@@ -13,7 +13,24 @@
 @-ms-keyframes twinkleBG {
     from {background-position:0 0;}
     to {background-position:-10000px 5000px;}
+} */
+
+/* @keyframes gradientBG {
+	0% {background-position: 0% 100%;}
+	100% {background-position: 100% 0%;}
 }
+@-webkit-keyframes gradientBG {
+	0% {background-position: 0% 100%;}
+	100% {background-position: 100% 0%;}
+}
+@-moz-keyframes gradientBG {
+	0% {background-position: 0% 100%;}
+	100% {background-position: 100% 0%;}
+}
+@-ms-keyframes gradientBG {
+	0% {background-position: 0% 100%;}
+	100% {background-position: 100% 0%;}
+} */
 
 #stars, #twinkling, #gradient {
     position:fixed;
@@ -48,26 +65,6 @@
 	background-size: 100% 100%;
     background-attachment: fixed;
 }
-
-/* @keyframes gradientBG {
-	0% {background-position: 0% 100%;}
-	100% {background-position: 100% 0%;}
-}
-@-webkit-keyframes gradientBG {
-	0% {background-position: 0% 100%;}
-	50% {background-position: 100% 0%;}
-	100% {background-position: 0% 100%;}
-}
-@-moz-keyframes gradientBG {
-	0% {background-position: 0% 100%;}
-	50% {background-position: 100% 0%;}
-	100% {background-position: 0% 100%;}
-}
-@-ms-keyframes gradientBG {
-	0% {background-position: 0% 100%;}
-	50% {background-position: 100% 0%;}
-	100% {background-position: 0% 100%;}
-} */
 
 /* #gradient {
     z-index: 2;

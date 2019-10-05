@@ -361,7 +361,7 @@ function gridMove() {
                 }
             }
         }
-
+        /////// SET THIS STUFF WHEN THE HEX IS CLICKED ON
         $(`.hex`).each(function (index) {
             let xyCheck = $(this).data(`coordinates`).split(`, `);
             let cX = parseInt(xyCheck[0]);
