@@ -191,15 +191,15 @@ p {
 .hex-current {
     background: #00ff80;
 }
-.hex-visitedReach {
+.hex-visited-reach {
     background: #0080ff;
 }
-.hex-visitedNoReach {
+.hex-visited-noReach {
     background: #004080;
 }
-.hex-notVisitedReach {
+.hex-notVisited-reach {
     background: #8080a0;
 }
-.hex-notVisitedNoReach {
+.hex-notVisited-noReach {
     background: #404048;
 }

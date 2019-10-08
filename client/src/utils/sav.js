@@ -15,98 +15,155 @@ let sav = {
             hexes: [
                 {
                     hexXY: [-2, 0],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-2, -1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-2, -2],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-1, 1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-1, 0],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-1, -1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-1, -2],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [0, 2],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [0, 1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [0, 0],
-                    visited: true,
-                    event: `ship`
+                    visited: `false`,
+                    reach: `true`,
+                    current: `false`,
+                    event: `ship`,
+                    class: `hex`
                 },
                 {
                     hexXY: [0, -1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [0, -2],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [1, 2],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [1, 1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [1, 0],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [1, -1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [2, 2],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [2, 1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [2, 0],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 }
             ]
         },
@@ -114,188 +171,299 @@ let sav = {
             hexes: [
                 {
                     hexXY: [-3, 0],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-3, -1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-3, -2],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-3, -3],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-2, 1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-2, 0],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-2, -1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-2, -2],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-2, -3],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-1, 2],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-1, 1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-1, 0],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-1, -1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-1, -2],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-1, -3],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [0, 3],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [0, 2],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [0, 1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [0, 0],
-                    visited: true,
-                    event: `ship`
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: `ship`,
+                    class: `hex`
                 },
                 {
                     hexXY: [0, -1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [0, -2],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [0, -3],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [1, 3],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [1, 2],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [1, 1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [1, 0],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [1, -1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [1, -2],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [2, 3],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [2, 2],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [2, 1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [2, 0],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [2, -1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [3, 3],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [3, 2],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [3, 1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [3, 0],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 }
             ]
         },
@@ -303,308 +471,491 @@ let sav = {
             hexes: [
                 {
                     hexXY: [-4, 0],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-4, -1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-4, -2],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-4, -3],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-4, -4],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-3, 1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-3, 0],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-3, -1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-3, -2],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-3, -3],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-3, -4],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-2, 2],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-2, 1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-2, 0],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-2, -1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-2, -2],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-2, -3],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-2, -4],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-1, 3],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-1, 2],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-1, 1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-1, 0],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-1, -1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-1, -2],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-1, -3],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [-1, -4],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [0, 4],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [0, 3],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [0, 2],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [0, 1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [0, 0],
-                    visited: true,
-                    event: `ship`
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: `ship`,
+                    class: `hex`
                 },
                 {
                     hexXY: [0, -1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [0, -2],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [0, -3],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [0, -4],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [1, 4],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [1, 3],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [1, 2],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [1, 1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [1, 0],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [1, -1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [1, -2],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [1, -3],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [2, 4],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [2, 3],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [2, 2],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [2, 1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [2, 0],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [2, -1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [2, -2],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [3, 4],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [3, 3],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [3, 2],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [3, 1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [3, 0],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [3, -1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [4, 4],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [4, 3],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [4, 2],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [4, 1],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 },
                 {
                     hexXY: [4, 0],
-                    visited: false,
-                    event: ``
+                    visited: `false`,
+                    reach: `false`,
+                    current: `false`,
+                    event: ``,
+                    class: `hex`
                 }
             ]
         }
