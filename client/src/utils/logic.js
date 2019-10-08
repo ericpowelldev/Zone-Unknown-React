@@ -15,17 +15,17 @@ export default {
 
     //////////////////////////////   PLANET GENERATION   //////////////////////////////
 
-    generatePlanets: () => {
+    generatePlanets: function () {
 
         // Looping through each planet to generate
         for (let inc = 0; inc < 3; inc++) {
-    
+
             // Declaring variables we need to generate a planet
             let psHPCount, nsHPCount, psO2Count, nsO2Count;
             let fuelCount, warpCount, itemCount;
             let eventArray = [`psHP`, `nsHP`, `psO2`, `nsO2`];
             let numArray = [];
-    
+
             // Setting default random & set event counts for each specific planet
             if (inc === 0) {
                 psHPCount = 5;
@@ -57,12 +57,12 @@ export default {
             else {
                 console.log(`WTF! How did you get here?`);
             }
-    
+
             // Loop to generate random events for each hex
             for (let i = 0; i < sav.planets[inc].hexes.length; i++) {
                 if (i !== (sav.planets[inc].hexes.length - 1) / 2) {
                     let rdmEvent = eventArray[Math.floor(Math.random() * eventArray.length)];
-    
+
                     if (rdmEvent === `psHP` && psHPCount > 0) {
                         sav.planets[inc].hexes[i].event = rdmEvent;
                         console.log(`RANDOM EVENT ADDED "${rdmEvent}" to HEX${i}`);
@@ -92,11 +92,11 @@ export default {
                     console.log(`SET EVENT ADDED "ship" to HEX${i}`);
                 }
             }
-    
+
             // Loop to generate random placements for the set events
             for (let e = 0; e < (fuelCount + warpCount + itemCount); e++) {
                 let num = this.rdmInt(0, sav.planets[inc].hexes.length - 1);
-    
+
                 if (inc === 0) {
                     if (num !== 4 && num !== 5 && num !== 8 && num !== 9 && num !== 10 && num !== 13 && num !== 14 && !numArray.includes(num)) {
                         numArray.push(num);
@@ -125,7 +125,7 @@ export default {
                     console.log(`WTF! How did you get here?`);
                 }
             }
-    
+
             // Loop to assign set events using the random number array
             for (let f = 0; f < numArray.length; f++) {
                 if (fuelCount > 0) {
@@ -144,11 +144,11 @@ export default {
                     itemCount--;
                 }
             }
-    
-            // Save the planets to the user's account
-            
         }
-    }
+
+        // Start function to generate hex values
+        this.generateReach();
+    },
 
     //////////////////////////////   MAIN MENU   //////////////////////////////
 
@@ -156,5 +156,67 @@ export default {
 
     //////////////////////////////   GAME   //////////////////////////////
 
+    firstLoad: function () {
+        console.log(sav.planets[sav.planet].hexes);
+        console.log(`This was the first load...`);
+    },
 
+    generateReach: function () {
+
+        // Get current planet
+        let myP = sav.planets[sav.planet].hexes;
+
+        // Coordinates of current hex
+        let myXY = sav.coords;
+        let myX = myXY[0];
+        let myY = myXY[1];
+
+        // Loop through every hex & assign values
+        for (let i = 0; i < myP.length; i++) {
+
+            // Coordinates of current hex
+            let thisXY = myP[i].hexXY;
+            let thisX = myP[i].hexXY[0];
+            let thisY = myP[i].hexXY[1];
+
+            // If the current hex in the loop is equal to the current hex's coordinates
+            if (thisXY === myXY) {
+                myP[i].visited = "true";
+                myP[i].current = "true";
+            }
+            else {
+                myP[i].current = "false";
+            }
+
+            // If the current hex in the loop is within reach
+            if (Math.abs(thisX - myX) <= 1 && Math.abs(thisY - myY) <= 1 && thisX + thisY !== myX + myY) {
+                myP[i].reach = "true";
+            }
+            else {
+                myP[i].reach = "false";
+            }
+
+            // Set css class based on booleans
+            if (myP[i].current === "true") {
+                myP[i].class = "hex hex-current";
+            }
+            else if (myP[i].visited === "true" && myP[i].reach === "true") {
+                myP[i].class = "hex hex-visited-reach";
+            }
+            else if (myP[i].visited === "true" && myP[i].reach === "false") {
+                myP[i].class = "hex hex-visited-noReach";
+            }
+            else if (myP[i].visited === "false" && myP[i].reach === "true") {
+                myP[i].class = "hex hex-notVisited-reach";
+            }
+            else {
+                myP[i].class = "hex hex-notVisited-noReach";
+            }
+        }
+
+        // doThis();
+
+        // Save the planets to the user's account
+        // console.log(sav.planets);
+    },
 }

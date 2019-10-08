@@ -1,23 +1,24 @@
 import React from 'react';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
-import HexGridS from '../components/HexGridS';
-import HexGridM from '../components/HexGridM';
-import HexGridL from '../components/HexGridL';
+import HexGrid from '../components/HexGrid';
+import logic from '../utils/logic';
 
-function Game() {
-    return (
-        <div id="mainDrop">
-            <Nav />
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            {/* <img className="resize" src="/images/vectors/hp.svg"></img>
+class Game extends React.Component {
+
+    render() {
+        return (
+            <div id="mainDrop">
+                <Nav />
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                {/* <img className="resize" src="/images/vectors/hp.svg"></img>
             <img className="resize" src="/images/vectors/o2.svg"></img>
             <img className="resize" src="/images/vectors/fu.svg"></img>
             <img className="resize" src="/images/vectors/bio.svg"></img>
@@ -39,14 +40,15 @@ function Game() {
             <img className="resize" src="/images/vectors/user.svg"></img>
             <img className="resize" src="/images/vectors/warning.svg"></img>
             <img className="resize" src="/images/vectors/warp.svg"></img> */}
-            <HexGridS />
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <Footer />
-        </div>
-    )
+                <HexGrid />
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <Footer />
+            </div>
+        )
+    }
 }
 
 export default Game;
