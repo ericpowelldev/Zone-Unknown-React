@@ -9,7 +9,7 @@ let sav = {
     warpCount: 0, // Warp drive pieces collected
     itemCount: 0, // Items collected
     coords: [0, 0], // Current coordinates
-    planet: 0, // Current planet
+    planet: 2, // Current planet
     planets: [
         {
             hexes: [

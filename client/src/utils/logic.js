@@ -2,6 +2,7 @@
 
 import sav from './sav.js';
 import EVT from './EVT.js';
+import HexGrid from '../components/HexGrid';
 
 //////////////////////////////   EXPORT   //////////////////////////////
 
@@ -9,8 +10,14 @@ export default {
 
     //////////////////////////////   UTILITY   //////////////////////////////
 
+    // Function for a random integer between 2 numbers
     rdmInt: (min, max) => {
         return Math.floor(Math.random() * (max - min + 1)) + min;
+    },
+
+    // Function for a random float between 2 numbers
+    rdmFloat: function (min, max) {
+        return Math.random() * (max - min) + min;
     },
 
     //////////////////////////////   PLANET GENERATION   //////////////////////////////
@@ -214,9 +221,9 @@ export default {
             }
         }
 
-        // doThis();
+        // HexGrid.doThis();
 
         // Save the planets to the user's account
-        // console.log(sav.planets);
+        console.log(sav.planets);
     },
 }
