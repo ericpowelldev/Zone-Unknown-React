@@ -5,26 +5,11 @@ import logic from '../utils/logic.js';
 
 class Hex extends React.Component {
 
-    // Constructor
-    constructor(props) {
-        super(props);
-    }
-
-    // State object
-    state = {
-        hexClass: "hex ",
-        visited: "false",
-        reach: "false",
-        current: "false",
-    }
-
     // Called when any hex is clicked
-    getHex = () => {
+    handleClick = () => {
 
         // Declare shorthand for props
         let props = this.props;
-        console.log(props);
-        console.log(props.reach);
 
         // If the player can reach this hex
         if (props.reach === "true") {
@@ -36,10 +21,7 @@ class Hex extends React.Component {
             let newXY = props.coords.split(`, `);
             let newX = parseInt(newXY[0]);
             let newY = parseInt(newXY[1]);
-            sav.coords = newXY;
-
-            // 
-            this.generateState();
+            sav.coords = [newX, newY];
 
             // Lose oxygen + health if oxygen is below zero
             sav.oxygen -= 1;
@@ -47,43 +29,32 @@ class Hex extends React.Component {
                 sav.health += sav.oxygen;
             }
             ////////// RENDER THIS RIGHT HERE SOMEHOW //////////
+
+            // Function to run after stats have been calculated
+            if (myP[props.index].visited === "false") {
+                this.getEvent(myP[props.index].event);
+            }
+            else {
+                // Check stats - Callback to save the game if player is still alive - Callback promise after save to setState (re-renders each hex)
+                // checkStats(ss);
+            }
+
+            this.props.action();
         }
         else {
             alert("You cannot reach this hex!");
         }
     }
 
-    // Callback for generateHexValues (from getHex)
-    generateState = () => {
-
-        // Declare shorthand for props
-        let props = this.props;
-        console.log(props);
-
-        // Find the current hex and generate the state
-        sav.planets[sav.planet].hexes.map(hex => {
-            if (sav.coords === hex.hexXY) {
-
-                // Set state
-                this.setState({ hexClass: hex.class, visited: hex.visited, reach: hex.reach, current: hex.current });
-            }
-        });
-
-        // Function to run after stats have been calculated
-        if (sav.planets[sav.planet].hexes[props.index].visited === "false") {
-            // Get a random event to pop up in a modal (This takes in the state object for the current hex)
-            // getEvent(ss, currentP[i].event);
-        }
-        else {
-            // Check stats - Callback to save the game if player is still alive - Callback promise after save to setState (re-renders each hex)
-            // checkStats(ss);
-        }
+    // Get a random event to pop up in a modal (This takes in the event key for the current hex)
+    getEvent = (eK) => {
+        console.log(eK);
     }
 
     // Called whenever state changes & when a parent component is rendered
     render() {
         return (
-            <div className={this.state.hexClass} data-index={this.props.index} data-coords={this.props.coords} data-visited={this.state.visited} data-reach={this.state.reach} data-current={this.state.current} onClick={this.getHex}></div>
+            <div className={this.props.class} data-index={this.props.index} data-coords={this.props.coords} data-visited={this.props.visited} data-reach={this.props.reach} data-current={this.props.current} onClick={this.handleClick}></div>
         )
     }
 }
