@@ -3,6 +3,7 @@
 // Global positive/negative constants
 const GPOS = 2;
 const GNEG = -4;
+const NEUT = 0;
 
 // Constant events object (Stores all events random & set)
 const EVT = {
@@ -334,9 +335,10 @@ const EVT = {
             change: GNEG - 2
         },
     ],
+
     dHP: [
         {
-            text: `You find a group of aliens. They don't see you yet. What do?`,
+            text: `You find a group of aliens. They don't see you yet. What do you do?`,
             c1: {
                 text: `Approach them with a friendly greeting.`,
                 outcomes: [
@@ -364,38 +366,156 @@ const EVT = {
                 ]
             },
         },
+        {
+            text: `You find a recently deceased animal, but you can't tell what killed it. Your stomach growls. What do you do?`,
+            c1: {
+                text: `You're too hungry not to take a chance, and carve yourself off a few thick steaks.`,
+                outcomes: [
+                    {
+                        text: `That was easily the best steak you've ever eaten!`,
+                        change: GPOS
+                    },
+                    {
+                        text: `You begin to feel nauseous only immediately, this is going to be a long night...`,
+                        change: GNEG
+                    },
+                ]
+            },
+            c2: {
+                text: `You don't like the idea of eating carrion even if you're starving.`,
+                outcomes: [
+                    {
+                        text: `It turns out the beast wasn't actually dead! It thanks you for not eating it by leading you to a small stream teeming with fish.`,
+                        change: GPOS
+                    },
+                    {
+                        text: `It turns out the beast wasn't actually dead! You are too close to it, and the beast attacks you in fear`,
+                        change: GNEG
+                    },
+                ]
+            },
+        },
+        {
+            text: `While exploring a cave you find a shimmering portal in the wall. You do not know where it leads, but it has to be better than here, right?`,
+            c1: {
+                text: `Fortune favors the bold, dive in head-first!`,
+                outcomes: [
+                    {
+                        text: `You land softly on a bar stool in what seems to be an old timey saloon, and a waitress greets you with a cocktail and a menu.`,
+                        change: GPOS
+                    },
+                    {
+                        text: `You open your eyes and realize it is pitch black. You are in a deep part of the cave, and getting out in the dark takes a lot out of you.`,
+                        change: GNEG
+                    },
+                ]
+            },
+            c2: {
+                text: `You should at least test it first. You pick up a rock and throw it into the portal.`,
+                outcomes: [
+                    {
+                        text: `A small amount of food comes flying back out. It seems you've inadvertently found an interstellar fast food portal`,
+                        change: GPOS
+                    },
+                    {
+                        text: `The rock comes hurtling back out of the portal directy at your face.`,
+                        change: GNEG
+                    },
+                ]
+            },
+        },
+        {
+            text: `At a long rickety bridge you are approached by a hulking creature that offers to let you pass if you can answer his riddle.`,
+            c1: {
+                text: `You love riddles, let's hear it!`,
+                outcomes: [
+                    {
+                        text: `You've actually heard this riddle before. You answer so quickly the creature is impressed and gives you some supplies.`,
+                        change: GPOS
+                    },
+                    {
+                        text: `His "riddle" involves advanced quantum mechanics. You try to make a break for it, but he quickly catches up to you...`,
+                        change: GNEG
+                    },
+                ]
+            },
+            c2: {
+                text: `You politely decline and search for another way across.`,
+                outcomes: [
+                    {
+                        text: `Not used to rejection, the creature keeps pestering you and eventually is so desperate he bribes you with sweets.`,
+                        change: GPOS
+                    },
+                    {
+                        text: `Not used to rejection, the creature immediately attacks you in a fit of rage.`,
+                        change: GNEG
+                    },
+                ]
+            },
+        },
     ],
+
     dO2: [
         {
-            text: `You find a group of aliens. They don't see you yet. What do?`,
+            text: `You see a crashed shuttle stuck in the tree tops. You may be able to salvage some supplies if you can get to it, but the climb will not be easy. What do you do?`,
             c1: {
-                text: `Approach them with a friendly greeting.`,
+                text: `Start climbing, humans are like 98% monkey right?`,
                 outcomes: [
                     {
-                        text: `They invite you to a feast... You fill your stomach on space bugs.`,
+                        text: `You reach the shuttle unscathed, and find an oxygen tank that survived the crash`,
                         change: GPOS
                     },
                     {
-                        text: `They invite you to a feast... You are the main course.`,
+                        text: `About half way to the top you hear a noise above you. You've shaken the shuttle loose and now it's coming right for you!`,
                         change: GNEG
                     },
                 ]
             },
             c2: {
-                text: `Attempt to sneak around them.`,
+                text: `Leave it alone, it doesn't seem that sturdy anyway.`,
                 outcomes: [
                     {
-                        text: `You succeed and manage to snag some food while they weren't looking.`,
+                        text: `You walk away feeling confident in your decision making skills, and your spirits are raised`,
                         change: GPOS
                     },
                     {
-                        text: `You snap a twig and they start shooting lazers at you.`,
+                        text: `You kick the tree in frutration for good measure, and immediately hear snapping branches as the shuttle comes falling right for you!`,
+                        change: GNEG
+                    },
+                ]
+            },
+        },
+        {
+            text: `A pink squishy blob hops in front of you. It looks you directly in the eyes and makes a soft cooing noise.`,
+            c1: {
+                text: `It's so cute you have to give it a big hug!`,
+                outcomes: [
+                    {
+                        text: `It giggles as you squeeze it, and you realize it is excreting oxygen as you squeeze!`,
+                        change: GPOS
+                    },
+                    {
+                        text: `It growls as you squeeze it, and you realize it is squeezing you back only around your neck.`,
+                        change: GNEG
+                    },
+                ]
+            },
+            c2: {
+                text: `It's cuteness is surely a trap, so you give it a swift kick`,
+                outcomes: [
+                    {
+                        text: `It may or may not have been a trap, but it excreted oxygen as it flew through the air which you were able to collect in a spare tank`,
+                        change: GPOS
+                    },
+                    {
+                        text: `It may or may not have been a trap, but kicking it really pissed off the blob's mom!`,
                         change: GNEG
                     },
                 ]
             },
         },
     ],
+
     eFuel: [
         {
             text: `You come across a makeshift mineshaft and are able to scrounge around for some fuel.`
