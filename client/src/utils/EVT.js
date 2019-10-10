@@ -41,7 +41,7 @@ const EVT = {
             change: GPOS
         },
         {
-            text: `A small one-legged possum-like creature hops on by. You shot it with your lazer and take its meat.`,
+            text: `A small one-legged possum-like creature hops on by. You shoot it with your lazer and take its meat.`,
             change: GPOS
         },
         {
@@ -509,6 +509,35 @@ const EVT = {
                     },
                     {
                         text: `It may or may not have been a trap, but kicking it really pissed off the blob's mom!`,
+                        change: GNEG
+                    },
+                ]
+            },
+        },
+        {
+            text: `A swarm of space bees have built a hive in an abandoned oxygen tank facility. You are pretty sure you can fill up your reserve tanks if you can avoid disturbing the space bees.`,
+            c1: {
+                text: `Space bees can smell fear, you calm your nerves and get your reserve tank ready`,
+                outcomes: [
+                    {
+                        text: `You calmly walk into the facility, fill up your reserve tank, and slip away without disrupting the space bees.`,
+                        change: GPOS
+                    },
+                    {
+                        text: `You calmly walk into the facility, but when you go to attach your reserve tank you drop it with a loud CLANG. You look up to see thousands of space bees staring right at you...`,
+                        change: GNEG -4
+                    },
+                ]
+            },
+            c2: {
+                text: `Space bees, shmace bees, you are getting that oxygen. You create a diversion to draw them out of the facility`,
+                outcomes: [
+                    {
+                        text: `It worked like a charm, and you are able to easily fill a couple tanks before the space bees start to return.`,
+                        change: GPOS +4
+                    },
+                    {
+                        text: `Space bees come pouring out of every exit, including the vent you are currently standing on.`,
                         change: GNEG
                     },
                 ]
