@@ -3,12 +3,37 @@ import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import HexGrid from '../components/HexGrid';
 import logic from '../utils/logic';
+import ModalEvent from '../components/ModalEvent';
+import ModalMenu from '../components/ModalMenu';
+import ModalChat from '../components/ModalChat';
 
 class Game extends React.Component {
+
+    state = {
+        showModalEvent: false,
+        showModalMenu: false,
+        showModalChat: false
+    }
+
+    showModalEvent() {
+        this.setState({ showModalEvent: true, showModalMenu: false, showModalChat: false });
+    }
+    showModalMenu() {
+        this.setState({ showModalEvent: false, showModalMenu: true, showModalChat: false });
+    }
+    showModalChat() {
+        this.setState({ showModalEvent: false, showModalMenu: false, showModalChat: true });
+    }
+    hideModals() {
+        this.setState({ showModalEvent: false, showModalMenu: false, showModalChat: false });
+    }
 
     render() {
         return (
             <div id="mainDrop">
+                <ModalEvent show={this.state.showModalEvent} showModalEvent={this.showModalEvent} hideModals={this.hideModals} />
+                <ModalMenu show={this.state.showModalMenu} showModalMenu={this.showModalMenu} hideModals={this.hideModals} />
+                <ModalChat show={this.state.showModalChat} showModalChat={this.showModalChat} hideModals={this.hideModals} />
                 <Nav />
                 <br></br>
                 <br></br>
@@ -40,7 +65,7 @@ class Game extends React.Component {
             <img className="resize" src="/images/vectors/user.svg"></img>
             <img className="resize" src="/images/vectors/warning.svg"></img>
             <img className="resize" src="/images/vectors/warp.svg"></img> */}
-                <HexGrid />
+                <HexGrid showModalEvent={this.showModalEvent} />
                 <br></br>
                 <br></br>
                 <br></br>
