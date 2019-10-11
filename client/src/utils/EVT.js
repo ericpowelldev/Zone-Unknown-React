@@ -335,270 +335,281 @@ const EVT = {
             change: GNEG - 2
         },
     ],
-
     dHP: [
         {
+            key: `c`,
             text: `You find a group of aliens. They don't see you yet. What do you do?`,
-            c1: {
-                text: `Approach them with a friendly greeting.`,
-                outcomes: [
-                    {
-                        text: `They invite you to a feast... You fill your stomach on space bugs.`,
-                        change: GPOS
-                    },
-                    {
-                        text: `They invite you to a feast... You are the main course.`,
-                        change: GNEG
-                    },
-                ]
-            },
-            c2: {
-                text: `Attempt to sneak around them.`,
-                outcomes: [
-                    {
-                        text: `You succeed and manage to snag some food while they weren't looking.`,
-                        change: GPOS
-                    },
-                    {
-                        text: `You snap a twig and they start shooting lazers at you.`,
-                        change: GNEG
-                    },
-                ]
-            },
+            choices: [
+                {
+                    text: `Approach them with a friendly greeting.`,
+                    outcomes: [
+                        {
+                            text: `They invite you to a feast... You fill your stomach on space bugs.`,
+                            change: GPOS
+                        },
+                        {
+                            text: `They invite you to a feast... You are the main course.`,
+                            change: GNEG
+                        },
+                    ]
+                },
+                {
+                    text: `Attempt to sneak around them.`,
+                    outcomes: [
+                        {
+                            text: `You succeed and manage to snag some food while they weren't looking.`,
+                            change: GPOS
+                        },
+                        {
+                            text: `You snap a twig and they start shooting lazers at you.`,
+                            change: GNEG
+                        },
+                    ]
+                },
+            ]
         },
         {
+            key: `c`,
             text: `You find a recently deceased animal, but you can't tell what killed it. Your stomach growls. What do you do?`,
-            c1: {
-                text: `You're too hungry not to take a chance, and carve yourself off a few thick steaks.`,
-                outcomes: [
-                    {
-                        text: `That was easily the best steak you've ever eaten!`,
-                        change: GPOS
-                    },
-                    {
-                        text: `You begin to feel nauseous only immediately, this is going to be a long night...`,
-                        change: GNEG
-                    },
-                ]
-            },
-            c2: {
-                text: `You don't like the idea of eating carrion even if you're starving.`,
-                outcomes: [
-                    {
-                        text: `It turns out the beast wasn't actually dead! It thanks you for not eating it by leading you to a small stream teeming with fish.`,
-                        change: GPOS
-                    },
-                    {
-                        text: `It turns out the beast wasn't actually dead! You are too close to it, and the beast attacks you in fear`,
-                        change: GNEG
-                    },
-                ]
-            },
+            choices: [
+                {
+                    text: `You're too hungry not to take a chance, and carve yourself off a few thick steaks.`,
+                    outcomes: [
+                        {
+                            text: `That was easily the best steak you've ever eaten!`,
+                            change: GPOS
+                        },
+                        {
+                            text: `You begin to feel nauseous only immediately, this is going to be a long night...`,
+                            change: GNEG
+                        },
+                    ]
+                },
+                {
+                    text: `You don't like the idea of eating carrion even if you're starving.`,
+                    outcomes: [
+                        {
+                            text: `It turns out the beast wasn't actually dead! It thanks you for not eating it by leading you to a small stream teeming with fish.`,
+                            change: GPOS
+                        },
+                        {
+                            text: `It turns out the beast wasn't actually dead! You are too close to it, and the beast attacks you in fear`,
+                            change: GNEG
+                        },
+                    ]
+                },
+            ]
         },
         {
+            key: `c`,
             text: `While exploring a cave you find a shimmering portal in the wall. You do not know where it leads, but it has to be better than here, right?`,
-            c1: {
-                text: `Fortune favors the bold, dive in head-first!`,
-                outcomes: [
-                    {
-                        text: `You land softly on a bar stool in what seems to be an old timey saloon, and a waitress greets you with a cocktail and a menu.`,
-                        change: GPOS
-                    },
-                    {
-                        text: `You open your eyes and realize it is pitch black. You are in a deep part of the cave, and getting out in the dark takes a lot out of you.`,
-                        change: GNEG
-                    },
-                ]
-            },
-            c2: {
-                text: `You should at least test it first. You pick up a rock and throw it into the portal.`,
-                outcomes: [
-                    {
-                        text: `A small amount of food comes flying back out. It seems you've inadvertently found an interstellar fast food portal`,
-                        change: GPOS
-                    },
-                    {
-                        text: `The rock comes hurtling back out of the portal directy at your face.`,
-                        change: GNEG
-                    },
-                ]
-            },
+            choices: [
+                {
+                    text: `Fortune favors the bold, dive in head-first!`,
+                    outcomes: [
+                        {
+                            text: `You land softly on a bar stool in what seems to be an old timey saloon, and a waitress greets you with a cocktail and a menu.`,
+                            change: GPOS
+                        },
+                        {
+                            text: `You open your eyes and realize it is pitch black. You are in a deep part of the cave, and getting out in the dark takes a lot out of you.`,
+                            change: GNEG
+                        },
+                    ]
+                },
+                {
+                    text: `You should at least test it first. You pick up a rock and throw it into the portal.`,
+                    outcomes: [
+                        {
+                            text: `A small amount of food comes flying back out. It seems you've inadvertently found an interstellar fast food portal`,
+                            change: GPOS
+                        },
+                        {
+                            text: `The rock comes hurtling back out of the portal directy at your face.`,
+                            change: GNEG
+                        },
+                    ]
+                },
+            ]
         },
         {
+            key: `c`,
             text: `At a long rickety bridge you are approached by a hulking creature that offers to let you pass if you can answer his riddle.`,
-            c1: {
-                text: `You love riddles, let's hear it!`,
-                outcomes: [
-                    {
-                        text: `You've actually heard this riddle before. You answer so quickly the creature is impressed and gives you some supplies.`,
-                        change: GPOS
-                    },
-                    {
-                        text: `His "riddle" involves advanced quantum mechanics. You try to make a break for it, but he quickly catches up to you...`,
-                        change: GNEG
-                    },
-                ]
-            },
-            c2: {
-                text: `You politely decline and search for another way across.`,
-                outcomes: [
-                    {
-                        text: `Not used to rejection, the creature keeps pestering you and eventually is so desperate he bribes you with sweets.`,
-                        change: GPOS
-                    },
-                    {
-                        text: `Not used to rejection, the creature immediately attacks you in a fit of rage.`,
-                        change: GNEG
-                    },
-                ]
-            },
+            choices: [
+                {
+                    text: `You love riddles, let's hear it!`,
+                    outcomes: [
+                        {
+                            text: `You've actually heard this riddle before. You answer so quickly the creature is impressed and gives you some supplies.`,
+                            change: GPOS
+                        },
+                        {
+                            text: `His "riddle" involves advanced quantum mechanics. You try to make a break for it, but he quickly catches up to you...`,
+                            change: GNEG
+                        },
+                    ]
+                },
+                {
+                    text: `You politely decline and search for another way across.`,
+                    outcomes: [
+                        {
+                            text: `Not used to rejection, the creature keeps pestering you and eventually is so desperate he bribes you with sweets.`,
+                            change: GPOS
+                        },
+                        {
+                            text: `Not used to rejection, the creature immediately attacks you in a fit of rage.`,
+                            change: GNEG
+                        },
+                    ]
+                },
+            ]
         },
     ],
-
     dO2: [
         {
+            key: `c`,
             text: `You see a crashed shuttle stuck in the tree tops. You may be able to salvage some supplies if you can get to it, but the climb will not be easy. What do you do?`,
-            c1: {
-                text: `Start climbing, humans are like 98% monkey right?`,
-                outcomes: [
-                    {
-                        text: `You reach the shuttle unscathed, and find an oxygen tank that survived the crash`,
-                        change: GPOS
-                    },
-                    {
-                        text: `About half way to the top you hear a noise above you. You've shaken the shuttle loose and now it's coming right for you!`,
-                        change: GNEG
-                    },
-                ]
-            },
-            c2: {
-                text: `Leave it alone, it doesn't seem that sturdy anyway.`,
-                outcomes: [
-                    {
-                        text: `You walk away feeling confident in your decision making skills, and your spirits are raised`,
-                        change: GPOS
-                    },
-                    {
-                        text: `You kick the tree in frutration for good measure, and immediately hear snapping branches as the shuttle comes falling right for you!`,
-                        change: GNEG
-                    },
-                ]
-            },
+            choices: [
+                {
+                    text: `Start climbing, humans are like 98% monkey right?`,
+                    outcomes: [
+                        {
+                            text: `You reach the shuttle unscathed, and find an oxygen tank that survived the crash`,
+                            change: GPOS
+                        },
+                        {
+                            text: `About half way to the top you hear a noise above you. You've shaken the shuttle loose and now it's coming right for you!`,
+                            change: GNEG
+                        },
+                    ]
+                },
+                {
+                    text: `Leave it alone, it doesn't seem that sturdy anyway.`,
+                    outcomes: [
+                        {
+                            text: `You walk away feeling confident in your decision making skills, and your spirits are raised`,
+                            change: GPOS
+                        },
+                        {
+                            text: `You kick the tree in frutration for good measure, and immediately hear snapping branches as the shuttle comes falling right for you!`,
+                            change: GNEG
+                        },
+                    ]
+                },
+            ]
         },
         {
+            key: `c`,
             text: `A pink squishy blob hops in front of you. It looks you directly in the eyes and makes a soft cooing noise.`,
-            c1: {
-                text: `It's so cute you have to give it a big hug!`,
-                outcomes: [
-                    {
-                        text: `It giggles as you squeeze it, and you realize it is excreting oxygen as you squeeze!`,
-                        change: GPOS
-                    },
-                    {
-                        text: `It growls as you squeeze it, and you realize it is squeezing you back only around your neck.`,
-                        change: GNEG
-                    },
-                ]
-            },
-            c2: {
-                text: `It's cuteness is surely a trap, so you give it a swift kick`,
-                outcomes: [
-                    {
-                        text: `It may or may not have been a trap, but it excreted oxygen as it flew through the air which you were able to collect in a spare tank`,
-                        change: GPOS
-                    },
-                    {
-                        text: `It may or may not have been a trap, but kicking it really pissed off the blob's mom!`,
-                        change: GNEG
-                    },
-                ]
-            },
+            choices: [
+                {
+                    text: `It's so cute you have to give it a big hug!`,
+                    outcomes: [
+                        {
+                            text: `It giggles as you squeeze it, and you realize it is excreting oxygen as you squeeze!`,
+                            change: GPOS
+                        },
+                        {
+                            text: `It growls as you squeeze it, and you realize it is squeezing you back only around your neck.`,
+                            change: GNEG
+                        },
+                    ]
+                },
+                {
+                    text: `It's cuteness is surely a trap, so you give it a swift kick`,
+                    outcomes: [
+                        {
+                            text: `It may or may not have been a trap, but it excreted oxygen as it flew through the air which you were able to collect in a spare tank`,
+                            change: GPOS
+                        },
+                        {
+                            text: `It may or may not have been a trap, but kicking it really pissed off the blob's mom!`,
+                            change: GNEG
+                        },
+                    ]
+                },
+            ]
         },
         {
+            key: `c`,
             text: `A swarm of space bees have built a hive in an abandoned oxygen tank facility. You are pretty sure you can fill up your reserve tanks if you can avoid disturbing the space bees.`,
-            c1: {
-                text: `Space bees can smell fear, you calm your nerves and get your reserve tank ready`,
-                outcomes: [
-                    {
-                        text: `You calmly walk into the facility, fill up your reserve tank, and slip away without disrupting the space bees.`,
-                        change: GPOS
-                    },
-                    {
-                        text: `You calmly walk into the facility, but when you go to attach your reserve tank you drop it with a loud CLANG. You look up to see thousands of space bees staring right at you...`,
-                        change: GNEG -4
-                    },
-                ]
-            },
-            c2: {
-                text: `Space bees, shmace bees, you are getting that oxygen. You create a diversion to draw them out of the facility`,
-                outcomes: [
-                    {
-                        text: `It worked like a charm, and you are able to easily fill a couple tanks before the space bees start to return.`,
-                        change: GPOS +4
-                    },
-                    {
-                        text: `Space bees come pouring out of every exit, including the vent you are currently standing on.`,
-                        change: GNEG
-                    },
-                ]
-            },
+            choices: [
+                {
+                    text: `Space bees can smell fear, you calm your nerves and get your reserve tank ready`,
+                    outcomes: [
+                        {
+                            text: `You calmly walk into the facility, fill up your reserve tank, and slip away without disrupting the space bees.`,
+                            change: GPOS
+                        },
+                        {
+                            text: `You calmly walk into the facility, but when you go to attach your reserve tank you drop it with a loud CLANG. You look up to see thousands of space bees staring right at you...`,
+                            change: GNEG - 4
+                        },
+                    ]
+                },
+                {
+                    text: `Space bees, shmace bees, you are getting that oxygen. You create a diversion to draw them out of the facility`,
+                    outcomes: [
+                        {
+                            text: `It worked like a charm, and you are able to easily fill a couple tanks before the space bees start to return.`,
+                            change: GPOS + 4
+                        },
+                        {
+                            text: `Space bees come pouring out of every exit, including the vent you are currently standing on.`,
+                            change: GNEG
+                        },
+                    ]
+                },
+            ]
         },
     ],
-
-    eFuel: [
+    fuel: [
         {
-            text: `You come across a makeshift mineshaft and are able to scrounge around for some fuel.`
+            text: `You come across a makeshift mineshaft and are able to scrounge around for some fuel.`,
         },
         {
-            text: `You trip over something in the brush. Upon clearing the debris you discover a damaged alien shuttle with some fuel in it.`
+            text: `You trip over something in the brush. Upon clearing the debris you discover a damaged alien shuttle with some fuel in it.`,
         },
         {
-            text: `You find a fuel tank and siphon off as much as you can.`
+            text: `You find a fuel tank and siphon off as much as you can.`,
         },
         {
-            text: `You find an old spaceship fueling station and locate a small amount of fuel left abandoned.`
+            text: `You find an old spaceship fueling station and locate a small amount of fuel left abandoned.`,
         },
         {
-            text: `You see a lone space pirate guarding his shuttle and hold him at Lazer-point for some of his fuel.`
+            text: `You see a lone space pirate guarding his shuttle and hold him at Lazer-point for some of his fuel.`,
         },
         {
-            text: `You smell a strong scent of fuel through your suit. You follow it to a fuel stash.`
+            text: `You smell a strong scent of fuel through your suit. You follow it to a fuel stash.`,
         },
         {
-            text: `You find an abandoned space bee hive. You read somewhere that you can use their honey for fuel.`
+            text: `You find an abandoned space bee hive. You read somewhere that you can use their honey for fuel.`,
         },
         {
-            text: `You have a strange urge to look under a rock. Luckily, there was some fuel under there!`
+            text: `You have a strange urge to look under a rock. Luckily, there was some fuel under there!`,
         },
         {
-            text: `You are being chased by an alien. He runs faster than you and tackles you. He just wanted to give you some fuel.`
+            text: `You are being chased by an alien. He runs faster than you and tackles you. He just wanted to give you some fuel.`,
         },
         {
-            text: `Here. Have some fuel.`
+            text: `Here. Have some fuel.`,
         },
     ],
-    eWarp: [
+    warp: [
         {
-            text: undefined
+            text: "You found the first warp drive piece!",
         },
         {
-            text: "You found the first warp drive piece!"
+            text: "You found the second warp drive piece!",
         },
         {
-            text: "You found the second warp drive piece!"
+            text: "You found the third & final warp drive piece! Now look for some uranium to fuel it.",
         },
         {
-            text: "You found the third & final warp drive piece! Now look for some uranium to fuel it."
-        },
-        {
-            text: "You found uranium! You can now warp home!"
+            text: "You found uranium! You can now warp home!",
         }
     ],
-    eItem: [
-        {
-            text: undefined,
-            item: undefined
-        },
+    item: [
         {
             text: `You found the Shield! This item gives a +1 defense bonus on all negative HP texts.`,
             item: `shield`
@@ -611,5 +622,23 @@ const EVT = {
             text: `You found the Syphon! This item gives a +1 collection bonus on all gain fuel texts.`,
             item: `syphon`
         }
-    ]
+    ],
+    ship: {
+        key: `c`,
+        text: `You're back at your ship, what would you like to do now?`,
+        choices: [
+            {
+                text: `Replenish your O2`,
+                change: `replenish`
+            },
+            {
+                text: `Advance to the next planet`,
+                change: `advance`
+            },
+            {
+                text: `Continue`,
+                change: `continue`
+            }
+        ]
+    }
 }

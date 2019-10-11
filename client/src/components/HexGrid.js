@@ -27,63 +27,63 @@ class HexGrid extends React.Component {
                     <div className="g4">
                         {myP.map((hex, i) => (
                             hex.hexXY[0] === -4 ?
-                                (<Hex key={i} index={i} class={hex.class} coords={`${hex.hexXY[0]}, ${hex.hexXY[1]}`} visited={hex.visited} reach={hex.reach} current={hex.current} action={this.generateReach} />) :
+                                (<Hex key={i} index={i} class={hex.class} coords={`${hex.hexXY[0]}, ${hex.hexXY[1]}`} visited={hex.visited} reach={hex.reach} current={hex.current} action={this.generateReach} showModalEvent={this.props.showModalEvent} />) :
                                 (<React.Fragment key={i} />)
                         ))}
                     </div>
                     <div className="g3">
                         {myP.map((hex, i) => (
                             hex.hexXY[0] === -3 ?
-                                (<Hex key={i} index={i} class={hex.class} coords={`${hex.hexXY[0]}, ${hex.hexXY[1]}`} visited={hex.visited} reach={hex.reach} current={hex.current} action={this.generateReach} />) :
+                                (<Hex key={i} index={i} class={hex.class} coords={`${hex.hexXY[0]}, ${hex.hexXY[1]}`} visited={hex.visited} reach={hex.reach} current={hex.current} action={this.generateReach} showModalEvent={this.props.showModalEvent} />) :
                                 (<React.Fragment key={i} />)
                         ))}
                     </div>
                     <div className="g2">
                         {myP.map((hex, i) => (
                             hex.hexXY[0] === -2 ?
-                                (<Hex key={i} index={i} class={hex.class} coords={`${hex.hexXY[0]}, ${hex.hexXY[1]}`} visited={hex.visited} reach={hex.reach} current={hex.current} action={this.generateReach} />) :
+                                (<Hex key={i} index={i} class={hex.class} coords={`${hex.hexXY[0]}, ${hex.hexXY[1]}`} visited={hex.visited} reach={hex.reach} current={hex.current} action={this.generateReach} showModalEvent={this.props.showModalEvent} />) :
                                 (<React.Fragment key={i} />)
                         ))}
                     </div>
                     <div className="g1">
                         {myP.map((hex, i) => (
                             hex.hexXY[0] === -1 ?
-                                (<Hex key={i} index={i} class={hex.class} coords={`${hex.hexXY[0]}, ${hex.hexXY[1]}`} visited={hex.visited} reach={hex.reach} current={hex.current} action={this.generateReach} />) :
+                                (<Hex key={i} index={i} class={hex.class} coords={`${hex.hexXY[0]}, ${hex.hexXY[1]}`} visited={hex.visited} reach={hex.reach} current={hex.current} action={this.generateReach} showModalEvent={this.props.showModalEvent} />) :
                                 (<React.Fragment key={i} />)
                         ))}
                     </div>
                     <div className="g0">
                         {myP.map((hex, i) => (
                             hex.hexXY[0] === 0 ?
-                                (<Hex key={i} index={i} class={hex.class} coords={`${hex.hexXY[0]}, ${hex.hexXY[1]}`} visited={hex.visited} reach={hex.reach} current={hex.current} action={this.generateReach} />) :
+                                (<Hex key={i} index={i} class={hex.class} coords={`${hex.hexXY[0]}, ${hex.hexXY[1]}`} visited={hex.visited} reach={hex.reach} current={hex.current} action={this.generateReach} showModalEvent={this.props.showModalEvent} />) :
                                 (<React.Fragment key={i} />)
                         ))}
                     </div>
                     <div className="g1">
                         {myP.map((hex, i) => (
                             hex.hexXY[0] === 1 ?
-                                (<Hex key={i} index={i} class={hex.class} coords={`${hex.hexXY[0]}, ${hex.hexXY[1]}`} visited={hex.visited} reach={hex.reach} current={hex.current} action={this.generateReach} />) :
+                                (<Hex key={i} index={i} class={hex.class} coords={`${hex.hexXY[0]}, ${hex.hexXY[1]}`} visited={hex.visited} reach={hex.reach} current={hex.current} action={this.generateReach} showModalEvent={this.props.showModalEvent} />) :
                                 (<React.Fragment key={i} />)
                         ))}
                     </div>
                     <div className="g2">
                         {myP.map((hex, i) => (
                             hex.hexXY[0] === 2 ?
-                                (<Hex key={i} index={i} class={hex.class} coords={`${hex.hexXY[0]}, ${hex.hexXY[1]}`} visited={hex.visited} reach={hex.reach} current={hex.current} action={this.generateReach} />) :
+                                (<Hex key={i} index={i} class={hex.class} coords={`${hex.hexXY[0]}, ${hex.hexXY[1]}`} visited={hex.visited} reach={hex.reach} current={hex.current} action={this.generateReach} showModalEvent={this.props.showModalEvent} />) :
                                 (<React.Fragment key={i} />)
                         ))}
                     </div>
                     <div className="g3">
                         {myP.map((hex, i) => (
                             hex.hexXY[0] === 3 ?
-                                (<Hex key={i} index={i} class={hex.class} coords={`${hex.hexXY[0]}, ${hex.hexXY[1]}`} visited={hex.visited} reach={hex.reach} current={hex.current} action={this.generateReach} />) :
+                                (<Hex key={i} index={i} class={hex.class} coords={`${hex.hexXY[0]}, ${hex.hexXY[1]}`} visited={hex.visited} reach={hex.reach} current={hex.current} action={this.generateReach} showModalEvent={this.props.showModalEvent} />) :
                                 (<React.Fragment key={i} />)
                         ))}
                     </div>
                     <div className="g4">
                         {myP.map((hex, i) => (
                             hex.hexXY[0] === 4 ?
-                                (<Hex key={i} index={i} class={hex.class} coords={`${hex.hexXY[0]}, ${hex.hexXY[1]}`} visited={hex.visited} reach={hex.reach} current={hex.current} action={this.generateReach} />) :
+                                (<Hex key={i} index={i} class={hex.class} coords={`${hex.hexXY[0]}, ${hex.hexXY[1]}`} visited={hex.visited} reach={hex.reach} current={hex.current} action={this.generateReach} showModalEvent={this.props.showModalEvent} />) :
                                 (<React.Fragment key={i} />)
                         ))}
                     </div>
@@ -101,7 +101,7 @@ class HexGrid extends React.Component {
 
             // Declaring variables we need to generate a planet
             let psHPCount, nsHPCount, psO2Count, nsO2Count;
-            let fuelCount, warpCount, itemCount;
+            let dHPCount, dO2Count, fuelCount, warpCount, itemCount;
             let eventArray = [`psHP`, `nsHP`, `psO2`, `nsO2`];
             let numArray = [];
 
@@ -111,6 +111,8 @@ class HexGrid extends React.Component {
                 nsHPCount = 4;
                 psO2Count = 5;
                 nsO2Count = 4;
+                dHPCount = 2;
+                dO2Count = 2;
                 fuelCount = 3;
                 warpCount = 1;
                 itemCount = 1;
@@ -120,6 +122,8 @@ class HexGrid extends React.Component {
                 nsHPCount = 9;
                 psO2Count = 9;
                 nsO2Count = 9;
+                dHPCount = 3;
+                dO2Count = 3;
                 fuelCount = 6;
                 warpCount = 1;
                 itemCount = 1;
@@ -129,6 +133,8 @@ class HexGrid extends React.Component {
                 nsHPCount = 15;
                 psO2Count = 15;
                 nsO2Count = 15;
+                dHPCount = 4;
+                dO2Count = 4;
                 fuelCount = 10;
                 warpCount = 2;
                 itemCount = 1;
@@ -173,7 +179,7 @@ class HexGrid extends React.Component {
             }
 
             // Loop to generate random placements for the set events
-            for (let e = 0; e < (fuelCount + warpCount + itemCount); e++) {
+            for (let e = 0; e < (dHPCount + dO2Count + fuelCount + warpCount + itemCount); e++) {
                 let num = logic.rdmInt(0, sav.planets[inc].hexes.length - 1);
 
                 if (inc === 0) {
@@ -207,7 +213,17 @@ class HexGrid extends React.Component {
 
             // Loop to assign set events using the random number array
             for (let f = 0; f < numArray.length; f++) {
-                if (fuelCount > 0) {
+                if (dHPCount > 0) {
+                    sav.planets[inc].hexes[numArray[f]].event = `dHP`;
+                    console.log(`SET EVENT ADDED "dHP" to HEX${numArray[f]}`);
+                    dHPCount--;
+                }
+                else if (dO2Count > 0) {
+                    sav.planets[inc].hexes[numArray[f]].event = `dO2`;
+                    console.log(`SET EVENT ADDED "dO2" to HEX${numArray[f]}`);
+                    dO2Count--;
+                }
+                else if (fuelCount > 0) {
                     sav.planets[inc].hexes[numArray[f]].event = `fuel`;
                     console.log(`SET EVENT ADDED "fuel" to HEX${numArray[f]}`);
                     fuelCount--;
