@@ -2,7 +2,8 @@ import React from 'react';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import HexGrid from '../components/HexGrid';
-import logic from '../utils/logic';
+import sav from '../utils/sav';
+import event from '../utils/event';
 import ModalEvent from '../components/ModalEvent';
 import ModalMenu from '../components/ModalMenu';
 import ModalChat from '../components/ModalChat';
@@ -26,6 +27,44 @@ class Game extends React.Component {
     }
     hideModals() {
         this.setState({ showModalEvent: false, showModalMenu: false, showModalChat: false });
+        this.statCheck();
+    }
+
+    statCheck() {
+
+        // Check if the player is dead
+        if (sav.health <= 0) {
+            event = {
+                status: `Lose`,
+                text: `You have died! You will now be returned to the menu.`
+            };
+            this.showModalEvent();
+        }
+        else {
+            // Cap out the resources if you have too much
+            if (sav.health >= 20) {
+                sav.health = 20;
+            }
+
+            ////////// ITEM EVENT //////////
+            if (sav.itemCount >= 6) {
+                if (sav.oxygen >= 25) {
+                    sav.oxygen = 25;
+                }
+            }
+            else {
+                if (sav.oxygen >= 20) {
+                    sav.oxygen = 20;
+                }
+            }
+            ////////// ITEM EVENT //////////
+
+            if (sav.fuel >= 10) {
+                sav.fuel = 10;
+            }
+
+
+        }
     }
 
     render() {
@@ -65,7 +104,7 @@ class Game extends React.Component {
             <img className="resize" src="/images/vectors/user.svg"></img>
             <img className="resize" src="/images/vectors/warning.svg"></img>
             <img className="resize" src="/images/vectors/warp.svg"></img> */}
-                <HexGrid showModalEvent={this.showModalEvent} />
+                <HexGrid showModalEvent={this.showModalEvent} hideModals={this.hideModals} />
                 <br></br>
                 <br></br>
                 <br></br>

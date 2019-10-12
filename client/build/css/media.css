@@ -1,0 +1,48 @@
+@media screen and (max-width: 640px) { /* Typical for smart phones */
+    #navFix {
+        width: 100%;
+    }
+    #footerTopFix {
+        width: 100%;
+    }
+    :root {
+        --scale: 0.55;
+        --gScale: 1.25vw;
+    }
+}
+@media screen and (min-width: 641px) and (max-width: 960px) { /* Typical for low res tablets */
+    #navFix {
+        width: 600px;
+    }
+    #footerTopFix {
+        width: 600px;
+    }
+    :root {
+        --scale: 0.6;
+        --gScale: 0.5em;
+    }
+}
+@media screen and (min-width: 961px) and (max-width: 1280px) { /* Typical for high res tablets & low res screens */
+    #navFix {
+        width: 900px;
+    }
+    #footerTopFix {
+        width: 900px;
+    }
+    :root {
+        --scale: 0.8;
+        --gScale: 0.65em;
+    }
+}
+@media screen and (min-width: 1281px) { /* Typical for high res screens */
+    #navFix {
+        width: 1200px;
+    }
+    #footerTopFix {
+        width: 1200px;
+    }
+    :root {
+        --scale: 1;
+        --gScale: 0.8em;
+    }
+}
