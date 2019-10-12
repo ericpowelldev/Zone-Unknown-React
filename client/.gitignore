@@ -38,9 +38,6 @@ jspm_packages/
 /.pnp
 .pnp.js
 
-# Production
-/build
-
 # TypeScript v1 declaration files
 typings/
 

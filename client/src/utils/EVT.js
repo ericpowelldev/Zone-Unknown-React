@@ -337,7 +337,6 @@ const EVT = {
     ],
     dHP: [
         {
-            key: `c`,
             text: `You find a group of aliens. They don't see you yet. What do you do?`,
             choices: [
                 {
@@ -369,7 +368,6 @@ const EVT = {
             ]
         },
         {
-            key: `c`,
             text: `You find a recently deceased animal, but you can't tell what killed it. Your stomach growls. What do you do?`,
             choices: [
                 {
@@ -401,7 +399,6 @@ const EVT = {
             ]
         },
         {
-            key: `c`,
             text: `While exploring a cave you find a shimmering portal in the wall. You do not know where it leads, but it has to be better than here, right?`,
             choices: [
                 {
@@ -433,7 +430,6 @@ const EVT = {
             ]
         },
         {
-            key: `c`,
             text: `At a long rickety bridge you are approached by a hulking creature that offers to let you pass if you can answer his riddle.`,
             choices: [
                 {
@@ -467,7 +463,6 @@ const EVT = {
     ],
     dO2: [
         {
-            key: `c`,
             text: `You see a crashed shuttle stuck in the tree tops. You may be able to salvage some supplies if you can get to it, but the climb will not be easy. What do you do?`,
             choices: [
                 {
@@ -499,7 +494,6 @@ const EVT = {
             ]
         },
         {
-            key: `c`,
             text: `A pink squishy blob hops in front of you. It looks you directly in the eyes and makes a soft cooing noise.`,
             choices: [
                 {
@@ -531,7 +525,6 @@ const EVT = {
             ]
         },
         {
-            key: `c`,
             text: `A swarm of space bees have built a hive in an abandoned oxygen tank facility. You are pretty sure you can fill up your reserve tanks if you can avoid disturbing the space bees.`,
             choices: [
                 {
@@ -606,38 +599,40 @@ const EVT = {
             text: "You found the third & final warp drive piece! Now look for some uranium to fuel it.",
         },
         {
-            text: "You found uranium! You can now warp home!",
+            text: "You found uranium! Now get to the ship so you can warp home.",
         }
     ],
     item: [
         {
-            text: `You found the Shield! This item gives a +1 defense bonus on all negative HP texts.`,
-            item: `shield`
+            text: `You found the Shield! This item gives a +1 defense bonus on all negative HP events.`
         },
         {
-            text: `You found the Rebreather! This item gives a +1 defense bonus on all negative O2 texts.`,
-            item: `rebreather`
+            text: `You found the Rebreather! This item gives a +1 defense bonus on all negative O2 events.`
         },
         {
-            text: `You found the Syphon! This item gives a +1 collection bonus on all gain fuel texts.`,
-            item: `syphon`
-        }
+            text: `You found the Syphon! This item gives a +1 collection bonus on all gain fuel events.`
+        },
+        {
+            text: `You found the AI Drone! This item helps you achieve better outcomes on dynamic HP events!.`
+        },
+        {
+            text: `You found the AI Drone Upgrade! This item helps you achieve better outcomes on dynamic O2 events.`
+        },
+        {
+            text: `You found the Efficiency Tank! This item gives a +5 bonus when replenishing your oxygen at the ship & raises your max oxygen to 25.`
+        },
     ],
     ship: {
-        key: `c`,
         text: `You're back at your ship, what would you like to do now?`,
         choices: [
             {
-                text: `Replenish your O2`,
-                change: `replenish`
+                text: `Replenish your O2`
             },
             {
-                text: `Advance to the next planet`,
-                change: `advance`
+                text: `Advance to the next planet`
             },
             {
-                text: `Continue`,
-                change: `continue`
+                text: `Continue`
             }
         ]
     }

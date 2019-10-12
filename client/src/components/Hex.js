@@ -9,17 +9,14 @@ class Hex extends React.Component {
     // Called when any hex is clicked
     handleClick = () => {
 
-        // Declare shorthand for props
-        let props = this.props;
-
         // If the player can reach this hex
-        if (props.reach === "true") {
+        if (this.props.reach === "true") {
 
             // Get current planet
             let myP = sav.planets[sav.planet].hexes;
 
             // Get coordinates from hex that was clicked
-            let newXY = props.coords.split(`, `);
+            let newXY = this.props.coords.split(`, `);
             let newX = parseInt(newXY[0]);
             let newY = parseInt(newXY[1]);
             sav.coords = [newX, newY];
@@ -32,26 +29,27 @@ class Hex extends React.Component {
             ////////// RENDER THIS RIGHT HERE SOMEHOW //////////
 
             // Function to run after stats have been calculated
-            if (myP[props.index].visited === "false") {
-                this.getEvent(myP[props.index].event);
+            if (myP[this.props.index].visited === "false") {
+                this.getEvent(myP[this.props.index].event);
             }
             else {
-                // Check stats - Callback to save the game if player is still alive - Callback promise after save to setState (re-renders each hex)
-                // checkStats(ss);
+                // Hides modals (if any) and forces the page to re-render the stats
+                this.props.hideModals();
             }
 
-            props.action();
+            this.props.genReach();
         }
         else {
-            alert("You cannot reach this hex!");
+            event = {
+                status: `NoReach`,
+                text: `You cannot reach this hex from where you are!`
+            };
+            this.props.showModalEvent();
         }
     }
 
     // Get a random event to pop up in a modal (This takes in the event key for the current hex)
     getEvent = (eK) => {
-
-        // Declare shorthand for props
-        let props = this.props;
 
         // Local event object
         let eO = {
@@ -95,17 +93,19 @@ class Hex extends React.Component {
             eO.obj = EVT.warp[sav.warpCount];
             eO.obj.change = sav.warpCount + 1;
             eO.stat = `Warp Pieces Collected`;
-            eO.icon = `/images/vectors/warps/.svg`;
+            eO.icon = `/images/vectors/warps/${sav.warpCount}.svg`;
         }
         else if (eK === `item`) {
             eO.obj = EVT.item[sav.itemCount];
             eO.obj.change = sav.itemCount + 1;
             eO.stat = `Items Collected`;
-            eO.icon = `/images/vectors/items/.svg`;
+            eO.icon = `/images/vectors/items/${sav.itemCount}.svg`;
         }
         else if (eK === `ship`) {
             eO.obj = EVT.ship;
             eO.dynamic = true;
+            eO.stat = `Ship`;
+            eO.icon = `/images/vectors/ship.svg`;
         }
         else {
             console.log(`Begone demon!`);
@@ -115,7 +115,7 @@ class Hex extends React.Component {
         event = eO;
 
         // Show the modal after our event is chosen
-        props.showModalEvent();
+        this.props.showModalEvent();
     }
 
     // Called whenever state changes & when a parent component is rendered

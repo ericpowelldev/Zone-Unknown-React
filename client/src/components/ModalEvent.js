@@ -1,5 +1,7 @@
 import React from 'react';
 import event from '../utils/event';
+import ModalChoice from './ModalChoice';
+import ModalResult from './ModalResult';
 
 function ModalEvent() {
 
