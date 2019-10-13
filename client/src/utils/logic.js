@@ -1,4 +1,4 @@
-import sav from './sav.js';
+import sav from './sav';
 
 export default {
 

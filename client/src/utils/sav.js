@@ -1,5 +1,3 @@
-//////////////////////////////   SAVE OBJECT   //////////////////////////////
-
 // Default persistent save object
 let sav = {
     version: `0.2.0`, // Version of game the save was created in
@@ -959,7 +957,38 @@ let sav = {
                 }
             ]
         }
-    ]
+    ],
+    event: {
+        text: ``,
+        choices: [
+            {
+                text: ``,
+                outcomes: [
+                    {
+                        text: ``,
+                        change: 0
+                    },
+                    {
+                        text: ``,
+                        change: 0
+                    },
+                ]
+            },
+            {
+                text: ``,
+                outcomes: [
+                    {
+                        text: ``,
+                        change: 0
+                    },
+                    {
+                        text: ``,
+                        change: 0
+                    },
+                ]
+            }
+        ]
+    }
 }
 
 export default sav;

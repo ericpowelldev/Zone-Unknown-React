@@ -1,38 +1,53 @@
 import React from 'react';
-import event from '../utils/event';
 import logic from '../utils/logic';
 import sav from '../utils/sav';
 
 class ModalChoice extends React.Component {
 
-    handleClick(index) {
+    handleClick = (index) => {
 
-        if (event.stat !== `Ship`) {
-            let eO = {}
-            eO.key = event.key;
+        if (sav.event.stat !== `Ship`) {
+
+            // Local event object
+            let e = {}
+            e.key = sav.event.key;
+            e.stat = sav.event.stat;
+            e.icon = sav.event.icon;
 
             ////////// ITEM EVENT //////////
-            if (event.stat === `Health` && sav.itemCount >= 4) {
+            if (sav.event.stat === `Health` && sav.itemCount >= 4) {
                 let posChance = 0.75
                 let outcomeChance = logic.rdmFloat(0, 1)
-                if (outcomeChance <= posChance) eO.obj = event.obj.choices[index].outcomes[0];
-                else eO.obj = event.obj.choices[index].outcomes[1];
+                if (outcomeChance <= posChance) {
+                    e.text = sav.event.obj.choices[index].outcomes[0].text;
+                    e.change = sav.event.obj.choices[index].outcomes[0].change;
+                }
+                else {
+                    e.text = sav.event.obj.choices[index].outcomes[1].text;
+                    e.change = sav.event.obj.choices[index].outcomes[1].change;
+                }
             }
-            else if (event.stat === `Oxygen` && sav.itemCount >= 5) {
+            else if (sav.event.stat === `Oxygen` && sav.itemCount >= 5) {
                 let posChance = 0.75
                 let outcomeChance = logic.rdmFloat(0, 1)
-                if (outcomeChance <= posChance) eO.obj = event.obj.choices[index].outcomes[0];
-                else eO.obj = event.obj.choices[index].outcomes[1];
+                if (outcomeChance <= posChance) {
+                    e.text = sav.event.obj.choices[index].outcomes[0].text;
+                    e.change = sav.event.obj.choices[index].outcomes[0].change;
+                }
+                else {
+                    e.text = sav.event.obj.choices[index].outcomes[1].text;
+                    e.change = sav.event.obj.choices[index].outcomes[1].change;
+                }
             }
             else {
-                eO.obj = event.obj.choices[index].outcomes[logic.rdmInt(0, event.obj.choices[index].outcomes.length - 1)];
+                let rdmOutcome = logic.rdmInt(0, sav.event.obj.choices[index].outcomes.length - 1)
+                e.text = sav.event.obj.choices[index].outcomes[rdmOutcome].text;
+                e.change = sav.event.obj.choices[index].outcomes[rdmOutcome].change;
             }
             ////////// ITEM EVENT //////////
             
-            eO.dynamic = false;
-            eO.stat = event.stat;
-            eO.icon = event.icon;
-            event = eO;
+            // Assign local event object to new global event object
+            sav.event = e;
 
             this.props.showModalEvent();
         }
@@ -49,8 +64,8 @@ class ModalChoice extends React.Component {
                     this.props.hideModals();
                 }
                 else {
-                    event = {
-                        status: `NoFuel`,
+                    sav.event = {
+                        alert: `NoFuel`,
                         text: `You need at least 2 fuel to replenish your oxygen!`
                     };
                     this.props.showModalEvent();
@@ -65,23 +80,23 @@ class ModalChoice extends React.Component {
                         this.props.hideModals();
                     }
                     else if (sav.warpCount === 3) {
-                        event = {
-                            status: `NoUranium`,
+                        sav.event = {
+                            alert: `NoUranium`,
                             text: `You still need to find uranium before you go home!`
                         };
                         this.props.showModalEvent();
                     }
                     else {
-                        event = {
-                            status: `Win`,
-                            text: `You have survived! Have a safe journey home!`
+                        sav.event = {
+                            alert: `Win`,
+                            text: `You have survived! Have a safe journey home! You will now be returned to the home page.`
                         };
                         this.props.showModalEvent();
                     }
                 }
                 else {
-                    event = {
-                        status: `NoAdvance`,
+                    sav.event = {
+                        alert: `NoAdvance`,
                         text: `You need to find a warp piece before leaving the planet!`
                     };
                     this.props.showModalEvent();
@@ -96,9 +111,9 @@ class ModalChoice extends React.Component {
     render() {
         return (
             <div id="modalChoice">
-                <p id="modalText">{event.obj.text}</p>
-                {event.obj.choices.map((item, index) => (
-                    <div className="modalBtn" onClick={() => this.handleClick(index)}>
+                <p id="modalText">{sav.event.obj.text}</p>
+                {sav.event.obj.choices.map((item, index) => (
+                    <div key={index} className="modalBtn" onClick={() => this.handleClick(index)}>
                         <p className="modalBtnText">{item.text}</p>
                     </div>
                 ))

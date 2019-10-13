@@ -1,54 +1,63 @@
 import React from 'react';
-import event from '../utils/event';
 import sav from '../utils/sav';
 
 class ModalResult extends React.Component {
 
-    handleClick() {
+    componentDidMount() {
+        // TESTING //
+        console.log(`RESULT EVENT:`);
+        console.log(sav.event);
+        console.log(`\n`);
+        console.log(`------------------------------`);
+        console.log(`\n`);
+        // TESTING //
+    }
 
-        if (event.stat === `Health`) {
-            ////////// ITEM EVENT //////////
-            if (sav.itemCount >= 1) sav.health += event.obj.change + 1;
-            else sav.health += event.obj.change;
-            ////////// ITEM EVENT //////////
-        }
-        else if (event.stat === `Oxygen`) {
-            ////////// ITEM EVENT //////////
-            if (sav.itemCount >= 2) sav.oxygen += event.obj.change + 1;
-            else sav.oxygen += event.obj.change;
-            ////////// ITEM EVENT //////////
-        }
-        else if (event.stat === `Fuel`) {
-            ////////// ITEM EVENT //////////
-            if (sav.itemCount >= 3) sav.fuel += event.obj.change + 1;
-            else sav.fuel += event.obj.change;
-            ////////// ITEM EVENT //////////
-        }
-        else if (event.stat === `Warp Pieces Collected`) {
-            sav.warpCount++;
-        }
-        else if (event.stat === `Items Collected`) {
-            sav.itemCount++;
-        }
-        else {}
+    handleClick = () => {
 
-        if (event.status === `Win` || event.status === `Lose`) {
-
+        if (sav.event.alert === `Win` || sav.event.alert === `Lose`) {
+            
         }
-        else {}
+        else {
+            if (sav.event.stat === `Health`) {
+                ////////// ITEM EVENT //////////
+                if (sav.itemCount >= 1) sav.health += sav.event.change + 1;
+                else sav.health += sav.event.change;
+                ////////// ITEM EVENT //////////
+            }
+            else if (sav.event.stat === `Oxygen`) {
+                ////////// ITEM EVENT //////////
+                if (sav.itemCount >= 2) sav.oxygen += sav.event.change + 1;
+                else sav.oxygen += sav.event.change;
+                ////////// ITEM EVENT //////////
+            }
+            else if (sav.event.stat === `Fuel`) {
+                ////////// ITEM EVENT //////////
+                if (sav.itemCount >= 3) sav.fuel += sav.event.change + 1;
+                else sav.fuel += sav.event.change;
+                ////////// ITEM EVENT //////////
+            }
+            else if (sav.event.stat === `Warp Pieces Collected`) {
+                sav.warpCount++;
+            }
+            else if (sav.event.stat === `Items Collected`) {
+                sav.itemCount++;
+            }
+            else {}
 
-        this.props.hideModals();
+            this.props.hideModals();
+        }
     }
 
     render() {
         return (
             <div id="modalResult">
-                <p id="modalText">{event.obj.text}</p>
-                {event.change ?
+                <p id="modalText">{sav.event.text}</p>
+                {sav.event.change ?
                     <div className="modalOutcome">
-                        <p className="modalOutcomeText">{event.stat}: </p>
-                        <img className="modalOutcomeIcon" src={event.icon} />
-                        <p className="modalOutcomeText">{event.obj.change}</p>
+                        <p className="modalOutcomeText">{sav.event.stat}: </p>
+                        <img className="modalOutcomeIcon resize" src={sav.event.icon} />
+                        <p className="modalOutcomeText">{sav.event.change}</p>
                     </div> :
                     <React.Fragment />}
                 <div className="modalBtn" onClick={this.handleClick}>

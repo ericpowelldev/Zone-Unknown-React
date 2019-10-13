@@ -1,12 +1,9 @@
-//////////////////////////////   EVENTS OBJECT   //////////////////////////////
-
 // Global positive/negative constants
 const GPOS = 2;
 const GNEG = -4;
-const NEUT = 0;
 
 // Constant events object (Stores all events random & set)
-const EVT = {
+const events = {
     psHP: [
         {
             text: `You discover a bush filled with bean pods, you've seen these before and you've concluded they are healthy.`,
@@ -637,3 +634,5 @@ const EVT = {
         ]
     }
 }
+
+export default events;

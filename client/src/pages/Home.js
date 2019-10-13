@@ -4,7 +4,7 @@ import logic from '../utils/logic'
 import sav from '../utils/sav'
 
 class Home extends React.Component {
-    
+
     componentDidMount() {
         this.generatePlanets();
     }
@@ -30,7 +30,7 @@ class Home extends React.Component {
                 dO2Count = 2;
                 fuelCount = 3;
                 warpCount = 1;
-                itemCount = 1;
+                itemCount = 3;
             }
             else if (inc === 1) {
                 psHPCount = 9;
@@ -41,13 +41,13 @@ class Home extends React.Component {
                 dO2Count = 3;
                 fuelCount = 6;
                 warpCount = 1;
-                itemCount = 1;
+                itemCount = 2;
             }
             else if (inc === 2) {
-                psHPCount = 15;
-                nsHPCount = 15;
-                psO2Count = 15;
-                nsO2Count = 15;
+                psHPCount = 14;
+                nsHPCount = 16;
+                psO2Count = 14;
+                nsO2Count = 16;
                 dHPCount = 4;
                 dO2Count = 4;
                 fuelCount = 10;
@@ -58,6 +58,12 @@ class Home extends React.Component {
                 console.log(`WTF! How did you get here?`);
             }
 
+            // TESTING //
+            // console.log(`\n`);
+            // console.log(`PLANET ${inc + 1} ASSIGNED EVENTS:`);
+            // console.log(`\n`);
+            // TESTING //
+
             // Loop to generate random events for each hex
             for (let i = 0; i < sav.planets[inc].hexes.length; i++) {
                 if (i !== (sav.planets[inc].hexes.length - 1) / 2) {
@@ -65,23 +71,23 @@ class Home extends React.Component {
 
                     if (rdmEvent === `psHP` && psHPCount > 0) {
                         sav.planets[inc].hexes[i].event = rdmEvent;
-                        console.log(`RANDOM EVENT ADDED "${rdmEvent}" to HEX${i}`);
                         psHPCount--;
+                        // console.log(`RANDOM EVENT ADDED "${rdmEvent}" to HEX${i}`);
                     }
                     else if (rdmEvent === `nsHP` && nsHPCount > 0) {
                         sav.planets[inc].hexes[i].event = rdmEvent;
-                        console.log(`RANDOM EVENT ADDED "${rdmEvent}" to HEX${i}`);
                         nsHPCount--;
+                        // console.log(`RANDOM EVENT ADDED "${rdmEvent}" to HEX${i}`);
                     }
                     else if (rdmEvent === `psO2` && psO2Count > 0) {
                         sav.planets[inc].hexes[i].event = rdmEvent;
-                        console.log(`RANDOM EVENT ADDED "${rdmEvent}" to HEX${i}`);
                         psO2Count--;
+                        // console.log(`RANDOM EVENT ADDED "${rdmEvent}" to HEX${i}`);
                     }
                     else if (rdmEvent === `nsO2` && nsO2Count > 0) {
                         sav.planets[inc].hexes[i].event = rdmEvent;
-                        console.log(`RANDOM EVENT ADDED "${rdmEvent}" to HEX${i}`);
                         nsO2Count--;
+                        // console.log(`RANDOM EVENT ADDED "${rdmEvent}" to HEX${i}`);
                     }
                     else {
                         i--;
@@ -89,7 +95,7 @@ class Home extends React.Component {
                 }
                 else {
                     sav.planets[inc].hexes[i].event = `ship`;
-                    console.log(`SET EVENT ADDED "ship" to HEX${i}`);
+                    // console.log(`SET EVENT ADDED "ship" to HEX${i}`);
                 }
             }
 
@@ -126,37 +132,63 @@ class Home extends React.Component {
                 }
             }
 
+            // TESTING //
+            // console.log(`\n`);
+            // console.log(`PLANET ${inc + 1} OVERRIDE EVENTS:`);
+            // console.log(`\n`);
+            // TESTING //
+
             // Loop to assign set events using the random number array
             for (let f = 0; f < numArray.length; f++) {
                 if (dHPCount > 0) {
                     sav.planets[inc].hexes[numArray[f]].event = `dHP`;
-                    console.log(`SET EVENT ADDED "dHP" to HEX${numArray[f]}`);
                     dHPCount--;
+                    // console.log(`RANDOM EVENT ADDED "dHP" to HEX${numArray[f]}`);
                 }
                 else if (dO2Count > 0) {
                     sav.planets[inc].hexes[numArray[f]].event = `dO2`;
-                    console.log(`SET EVENT ADDED "dO2" to HEX${numArray[f]}`);
                     dO2Count--;
+                    // console.log(`RANDOM EVENT ADDED "dO2" to HEX${numArray[f]}`);
                 }
                 else if (fuelCount > 0) {
                     sav.planets[inc].hexes[numArray[f]].event = `fuel`;
-                    console.log(`SET EVENT ADDED "fuel" to HEX${numArray[f]}`);
                     fuelCount--;
+                    // console.log(`SET EVENT ADDED "fuel" to HEX${numArray[f]}`);
                 }
                 else if (warpCount > 0) {
                     sav.planets[inc].hexes[numArray[f]].event = `warp`;
-                    console.log(`SET EVENT ADDED "warp" to HEX${numArray[f]}`);
                     warpCount--;
+                    // console.log(`SET EVENT ADDED "warp" to HEX${numArray[f]}`);
                 }
                 else if (itemCount > 0) {
                     sav.planets[inc].hexes[numArray[f]].event = `item`;
-                    console.log(`SET EVENT ADDED "item" to HEX${numArray[f]}`);
                     itemCount--;
+                    // console.log(`SET EVENT ADDED "item" to HEX${numArray[f]}`);
                 }
             }
+
+            // TESTING //
+            // console.log(`\n`);
+            // console.log(`------------------------------`);
+            // TESTING //
         }
+
+        // TESTING //
+        // console.log(`\n`);
+        // console.log(`PLANET 1:`);
+        // console.log(sav.planets[0].hexes);
+        // console.log(`\n`);
+        // console.log(`PLANET 2:`);
+        // console.log(sav.planets[1].hexes);
+        // console.log(`\n`);
+        // console.log(`PLANET 3:`);
+        // console.log(sav.planets[2].hexes);
+        // console.log(`\n`);
+        // console.log(`------------------------------`);
+        // console.log(`\n`);
+        // TESTING //
     }
-    
+
     render() {
         return (
             <div id="mainDrop">
