@@ -5,6 +5,10 @@ import events from '../utils/events';
 
 class Hex extends React.Component {
 
+    constructor(props) {
+        super(props)
+    }
+
     // Called when any hex is clicked
     handleClick = () => {
 
@@ -37,6 +41,13 @@ class Hex extends React.Component {
             }
 
             this.props.genReach();
+        }
+        else if (this.props.coords === sav.coords.join(`, `)) {
+            sav.event = {
+                alert: `SameCoords`,
+                text: `You are already on this hex!`
+            };
+            this.props.showModalEvent();
         }
         else {
             sav.event = {
@@ -142,7 +153,15 @@ class Hex extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div className={this.props.class} data-index={this.props.index} data-coords={this.props.coords} data-visited={this.props.visited} data-reach={this.props.reach} data-current={this.props.current} onClick={this.handleClick}></div>
+                <div
+                    className={this.props.class}
+                    data-index={this.props.index}
+                    data-coords={this.props.coords}
+                    data-visited={this.props.visited}
+                    data-reach={this.props.reach}
+                    data-current={this.props.current}
+                    onClick={this.handleClick}>
+                </div>
                 {/* {this.props.coords === `0, 0` ?
                     <img src="/images/vectors/ship.svg" /> :
                     <React.Fragment />} */}
