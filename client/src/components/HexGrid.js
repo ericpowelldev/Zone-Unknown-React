@@ -1,7 +1,7 @@
 import React from 'react';
 import Hex from './Hex';
-import sav from '../utils/sav'
 import logic from '../utils/logic';
+import sav from '../utils/sav'
 
 class HexGrid extends React.Component {
 
@@ -145,8 +145,13 @@ class HexGrid extends React.Component {
             }
         }
 
-        // Save the planets to the user's account
-        console.log(sav.planets);
+        // TESTING //
+        // console.log(`PLANET ${sav.planet + 1}:`);
+        // console.log(sav.planets[sav.planet].hexes);
+        // console.log(`\n`);
+        // console.log(`------------------------------`);
+        // console.log(`\n`);
+        // TESTING //
 
         this.setState({ key: logic.rdmFloat(0, 1) });
     }

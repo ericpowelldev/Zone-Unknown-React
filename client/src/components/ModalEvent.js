@@ -1,20 +1,23 @@
 import React from 'react';
-import event from '../utils/event';
 import ModalChoice from './ModalChoice';
 import ModalResult from './ModalResult';
+import sav from '../utils/sav';
 
-function ModalEvent() {
+class ModalEvent extends React.Component {
 
-    return (
-        this.props.show ?
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
             <div id="modalEvent">
-                {event.dynamic ?
+                {sav.event.obj ?
                     <ModalChoice showModalEvent={this.props.showModalEvent} hideModals={this.props.hideModals} /> :
-                    <ModalResult hideModals={this.props.hideModals} />
-                }
-            </div> :
-            <React.Fragment></React.Fragment>
-    )
+                    <ModalResult showModalEvent={this.props.showModalEvent} hideModals={this.props.hideModals} />}
+            </div>
+        )
+    }
 }
 
 export default ModalEvent;

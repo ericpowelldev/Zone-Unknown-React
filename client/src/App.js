@@ -18,16 +18,4 @@ class App extends React.Component {
     }
 }
 
-// class App extends Component() {
-//     state = {
-
-//     }
-
-//     render() {
-//         return (
-//             <Sky />
-//         );
-//     }
-// }
-
 export default App;

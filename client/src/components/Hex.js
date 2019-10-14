@@ -1,8 +1,7 @@
 import React from 'react';
-import sav from '../utils/sav.js';
-import event from '../utils/event.js';
-import EVT from '../utils/EVT.js';
-import logic from '../utils/logic.js';
+import logic from '../utils/logic';
+import sav from '../utils/sav';
+import events from '../utils/events';
 
 class Hex extends React.Component {
 
@@ -29,7 +28,7 @@ class Hex extends React.Component {
             ////////// RENDER THIS RIGHT HERE SOMEHOW //////////
 
             // Function to run after stats have been calculated
-            if (myP[this.props.index].visited === "false") {
+            if (myP[this.props.index].visited === "false" || myP[this.props.index].event === "ship") {
                 this.getEvent(myP[this.props.index].event);
             }
             else {
@@ -40,8 +39,8 @@ class Hex extends React.Component {
             this.props.genReach();
         }
         else {
-            event = {
-                status: `NoReach`,
+            sav.event = {
+                alert: `NoReach`,
                 text: `You cannot reach this hex from where you are!`
             };
             this.props.showModalEvent();
@@ -52,67 +51,88 @@ class Hex extends React.Component {
     getEvent = (eK) => {
 
         // Local event object
-        let eO = {
-            key: eK,
-            obj: {},
-            dynamic: false,
-            stat: ``,
-            icon: ``
-        }
+        let e = {};
+        e.key = eK;
 
         // Hydra to generate the event
-        if (eK === `psHP` || eK === `nsHP`) {
-            eO.obj = EVT[eK][logic.rdmInt(0, EVT[eK].length - 1)];
-            eO.stat = `Health`;
-            eO.icon = `/images/vectors/hp.svg`;
+        if (eK === `psHP`) {
+            let rdm = logic.rdmInt(0, events.psHP.length - 1);
+            e.text = events.psHP[rdm].text;
+            e.change = events.psHP[rdm].change;
+            e.stat = `Health`;
+            e.icon = `/images/vectors/hp.svg`;
         }
-        else if (eK === `psO2` || eK === `nsO2`) {
-            eO.obj = EVT[eK][logic.rdmInt(0, EVT[eK].length - 1)];
-            eO.stat = `Oxygen`;
-            eO.icon = `/images/vectors/o2.svg`;
+        else if (eK === `nsHP`) {
+            let rdm = logic.rdmInt(0, events.nsHP.length - 1);
+            e.text = events.nsHP[rdm].text;
+            e.change = events.nsHP[rdm].change;
+            e.stat = `Health`;
+            e.icon = `/images/vectors/hp.svg`;
         }
         else if (eK === `dHP`) {
-            eO.obj = EVT[eK][logic.rdmInt(0, EVT[eK].length - 1)];
-            eO.stat = `Health`;
-            eO.icon = `/images/vectors/hp.svg`;
-            eO.dynamic = true;
+            let rdm = logic.rdmInt(0, events.dHP.length - 1);
+            e.obj = events.dHP[rdm];
+            e.stat = `Health`;
+            e.icon = `/images/vectors/hp.svg`;
+        }
+        else if (eK === `psO2`) {
+            let rdm = logic.rdmInt(0, events.psO2.length - 1);
+            e.text = events.psO2[rdm].text;
+            e.change = events.psO2[rdm].change;
+            e.stat = `Oxygen`;
+            e.icon = `/images/vectors/o2.svg`;
+        }
+        else if (eK === `nsO2`) {
+            let rdm = logic.rdmInt(0, events.nsO2.length - 1);
+            e.text = events.nsO2[rdm].text;
+            e.change = events.nsO2[rdm].change;
+            e.stat = `Oxygen`;
+            e.icon = `/images/vectors/o2.svg`;
         }
         else if (eK === `dO2`) {
-            eO.obj = EVT[eK][logic.rdmInt(0, EVT[eK].length - 1)];
-            eO.stat = `Oxygen`;
-            eO.icon = `/images/vectors/o2.svg`;
-            eO.dynamic = true;
+            let rdm = logic.rdmInt(0, events.dO2.length - 1);
+            e.obj = events.dO2[rdm];
+            e.stat = `Oxygen`;
+            e.icon = `/images/vectors/o2.svg`;
         }
         else if (eK === `fuel`) {
-            eO.obj = EVT[eK][logic.rdmInt(0, EVT[eK].length - 1)];
-            eO.obj.change = 1;
-            eO.stat = `Fuel`;
-            eO.icon = `/images/vectors/fu.svg`;
+            let rdm = logic.rdmInt(0, events.fuel.length - 1);
+            e.text = events.fuel[rdm].text;
+            e.change = 1;
+            e.stat = `Fuel`;
+            e.icon = `/images/vectors/fu.svg`;
         }
         else if (eK === `warp`) {
-            eO.obj = EVT.warp[sav.warpCount];
-            eO.obj.change = sav.warpCount + 1;
-            eO.stat = `Warp Pieces Collected`;
-            eO.icon = `/images/vectors/warps/${sav.warpCount}.svg`;
+            e.text = events.warp[sav.warpCount].text;
+            e.change = sav.warpCount + 1;
+            e.stat = `Warp Pieces Collected`;
+            e.icon = `/images/vectors/warps/${sav.warpCount}.svg`;
         }
         else if (eK === `item`) {
-            eO.obj = EVT.item[sav.itemCount];
-            eO.obj.change = sav.itemCount + 1;
-            eO.stat = `Items Collected`;
-            eO.icon = `/images/vectors/items/${sav.itemCount}.svg`;
+            e.text = events.item[sav.itemCount].text;
+            e.change = sav.itemCount + 1;
+            e.stat = `Items Collected`;
+            e.icon = `/images/vectors/items/${sav.itemCount}.svg`;
         }
         else if (eK === `ship`) {
-            eO.obj = EVT.ship;
-            eO.dynamic = true;
-            eO.stat = `Ship`;
-            eO.icon = `/images/vectors/ship.svg`;
+            e.obj = events.ship;
+            e.stat = `Ship`;
+            e.icon = `/images/vectors/ship.svg`;
         }
         else {
             console.log(`Begone demon!`);
         }
 
-        // Assigning the local event object to the global event object
-        event = eO;
+        // Assign local event object to new global event object
+        sav.event = e;
+
+        // TESTING //
+        console.log(`ASSIGNED EVENT:`);
+        console.log(sav.event);
+        console.log(`\n`);
+        console.log(`------------------------------`);
+        console.log(`\n`);
+        // TESTING //
 
         // Show the modal after our event is chosen
         this.props.showModalEvent();
@@ -121,7 +141,12 @@ class Hex extends React.Component {
     // Called whenever state changes & when a parent component is rendered
     render() {
         return (
-            <div className={this.props.class} data-index={this.props.index} data-coords={this.props.coords} data-visited={this.props.visited} data-reach={this.props.reach} data-current={this.props.current} onClick={this.handleClick}></div>
+            <React.Fragment>
+                <div className={this.props.class} data-index={this.props.index} data-coords={this.props.coords} data-visited={this.props.visited} data-reach={this.props.reach} data-current={this.props.current} onClick={this.handleClick}></div>
+                {/* {this.props.coords === `0, 0` ?
+                    <img src="/images/vectors/ship.svg" /> :
+                    <React.Fragment />} */}
+            </React.Fragment>
         )
     }
 }
