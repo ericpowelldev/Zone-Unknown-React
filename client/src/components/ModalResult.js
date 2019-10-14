@@ -3,6 +3,10 @@ import sav from '../utils/sav';
 
 class ModalResult extends React.Component {
 
+    constructor(props) {
+        super(props)
+    }
+
     componentDidMount() {
         // TESTING //
         console.log(`RESULT EVENT:`);
@@ -16,7 +20,7 @@ class ModalResult extends React.Component {
     handleClick = () => {
 
         if (sav.event.alert === `Win` || sav.event.alert === `Lose`) {
-            
+
         }
         else {
             if (sav.event.stat === `Health`) {
@@ -43,7 +47,7 @@ class ModalResult extends React.Component {
             else if (sav.event.stat === `Items Collected`) {
                 sav.itemCount++;
             }
-            else {}
+            else { }
 
             this.props.hideModals();
         }
@@ -51,12 +55,12 @@ class ModalResult extends React.Component {
 
     render() {
         return (
-            <div id="modalResult">
+            <div className={sav.event.change ? (sav.event.change < 0 ? `neg` : `pos`) : `neu`} id="modalEventBox">
                 <p id="modalText">{sav.event.text}</p>
                 {sav.event.change ?
                     <div className="modalOutcome">
                         <p className="modalOutcomeText">{sav.event.stat}: </p>
-                        <img className="modalOutcomeIcon resize" src={sav.event.icon} />
+                        <img className="modalOutcomeIcon" src={sav.event.icon} />
                         <p className="modalOutcomeText">{sav.event.change}</p>
                     </div> :
                     <React.Fragment />}

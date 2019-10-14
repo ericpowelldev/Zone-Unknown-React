@@ -1,4 +1,4 @@
-/* @keyframes twinkleBG {
+@keyframes twinkleBG {
     from {background-position:0 0;}
     to {background-position:-10000px 5000px;}
 }
@@ -13,9 +13,9 @@
 @-ms-keyframes twinkleBG {
     from {background-position:0 0;}
     to {background-position:-10000px 5000px;}
-} */
+}
 
-/* @keyframes gradientBG {
+@keyframes gradientBG {
 	0% {background-position: 0% 100%;}
 	100% {background-position: 100% 0%;}
 }
@@ -30,7 +30,7 @@
 @-ms-keyframes gradientBG {
 	0% {background-position: 0% 100%;}
 	100% {background-position: 100% 0%;}
-} */
+}
 
 #stars, #twinkling, #gradient {
     position:fixed;
@@ -61,7 +61,7 @@
 
 #gradient {
     z-index: 2;
-    background: linear-gradient(45deg, #00ffcc24, #0080ff24);
+    background: linear-gradient(45deg, #00ffa024, #0080ff24);
 	background-size: 100% 100%;
     background-attachment: fixed;
 }

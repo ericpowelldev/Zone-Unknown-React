@@ -110,7 +110,7 @@ class ModalChoice extends React.Component {
 
     render() {
         return (
-            <div id="modalChoice">
+            <div className="chance" id="modalEventBox">
                 <p id="modalText">{sav.event.obj.text}</p>
                 {sav.event.obj.choices.map((item, index) => (
                     <div key={index} className="modalBtn" onClick={() => this.handleClick(index)}>
