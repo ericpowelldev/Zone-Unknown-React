@@ -9,8 +9,8 @@ import MenuBar from '../components/MenuBar';
 import ResourceBar from '../components/ResourceBar';
 import HexGrid from '../components/HexGrid';
 import logic from '../utils/logic';
-import sav from '../utils/sav';
 import glob from '../utils/glob';
+import sav from '../utils/sav';
 
 class Game extends React.Component {
 

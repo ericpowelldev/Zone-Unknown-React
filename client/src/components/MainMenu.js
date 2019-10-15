@@ -13,8 +13,8 @@ class MainMenu extends React.Component {
             <div id="mainMenu">
                 {
                     this.props.signedIn ?
-                    <MainWelcome fSignOut={this.props.fSignOut} username={this.props.username} /> :
-                    <MainForm fSignIn={this.props.fSignIn} fSignUp={this.props.fSignIn} />
+                    <MainWelcome fLoadGame={this.props.fLoadGame} fNewGame={this.props.fNewGame} fSignOut={this.props.fSignOut} username={this.props.username} /> :
+                    <MainForm fSignIn={this.props.fSignIn} fSignUp={this.props.fSignUp} />
                 }
             </div>
         )

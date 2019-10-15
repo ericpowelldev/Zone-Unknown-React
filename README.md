@@ -1,6 +1,6 @@
 
-![LOGO TEXT IMAGE](/client/public/images/zu_text_color.png)
-![LOGO IMAGE](/client/public/images/zu_logo_color.png)
+![LOGO TEXT IMAGE](/client/public/images/zu_text_color1.png)
+![LOGO IMAGE](/client/public/images/zu_logo_color1.png)
 
 Welcome to ZONE UNKNOWN, an adventure game based on survival. You find yourself stranded in a solar system due to your warp drive breaking down. Explore 3 planets and find parts to rebuild your warp drive. Along the way, you will encounter harsh events that will test your survival skills. You need to manage your HEALTH, OXYGEN and FUEL. You lose 1 OXYGEN per turn and will need 2 FUEL to replenish your O2 at the ship (middle hex). When your HEALTH hits 0, you lose! To advance to the next planet, collect the warp drive piece and return to your ship. Good luck and don't forget to use the chat if you get stuck.
 
