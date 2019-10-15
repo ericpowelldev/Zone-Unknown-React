@@ -1,12 +1,18 @@
 import React from 'react';
 
-function ModalMenu() {
+class ModalMenu extends React.Component {
 
-    return (
-        <div id="modalMenu">
+    constructor(props) {
+        super(props)
+    }
 
-        </div>
-    )
+    render() {
+        return (
+            <div id="modal">
+                <img className="anim mShade" id="modalClose" src="/images/vectors/modal/close.svg" onClick={this.props.hideModals} />
+            </div>
+        )
+    }
 }
 
 export default ModalMenu;

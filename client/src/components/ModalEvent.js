@@ -11,7 +11,7 @@ class ModalEvent extends React.Component {
 
     render() {
         return (
-            <div id="modalEvent">
+            <div id="modal">
                 {sav.event.obj ?
                     <ModalChoice showModalEvent={this.props.showModalEvent} hideModals={this.props.hideModals} /> :
                     <ModalResult showModalEvent={this.props.showModalEvent} hideModals={this.props.hideModals} />}

@@ -1,13 +1,13 @@
 // Default persistent save object
 let sav = {
     version: `0.2.0`, // Version of game the save was created in
-    health: 10, // Health resource
-    oxygen: 10, // Oxygen resource
+    health: 20, // Health resource
+    oxygen: 20, // Oxygen resource
     fuel: 0, // Fuel collected
     warpCount: 0, // Warp drive pieces collected
     itemCount: 0, // Items collected
     coords: [0, 0], // Current coordinates
-    planet: 2, // Current planet
+    planet: 0, // Current planet
     planets: [
         {
             hexes: [

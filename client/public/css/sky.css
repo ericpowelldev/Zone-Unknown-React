@@ -32,7 +32,7 @@
 	100% {background-position: 100% 0%;}
 }
 
-#stars, #twinkling, #gradient {
+#stars, #twinkling, #gradient0, #gradient1, #gradient2, #gradient3 {
     position:fixed;
     top:0;
     left:0;
@@ -52,16 +52,34 @@
     background:transparent url(../images/twinkling.png) repeat top center;
     z-index: 1;
 
-    -webkit-animation:twinkleBG 360s linear infinite;
-    -moz-animation:twinkleBG 360s linear infinite;
-    -ms-animation:twinkleBG 360s linear infinite;
-    -o-animation:twinkleBG 360s linear infinite;
-    animation:twinkleBG 360s linear infinite;
+    -webkit-animation:twinkleBG 240s linear infinite;
+    -moz-animation:twinkleBG 240s linear infinite;
+    -ms-animation:twinkleBG 240s linear infinite;
+    -o-animation:twinkleBG 240s linear infinite;
+    animation:twinkleBG 240s linear infinite;
 }
 
-#gradient {
+#gradient0 {
     z-index: 2;
-    background: linear-gradient(45deg, #00ffa024, #0080ff24);
+    background: linear-gradient(0deg, #20202830, #0080ff30);
+	background-size: 100% 100%;
+    background-attachment: fixed;
+}
+#gradient1 {
+    z-index: 2;
+    background: linear-gradient(0deg, #00ffa030, #00ccff30, #0040ff30);
+	background-size: 100% 100%;
+    background-attachment: fixed;
+}
+#gradient2 {
+    z-index: 2;
+    background: linear-gradient(0deg, #4000a040, #6000a040);
+	background-size: 100% 100%;
+    background-attachment: fixed;
+}
+#gradient3 {
+    z-index: 2;
+    background: linear-gradient(0deg, #ff008040, #ffa00040);
 	background-size: 100% 100%;
     background-attachment: fixed;
 }
