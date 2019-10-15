@@ -1,4 +1,5 @@
 import React from 'react';
+import glob from '../utils/glob';
 import sav from '../utils/sav';
 
 class ModalResult extends React.Component {
@@ -37,8 +38,8 @@ class ModalResult extends React.Component {
             }
             else if (sav.event.stat === `Fuel`) {
                 ////////// ITEM EVENT //////////
-                if (sav.itemCount >= 3) sav.fuel += sav.event.change + 1;
-                else sav.fuel += sav.event.change;
+                if (sav.itemCount >= 3) sav.fuel += glob.FUELgainI;
+                else sav.fuel += glob.FUELgain;
                 ////////// ITEM EVENT //////////
             }
             else if (sav.event.stat === `Warp Pieces Collected`) {

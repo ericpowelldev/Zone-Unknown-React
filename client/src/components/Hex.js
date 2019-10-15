@@ -1,8 +1,8 @@
 import React from 'react';
+import glob from '../utils/glob';
+import events from '../utils/events';
 import logic from '../utils/logic';
 import sav from '../utils/sav';
-import events from '../utils/events';
-import glob from '../utils/glob';
 
 class Hex extends React.Component {
 

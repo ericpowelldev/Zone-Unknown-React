@@ -139,6 +139,26 @@ footer a:hover {
     font-weight: 600;
     margin-bottom: calc(24px * var(--mScale));
 }
+.mainMenuLabel {
+    font-size: calc(20px * var(--mScale));
+    font-weight: 500;
+    line-height: calc(24px * var(--mScale));
+    margin-bottom: calc(32px * var(--mScale));
+}
+.mainMenuInput {
+    width: 100%;
+    padding: calc(12px * var(--mScale)) calc(16px * var(--mScale));
+    border: calc(3px * var(--mScale)) solid #ffffff80;
+    border-radius: calc(24px * var(--mScale)) calc(24px * var(--mScale));
+    margin-bottom: calc(16px * var(--mScale));
+    text-align: center;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: calc(24px * var(--mScale));
+    font-weight: 400;
+    color: #fff;
+    background: #ffffff40;
+    transition: 0.2s ease-in-out;
+}
 #mainMenuExplain {
     font-size: calc(16px * var(--mScale));
     font-weight: 400;
@@ -198,6 +218,26 @@ footer a:hover {
     border-color: #00000000;
     color: #fff;
     background: #ff0040;
+}
+#signInBtn {
+    border: calc(3px * var(--mScale)) solid #00ffa040;
+    color: #fff;
+    background: #00ffa040;
+}
+#signInBtn:hover {
+    border-color: #00000000;
+    color: #fff;
+    background: #00cc70;
+}
+#signUpBtn {
+    border: calc(3px * var(--mScale)) solid #0080ff40;
+    color: #fff;
+    background: #0080ff40;
+}
+#signUpBtn:hover {
+    border-color: #00000000;
+    color: #fff;
+    background: #0080ff;
 }
 
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import logic from '../utils/logic';
-import sav from '../utils/sav';
 import glob from '../utils/glob';
+import sav from '../utils/sav';
 
 class ModalChoice extends React.Component {
 
