@@ -2,6 +2,7 @@ import React from 'react';
 import logic from '../utils/logic';
 import sav from '../utils/sav';
 import events from '../utils/events';
+import glob from '../utils/glob';
 
 class Hex extends React.Component {
 
@@ -25,7 +26,7 @@ class Hex extends React.Component {
             sav.coords = [newX, newY];
 
             // Lose oxygen + health if oxygen is below zero
-            sav.oxygen -= 1;
+            sav.oxygen -= glob.O2loss;
             if (sav.oxygen < 0) {
                 sav.health += sav.oxygen;
             }
@@ -39,8 +40,6 @@ class Hex extends React.Component {
                 // Hides modals (if any) and forces the page to re-render the stats
                 this.props.hideModals();
             }
-
-            this.props.genReach();
         }
         else if (this.props.coords === sav.coords.join(`, `)) {
             sav.event = {
@@ -52,7 +51,7 @@ class Hex extends React.Component {
         else {
             sav.event = {
                 alert: `NoReach`,
-                text: `You cannot reach this hex from where you are!`
+                text: `You cannot reach this hex!`
             };
             this.props.showModalEvent();
         }
@@ -71,64 +70,64 @@ class Hex extends React.Component {
             e.text = events.psHP[rdm].text;
             e.change = events.psHP[rdm].change;
             e.stat = `Health`;
-            e.icon = `/images/vectors/hp.svg`;
+            e.icon = `/images/vectors/game/hp.svg`;
         }
         else if (eK === `nsHP`) {
             let rdm = logic.rdmInt(0, events.nsHP.length - 1);
             e.text = events.nsHP[rdm].text;
             e.change = events.nsHP[rdm].change;
             e.stat = `Health`;
-            e.icon = `/images/vectors/hp.svg`;
+            e.icon = `/images/vectors/game/hp.svg`;
         }
         else if (eK === `dHP`) {
             let rdm = logic.rdmInt(0, events.dHP.length - 1);
             e.obj = events.dHP[rdm];
             e.stat = `Health`;
-            e.icon = `/images/vectors/hp.svg`;
+            e.icon = `/images/vectors/game/hp.svg`;
         }
         else if (eK === `psO2`) {
             let rdm = logic.rdmInt(0, events.psO2.length - 1);
             e.text = events.psO2[rdm].text;
             e.change = events.psO2[rdm].change;
             e.stat = `Oxygen`;
-            e.icon = `/images/vectors/o2.svg`;
+            e.icon = `/images/vectors/game/o2.svg`;
         }
         else if (eK === `nsO2`) {
             let rdm = logic.rdmInt(0, events.nsO2.length - 1);
             e.text = events.nsO2[rdm].text;
             e.change = events.nsO2[rdm].change;
             e.stat = `Oxygen`;
-            e.icon = `/images/vectors/o2.svg`;
+            e.icon = `/images/vectors/game/o2.svg`;
         }
         else if (eK === `dO2`) {
             let rdm = logic.rdmInt(0, events.dO2.length - 1);
             e.obj = events.dO2[rdm];
             e.stat = `Oxygen`;
-            e.icon = `/images/vectors/o2.svg`;
+            e.icon = `/images/vectors/game/o2.svg`;
         }
         else if (eK === `fuel`) {
             let rdm = logic.rdmInt(0, events.fuel.length - 1);
             e.text = events.fuel[rdm].text;
-            e.change = 1;
+            e.change = glob.FUELgain;
             e.stat = `Fuel`;
-            e.icon = `/images/vectors/fu.svg`;
+            e.icon = `/images/vectors/game/fu.svg`;
         }
         else if (eK === `warp`) {
             e.text = events.warp[sav.warpCount].text;
             e.change = sav.warpCount + 1;
             e.stat = `Warp Pieces Collected`;
-            e.icon = `/images/vectors/warps/${sav.warpCount}.svg`;
+            e.icon = `/images/vectors/warp/${sav.warpCount}.svg`;
         }
         else if (eK === `item`) {
             e.text = events.item[sav.itemCount].text;
             e.change = sav.itemCount + 1;
             e.stat = `Items Collected`;
-            e.icon = `/images/vectors/items/${sav.itemCount}.svg`;
+            e.icon = `/images/vectors/item/${sav.itemCount}.svg`;
         }
         else if (eK === `ship`) {
             e.obj = events.ship;
             e.stat = `Ship`;
-            e.icon = `/images/vectors/ship.svg`;
+            e.icon = `/images/vectors/game/ship.svg`;
         }
         else {
             console.log(`Begone demon!`);
@@ -163,7 +162,7 @@ class Hex extends React.Component {
                     onClick={this.handleClick}>
                 </div>
                 {/* {this.props.coords === `0, 0` ?
-                    <img src="/images/vectors/ship.svg" /> :
+                    <img src="/images/vectors/game/ship.svg" /> :
                     <React.Fragment />} */}
             </React.Fragment>
         )

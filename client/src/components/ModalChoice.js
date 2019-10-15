@@ -1,6 +1,7 @@
 import React from 'react';
 import logic from '../utils/logic';
 import sav from '../utils/sav';
+import glob from '../utils/glob';
 
 class ModalChoice extends React.Component {
 
@@ -53,20 +54,20 @@ class ModalChoice extends React.Component {
         }
         else {
             if (index === 0) {
-                if (sav.fuel >= 2) {
+                if (sav.fuel >= glob.FUELrep) {
 
                     ////////// ITEM EVENT //////////
-                    if (sav.itemCount >= 6) sav.oxygen += 15;
-                    else sav.oxygen += 10;
+                    if (sav.itemCount >= 6) sav.oxygen += glob.O2gainI;
+                    else sav.oxygen += glob.O2gain;
                     ////////// ITEM EVENT //////////
 
-                    sav.fuel -= 2;
+                    sav.fuel -= glob.FUELrep;
                     this.props.hideModals();
                 }
                 else {
                     sav.event = {
                         alert: `NoFuel`,
-                        text: `You need at least 2 fuel to replenish your oxygen!`
+                        text: `You need at least ${glob.FUELrep} fuel to replenish your oxygen!`
                     };
                     this.props.showModalEvent();
                 }
@@ -74,8 +75,8 @@ class ModalChoice extends React.Component {
             else if (index === 1) {
                 if (sav.warpCount > sav.planet) {
                     if (sav.warpCount < 3) {
-                        if (sav.health < 5) sav.health = 5;
-                        if (sav.oxygen < 10) sav.oxygen = 10;
+                        if (sav.health < glob.HPstart / 2) sav.health = glob.HPstart / 2;
+                        if (sav.oxygen < glob.O2start) sav.oxygen = glob.O2start;
                         sav.planet++;
                         this.props.hideModals();
                     }
@@ -110,8 +111,8 @@ class ModalChoice extends React.Component {
 
     render() {
         return (
-            <div className="chance" id="modalEventBox">
-                <p id="modalText">{sav.event.obj.text}</p>
+            <div className="mChance" id="modalEventBox">
+                <p className="lShade" id="modalEventText">{sav.event.obj.text}</p>
                 {sav.event.obj.choices.map((item, index) => (
                     <div key={index} className="modalBtn" onClick={() => this.handleClick(index)}>
                         <p className="modalBtnText">{item.text}</p>

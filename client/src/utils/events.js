@@ -616,7 +616,7 @@ const events = {
             text: `You found the AI Drone Upgrade! This item helps you achieve better outcomes on dynamic O2 events.`
         },
         {
-            text: `You found the Efficiency Tank! This item gives a +5 bonus when replenishing your oxygen at the ship & raises your max oxygen to 25.`
+            text: `You found the Efficiency Tank! This item gives a +5 bonus when replenishing your oxygen at the ship & raises your max oxygen to 30.`
         },
     ],
     ship: {

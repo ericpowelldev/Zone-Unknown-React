@@ -3,10 +3,10 @@ import ResourceHP from './ResourceHP';
 import ResourceO2 from './ResourceO2';
 import ResourceFUEL from './ResourceFUEL';
 
-function ResourceBar() {
+function Resource() {
 
     return (
-        <div id="resourceBar">
+        <div id="resource">
             <ResourceHP />
             <ResourceO2 />
             <ResourceFUEL />
@@ -14,4 +14,4 @@ function ResourceBar() {
     )
 }
 
-export default ResourceBar;
+export default Resource;

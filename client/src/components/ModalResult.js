@@ -20,18 +20,18 @@ class ModalResult extends React.Component {
     handleClick = () => {
 
         if (sav.event.alert === `Win` || sav.event.alert === `Lose`) {
-
+            window.location.href = `/`;
         }
         else {
             if (sav.event.stat === `Health`) {
                 ////////// ITEM EVENT //////////
-                if (sav.itemCount >= 1) sav.health += sav.event.change + 1;
+                if (sav.itemCount >= 1 && sav.event.change < 0) sav.health += sav.event.change + 1;
                 else sav.health += sav.event.change;
                 ////////// ITEM EVENT //////////
             }
             else if (sav.event.stat === `Oxygen`) {
                 ////////// ITEM EVENT //////////
-                if (sav.itemCount >= 2) sav.oxygen += sav.event.change + 1;
+                if (sav.itemCount >= 2 && sav.event.change < 0) sav.oxygen += sav.event.change + 1;
                 else sav.oxygen += sav.event.change;
                 ////////// ITEM EVENT //////////
             }
@@ -55,13 +55,18 @@ class ModalResult extends React.Component {
 
     render() {
         return (
-            <div className={sav.event.change ? (sav.event.change < 0 ? `neg` : `pos`) : `neu`} id="modalEventBox">
-                <p id="modalText">{sav.event.text}</p>
+            <div className={sav.event.change ? (sav.event.change < 0 ? `mNeg` : `mPos`) : `mNeu`} id="modalEventBox">
+                <p className="lShade" id="modalEventText">{sav.event.text}</p>
                 {sav.event.change ?
                     <div className="modalOutcome">
-                        <p className="modalOutcomeText">{sav.event.stat}: </p>
-                        <img className="modalOutcomeIcon" src={sav.event.icon} />
-                        <p className="modalOutcomeText">{sav.event.change}</p>
+                        <p className="anim mShade modalOutcomeText">{sav.event.stat}: </p>
+                        <img className="anim mShade modalOutcomeIcon" src={sav.event.icon} />
+                        <p className="anim mShade modalOutcomeText">{
+                            (sav.event.stat === `Health` && sav.itemCount >= 1 && sav.event.change < 0) ||
+                            (sav.event.stat === `Oxygen` && sav.itemCount >= 2 && sav.event.change < 0) ||
+                            (sav.event.stat === `Fuel` && sav.itemCount >= 3) ?
+                            sav.event.change + 1 : sav.event.change
+                        }</p>
                     </div> :
                     <React.Fragment />}
                 <div className="modalBtn" onClick={this.handleClick}>
