@@ -21,4 +21,13 @@ export default {
     deleteUser: function (id) {
         return axios.delete("/api/users/" + id);
     },
+    // Gets all messages for socket
+    getMessage: function () {
+        return axios.get("/api/messages");
+    },
+    // Saves a message to the database for socket
+    saveMessage: function (messageData) {
+        return axios.post("/api/messages", messageData);
+    }
 };
+

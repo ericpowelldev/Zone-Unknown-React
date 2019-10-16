@@ -6,17 +6,18 @@ import logic from './utils/logic';
 import glob from './utils/glob';
 import sav from './utils/sav';
 import API from './utils/API';
+import axios from 'axios';
 
 class App extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            signedIn: true,
-            username: `CurlyBoi`
+            signedIn: false,
+            username: ``
         };
-        // this.componentDidMount = this.componentDidMount.bind(this)
-        // this.getUser = this.getUser.bind(this)
+        this.componentDidMount = this.componentDidMount.bind(this)
+        this.getUser = this.getUser.bind(this)
         // this.updateUser = this.updateUser.bind(this)
         this.loadGame = this.loadGame.bind(this);
         this.newGame = this.newGame.bind(this);
@@ -26,32 +27,32 @@ class App extends React.Component {
     }
 
 
-    // componentDidMount() {
-    //     this.getUser()
-    // }
+    componentDidMount() {
+        this.getUser()
+    }
 
-    // getUser() {
-    //     axios.get(`/user/`)
-    //         .then(res => {
-    //             console.log(`\nGET USER:\n`);
-    //             console.log(res.data);
+    getUser() {
+        axios.get(`api/users/`)
+            .then(res => {
+                console.log(`\nGET USER:\n`);
+                console.log(res.data);
 
-    //             // If there is a user
-    //             if (res.data.user) {
-    //                 console.log(`\nUSER FOUND:\n`);
-    //                 this.setState({
-    //                     loggedIn: true,
-    //                     username: res.data.user.username
-    //                 });
-    //             } else {
-    //                 console.log('\nUSER NOT FOUND:\n');
-    //                 this.setState({
-    //                     loggedIn: false,
-    //                     username: null
-    //                 });
-    //             }
-    //         });
-    // }
+                // If there is a user
+                if (res.data.username) {
+                    console.log(`\nUSER FOUND:\n`);
+                    this.setState({
+                        loggedIn: true,
+                        username: res.data.username
+                    });
+                } else {
+                    console.log('\nUSER NOT FOUND:\n');
+                    this.setState({
+                        loggedIn: false,
+                        username: null
+                    });
+                }
+            });
+    }
 
     // updateUser(userObj) {
     //     this.setState(userObj)
@@ -265,15 +266,52 @@ class App extends React.Component {
         this.setState({ signedIn: false, username: `` });
     }
     signIn = (username, password) => {
-        this.setState({ signedIn: true, username: username });
+        axios
+            .post('/api/users/', {
+                username: username,
+                password: password
+            })
+            .then(response => {
+                console.log('login response: ')
+                console.log(response.data.username)
+                console.log(response)
+                if (response.status === 200) {
+                    // update App.js state
+                    this.setState({ signedIn: true, username: username });
+                }
+            }).catch(error => {
+                console.log('login error: ')
+                console.log(error);
+
+            })
     }
     signUp = (username, password, confirm) => {
-        this.signIn(username);
-    }
+        if(password === confirm){
+        axios.post('/api/users/', {
+            username: username,
+			password: password
+		})
+        .then(response => {
+            console.log(response)
+            if (!response.data.errmsg) {
+                console.log('successful signup')
+                this.signIn(username, password);
+                    
+				} else {
+					console.log('username already taken')
+				}
+			}).catch(error => {
+				console.log('signup error: ')
+				console.log(error)
+
+			})
+    }else{
+        console.log("Password does not match, Please try again!");
+    }}
 
     render() {
         return (
-            <Router>
+            <Router>       
                 <Route exact path="/" render={() => <Home fLoadGame={this.loadGame} fNewGame={this.newGame} fSignOut={this.signOut} fSignIn={this.signIn} fSignUp={this.signUp} signedIn={this.state.signedIn} username={this.state.username} />} />
                 <Route exact path="/game" component={Game} />
             </Router>

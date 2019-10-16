@@ -17,8 +17,8 @@ class MainForm extends React.Component {
         this.handleSignUp = this.handleSignUp.bind(this);
     }
 
-    handleChange = () => {
-        // this.setState({ [event.target.name]: event.target.value });
+    handleChange(event) {
+        this.setState({ [event.target.name]: event.target.value });
     }
     handleSignIn = () => {
         this.props.fSignIn(this.state.username, this.state.password);
