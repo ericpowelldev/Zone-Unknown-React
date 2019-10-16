@@ -11,6 +11,7 @@ import HexGrid from '../components/HexGrid';
 import logic from '../utils/logic';
 import glob from '../utils/glob';
 import sav from '../utils/sav';
+import Music from '../components/Sound';
 
 class Game extends React.Component {
 
@@ -155,6 +156,7 @@ class Game extends React.Component {
         return (
             <React.Fragment>
                 <Sky page="game" />
+                <Music />
                 <div id="mainDrop">
                     {this.state.showModalEvent ?
                         <ModalEvent showModalEvent={this.showModalEvent} hideModals={this.hideModals} /> :
