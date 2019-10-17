@@ -552,6 +552,68 @@ const events = {
                 },
             ]
         },
+        {
+            text: `You come across a small village market, and are surprised to see several oxygen tanks for sale. Unfortunately you don't have anything the locals consider worhty of a trade.`,
+            choices: [
+                {
+                    text: `You decided to earn some money the old fashioned way, and begin break dancing in the square for tips`,
+                    outcomes: [
+                        {
+                            text: `Your slick moves dazzle the crowd, who shower you with money`,
+                            change: GPOS + 2
+                        },
+                        {
+                            text: `Your slick moves confuse and confound the crowd, and the chase you out of town with torches and pitchforks`,
+                            change: GNEG
+                        },
+                    ]
+                },
+                {
+                    text: `You carefully case the vendors, and choose the one you think will be easiest to steal from`,
+                    outcomes: [
+                        {
+                            text: `You make your move, and manage to sneak a tank before making a run for it`,
+                            change: GPOS
+                        },
+                        {
+                            text: `You make your move, but you set off an invisible alarm and are chased out of town with torches and pitchforks`,
+                            change: GNEG
+                        },
+                    ]
+                },
+            ]
+        },
+        {
+            text: `You come into a clearing and see a space pirate sleeping against a tree. Next to him in an oxygen tank just waiting to be stolen`,
+            choices: [
+                {
+                    text: `You activate stealth mode and tiptoe towards the tank`,
+                    outcomes: [
+                        {
+                            text: `You grab the tank and slip away into the forest`,
+                            change: GPOS
+                        },
+                        {
+                            text: `Unfortunately "stealth mode" was just in your head, and the space pirate wakes up before you are even close`,
+                            change: GNEG
+                        },
+                    ]
+                },
+                {
+                    text: `You take a deep breath and run as fast as you can towards the tank`,
+                    outcomes: [
+                        {
+                            text: `You snatch the tank as the space pirate wakes up and are gone before he knows what's going on`,
+                            change: GPOS
+                        },
+                        {
+                            text: `You trip over the space pirates leg and he wakes up with a start and attacks`,
+                            change: GNEG
+                        },
+                    ]
+                },
+            ]
+        }
     ],
     fuel: [
         {
