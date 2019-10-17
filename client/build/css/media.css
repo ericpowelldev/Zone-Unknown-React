@@ -1,0 +1,92 @@
+/* Standard media queries */
+@media screen and (max-width: 3840px) {
+    :root {
+        --scale: 1.6;
+        --mScale: 1.6;
+    }
+}
+@media screen and (max-width: 2560px) {
+    :root {
+        --scale: 1.25;
+        --mScale: 1.25;
+    }
+}
+@media screen and (max-width: 1920px) {
+    :root {
+        --scale: 1;
+        --mScale: 1;
+    }
+}
+@media screen and (max-width: 1600px) {
+    :root {
+        --scale: 0.9;
+        --mScale: 0.85;
+    }
+}
+@media screen and (max-width: 1280px) {
+    :root {
+        --scale: 0.8;
+        --mScale: 0.7;
+    }
+}
+@media screen and (max-width: 960px) {
+    :root {
+        --scale: 0.7;
+        --mScale: 0.55;
+    }
+}
+@media screen and (max-width: 640px) {
+    :root {
+        --scale: 0.6;
+        --mScale: 0.45;
+    }
+
+    #menu {
+        top: initial;
+        bottom: calc(68px * var(--scale));
+        left: 50%;
+        transform: translateX(-50%);
+        width: max-content;
+    }
+
+    #resource {
+        position: relative;
+        top: calc(80px * var(--scale));
+        left: 50%;
+        right: initial;
+        transform: translateX(-50%);
+        width: max-content;
+    }
+    .resourceBar {
+        display: inline-block;
+        margin-bottom: calc(32px * var(--scale));
+        margin-left: calc(8px * var(--scale));
+        margin-right: calc(8px * var(--scale));
+    }
+}
+@media screen and (max-width: 360px) {
+    :root {
+        --scale: 0.5;
+        --mScale: 0.4;
+    }
+
+    #menuImg {
+        display: none;
+    }
+}
+
+/* Hex scale modifier */
+@media screen and (max-aspect-ratio: 1/1) {
+    :root {
+        --gScale: 1.2vw;
+    }
+
+    #grid {
+        margin-bottom: calc(264px * var(--scale));
+    }
+}
+@media screen and (min-aspect-ratio: 1/1) {
+    :root {
+        --gScale: 0.8vh;
+    }
+}
