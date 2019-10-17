@@ -9,9 +9,7 @@ import MenuBar from '../components/MenuBar';
 import ResourceBar from '../components/ResourceBar';
 import HexGrid from '../components/HexGrid';
 import logic from '../utils/logic';
-import glob from '../utils/glob';
-import sav from '../utils/sav';
-import Music from '../components/Sound';
+import g from '../utils/globals';
 
 class Game extends React.Component {
 
@@ -55,8 +53,8 @@ class Game extends React.Component {
     statCheck() {
 
         // Check if the player is dead
-        if (sav.health <= 0) {
-            sav.event = {
+        if (g.sav.health <= 0) {
+            g.event = {
                 alert: `Lose`,
                 text: `You have died! You will now be returned to the home page.`
             };
@@ -64,31 +62,28 @@ class Game extends React.Component {
         }
         else {
             // Cap out the resources if you have too much
-            if (sav.health >= glob.HPmax) sav.health = glob.HPmax;
+            if (g.sav.health >= g.glob.HPmax) g.sav.health = g.glob.HPmax;
 
             ////////// ITEM EVENT //////////
-            if (sav.itemCount >= 6) {
-                if (sav.oxygen >= glob.O2maxI) sav.oxygen = glob.O2maxI;
+            if (g.sav.itemCount >= 6) {
+                if (g.sav.oxygen >= g.glob.O2maxI) g.sav.oxygen = g.glob.O2maxI;
             }
             else {
-                if (sav.oxygen >= glob.O2max) sav.oxygen = glob.O2max;
+                if (g.sav.oxygen >= g.glob.O2max) g.sav.oxygen = g.glob.O2max;
             }
             ////////// ITEM EVENT //////////
 
-            if (sav.fuel >= glob.FUELmax) sav.fuel = glob.FUELmax;
-
-            // Save the game to the user database
-            // API.saveGame();
+            if (g.sav.fuel >= g.glob.FUELmax) g.sav.fuel = g.glob.FUELmax;
         }
     }
 
     generateReach() {
 
         // Get current planet
-        let myP = sav.planets[sav.planet].hexes;
+        let myP = g.sav.planets[g.sav.planet].hexes;
 
         // Coordinates of current hex
-        let myXY = sav.coords;
+        let myXY = g.sav.coords;
         let myX = myXY[0];
         let myY = myXY[1];
 
@@ -142,8 +137,8 @@ class Game extends React.Component {
         }
 
         // TESTING //
-        // console.log(`PLANET ${sav.planet + 1}:`);
-        // console.log(sav.planets[sav.planet].hexes);
+        // console.log(`PLANET ${g.sav.planet + 1}:`);
+        // console.log(g.sav.planets[g.sav.planet].hexes);
         // console.log(`\n`);
         // console.log(`------------------------------`);
         // console.log(`\n`);
@@ -156,10 +151,9 @@ class Game extends React.Component {
         return (
             <React.Fragment>
                 <Sky page="game" />
-                <Music />
                 <div id="mainDrop">
                     {this.state.showModalEvent ?
-                        <ModalEvent showModalEvent={this.showModalEvent} hideModals={this.hideModals} /> :
+                        <ModalEvent fSaveGame={this.props.fSaveGame} showModalEvent={this.showModalEvent} hideModals={this.hideModals} /> :
                         <React.Fragment />}
                     {this.state.showModalMenu ?
                         <ModalMenu showModalMenu={this.showModalMenu} hideModals={this.hideModals} /> :

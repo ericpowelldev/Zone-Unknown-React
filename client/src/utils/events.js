@@ -685,13 +685,13 @@ const events = {
         text: `You're back at your ship, what would you like to do now?`,
         choices: [
             {
-                text: `Replenish your O2`
+                text: `Save & replenish your O2`
             },
             {
-                text: `Advance to the next planet`
+                text: `Save & advance to the next planet`
             },
             {
-                text: `Continue`
+                text: `Save & continue`
             }
         ]
     }

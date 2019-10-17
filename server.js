@@ -1,11 +1,8 @@
 // Dependencies
 const express = require(`express`);
-// const mongoose = require(`mongoose`);
-const bodyParser = require('body-parser')
-const morgan = require('morgan')
-const session = require('express-session')
-const dbConnection = require('./database')
-const MongoStore = require('connect-mongo')(session)
+const session = require('express-session');
+const dbConnection = require('./database');
+const MongoStore = require('connect-mongo')(session);
 const passport = require('./passport');
 
 // Initialize Express
@@ -19,18 +16,11 @@ const io = require('socket.io')(server);
 const routes = require("./routes");
 
 // Set PORT
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8080;
 
 // Parse as JSON
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.json());
-app.use(morgan('dev'))
-app.use(
-	bodyParser.urlencoded({
-		extended: false
-	})
-)
-app.use(bodyParser.json())
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // Sessions
 app.use(
@@ -74,11 +64,8 @@ if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 }
 
-// Add routes (Both API & view)
+// Add API routes
 app.use(routes);
-
-// Connect to Mongo DB
-// mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost/zu_db`, { useUnifiedTopology: true, useNewUrlParser: true });
 
 
 // Server listen

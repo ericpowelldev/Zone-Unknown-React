@@ -1,8 +1,8 @@
 import React from 'react';
-import glob from '../utils/glob';
+import { Howl, Howler } from 'howler';
 import events from '../utils/events';
 import logic from '../utils/logic';
-import sav from '../utils/sav';
+import g from '../utils/globals';
 
 class Hex extends React.Component {
 
@@ -10,25 +10,36 @@ class Hex extends React.Component {
         super(props)
     }
 
+    sfx = () => {
+
+        // Play tick sound
+        let sfx = new Howl({ src: [`/sounds/sfx_tick.wav`], volume: 0.15 });
+        sfx.play();
+    }
+
     // Called when any hex is clicked
     handleClick = () => {
+
+        // Play select sound
+        let sfx = new Howl({ src: [`/sounds/sfx_select.wav`], volume: 0.25 });
+        sfx.play();
 
         // If the player can reach this hex
         if (this.props.reach === "true") {
 
             // Get current planet
-            let myP = sav.planets[sav.planet].hexes;
+            let myP = g.sav.planets[g.sav.planet].hexes;
 
             // Get coordinates from hex that was clicked
             let newXY = this.props.coords.split(`, `);
             let newX = parseInt(newXY[0]);
             let newY = parseInt(newXY[1]);
-            sav.coords = [newX, newY];
+            g.sav.coords = [newX, newY];
 
             // Lose oxygen + health if oxygen is below zero
-            sav.oxygen -= glob.O2loss;
-            if (sav.oxygen < 0) {
-                sav.health += sav.oxygen;
+            g.sav.oxygen -= g.glob.O2loss;
+            if (g.sav.oxygen < 0) {
+                g.sav.health += g.sav.oxygen;
             }
             ////////// RENDER THIS RIGHT HERE SOMEHOW //////////
 
@@ -41,15 +52,15 @@ class Hex extends React.Component {
                 this.props.hideModals();
             }
         }
-        else if (this.props.coords === sav.coords.join(`, `)) {
-            sav.event = {
+        else if (this.props.coords === g.sav.coords.join(`, `)) {
+            g.event = {
                 alert: `SameCoords`,
                 text: `You are already on this hex!`
             };
             this.props.showModalEvent();
         }
         else {
-            sav.event = {
+            g.event = {
                 alert: `NoReach`,
                 text: `You cannot reach this hex!`
             };
@@ -108,21 +119,21 @@ class Hex extends React.Component {
         else if (eK === `fuel`) {
             let rdm = logic.rdmInt(0, events.fuel.length - 1);
             e.text = events.fuel[rdm].text;
-            e.change = glob.FUELgain;
+            e.change = g.glob.FUELgain;
             e.stat = `Fuel`;
             e.icon = `/images/vectors/game/fu.svg`;
         }
         else if (eK === `warp`) {
-            e.text = events.warp[sav.warpCount].text;
-            e.change = sav.warpCount + 1;
+            e.text = events.warp[g.sav.warpCount].text;
+            e.change = g.sav.warpCount + 1;
             e.stat = `Warp Pieces Collected`;
-            e.icon = `/images/vectors/warp/${sav.warpCount}.svg`;
+            e.icon = `/images/vectors/warp/${g.sav.warpCount}.svg`;
         }
         else if (eK === `item`) {
-            e.text = events.item[sav.itemCount].text;
-            e.change = sav.itemCount + 1;
+            e.text = events.item[g.sav.itemCount].text;
+            e.change = g.sav.itemCount + 1;
             e.stat = `Items Collected`;
-            e.icon = `/images/vectors/item/${sav.itemCount}.svg`;
+            e.icon = `/images/vectors/item/${g.sav.itemCount}.svg`;
         }
         else if (eK === `ship`) {
             e.obj = events.ship;
@@ -134,14 +145,14 @@ class Hex extends React.Component {
         }
 
         // Assign local event object to new global event object
-        sav.event = e;
+        g.event = e;
 
         // TESTING //
-        console.log(`ASSIGNED EVENT:`);
-        console.log(sav.event);
-        console.log(`\n`);
-        console.log(`------------------------------`);
-        console.log(`\n`);
+        // console.log(`ASSIGNED EVENT:`);
+        // console.log(g.event);
+        // console.log(`\n`);
+        // console.log(`------------------------------`);
+        // console.log(`\n`);
         // TESTING //
 
         // Show the modal after our event is chosen
@@ -159,7 +170,8 @@ class Hex extends React.Component {
                     data-visited={this.props.visited}
                     data-reach={this.props.reach}
                     data-current={this.props.current}
-                    onClick={this.handleClick}>
+                    onClick={this.handleClick}
+                    onMouseEnter={this.sfx}>
                 </div>
                 {/* {this.props.coords === `0, 0` ?
                     <img src="/images/vectors/game/ship.svg" /> :

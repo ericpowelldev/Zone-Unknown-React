@@ -1,7 +1,7 @@
 import React from 'react';
 import ModalChoice from './ModalChoice';
 import ModalResult from './ModalResult';
-import sav from '../utils/sav';
+import g from '../utils/globals';
 
 class ModalEvent extends React.Component {
 
@@ -12,9 +12,9 @@ class ModalEvent extends React.Component {
     render() {
         return (
             <div id="modal">
-                {sav.event.obj ?
-                    <ModalChoice showModalEvent={this.props.showModalEvent} hideModals={this.props.hideModals} /> :
-                    <ModalResult showModalEvent={this.props.showModalEvent} hideModals={this.props.hideModals} />}
+                {g.event.obj ?
+                    <ModalChoice fSaveGame={this.props.fSaveGame} showModalEvent={this.props.showModalEvent} hideModals={this.props.hideModals} /> :
+                    <ModalResult fSaveGame={this.props.fSaveGame} showModalEvent={this.props.showModalEvent} hideModals={this.props.hideModals} />}
             </div>
         )
     }
