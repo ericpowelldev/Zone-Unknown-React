@@ -267,7 +267,7 @@ class App extends React.Component {
     }
     signIn = (username, password) => {
         axios
-            .post('/api/users/', {
+            .post('/api/users/login', {
                 username: username,
                 password: password
             })
