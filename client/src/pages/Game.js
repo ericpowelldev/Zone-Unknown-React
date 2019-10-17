@@ -159,7 +159,7 @@ class Game extends React.Component {
                         <ModalMenu showModalMenu={this.showModalMenu} hideModals={this.hideModals} /> :
                         <React.Fragment />}
                     {this.state.showModalChat ?
-                        <ModalChat showModalChat={this.showModalChat} hideModals={this.hideModals} /> :
+                        <ModalChat showModalChat={this.showModalChat} hideModals={this.hideModals} username={this.props.username} /> :
                         <React.Fragment />}
                     <Nav page="game" />
                     <MenuBar showModalMenu={this.showModalMenu} showModalChat={this.showModalChat} />
