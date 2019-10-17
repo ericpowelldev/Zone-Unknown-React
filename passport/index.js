@@ -3,11 +3,11 @@ const LocalStrategy = require('./localStrategy')
 const User = require('../models/User')
 
 // called on login, saves the id to session req.session.passport.user = {id:'..'}
-passport.serializeUser((user, done) => {
+passport.serializeUser((username, done) => {
 	console.log('*** serializeUser called, user: ')
-	console.log(user) // the whole raw user object!
+	console.log(username) // the whole raw user object!
 	console.log('---------')
-	done(null, { _id: user._id })
+	done(null, { _id: username._id })
 })
 
 // user object attaches to the request as req.user
@@ -16,11 +16,11 @@ passport.deserializeUser((id, done) => {
 	User.findOne(
 		{ _id: id },
 		'username',
-		(err, user) => {
+		(err, username) => {
 			console.log('*** Deserialize user, user:')
-			console.log(user)
+			console.log(username)
 			console.log('--------------')
-			done(null, user)
+			done(null, username)
 		}
 	)
 })

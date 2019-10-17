@@ -1,7 +1,8 @@
 // Dependencies
 const express = require(`express`);
-const mongoose = require(`mongoose`);
-// const bodyParser = require('body-parser')
+// const mongoose = require(`mongoose`);
+const bodyParser = require('body-parser')
+const morgan = require('morgan')
 const session = require('express-session')
 const dbConnection = require('./database')
 const MongoStore = require('connect-mongo')(session)
@@ -21,8 +22,15 @@ const routes = require("./routes");
 const PORT = process.env.PORT || 3001;
 
 // Parse as JSON
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
+app.use(morgan('dev'))
+app.use(
+	bodyParser.urlencoded({
+		extended: false
+	})
+)
+app.use(bodyParser.json())
 
 // Sessions
 app.use(
