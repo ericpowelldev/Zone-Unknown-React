@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Howl, Howler } from 'howler';
 
 class MainForm extends React.Component {
 
@@ -17,7 +18,15 @@ class MainForm extends React.Component {
         this.handleSignUp = this.handleSignUp.bind(this);
     }
 
+    sfx = () => {
+        
+        // Play tick sound
+        let sfx = new Howl({ src: [`/sounds/sfx_tick.wav`], volume: 0.25 });
+        sfx.play();
+    }
+
     handleChange(event) {
+        this.sfx();
         this.setState({ [event.target.name]: event.target.value });
     }
     handleSignIn = () => {
@@ -58,10 +67,10 @@ class MainForm extends React.Component {
                 placeholder="*Confirm Password (Only if signing up)"
                 value={this.state.confirm}
                 onChange={this.handleChange} />
-                <Link to="/" onClick={this.handleSignIn}><div className="mainMenuBtn" id="signInBtn">
+                <Link to="/" onClick={this.handleSignIn}><div className="mainMenuBtn" id="signInBtn" onMouseEnter={this.sfx}>
                     <p className="mainMenuBtnText">Sign In</p>
                 </div></Link>
-                <Link to="/" onClick={this.handleSignUp}><div className="mainMenuBtn" id="signUpBtn">
+                <Link to="/" onClick={this.handleSignUp}><div className="mainMenuBtn" id="signUpBtn" onMouseEnter={this.sfx}>
                     <p className="mainMenuBtnText">Sign Up</p>
                 </div></Link>
             </div>

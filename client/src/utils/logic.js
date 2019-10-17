@@ -1,5 +1,3 @@
-import sav from './sav';
-
 export default {
 
     // Function for a random integer between 2 numbers

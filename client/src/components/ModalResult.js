@@ -1,6 +1,7 @@
 import React from 'react';
-import glob from '../utils/glob';
-import sav from '../utils/sav';
+import { Link } from 'react-router-dom';
+import { Howl, Howler } from 'howler';
+import g from '../utils/globals';
 
 class ModalResult extends React.Component {
 
@@ -10,43 +11,55 @@ class ModalResult extends React.Component {
 
     componentDidMount() {
         // TESTING //
-        console.log(`RESULT EVENT:`);
-        console.log(sav.event);
-        console.log(`\n`);
-        console.log(`------------------------------`);
-        console.log(`\n`);
+        // console.log(`RESULT EVENT:`);
+        // console.log(g.event);
+        // console.log(`\n`);
+        // console.log(`------------------------------`);
+        // console.log(`\n`);
         // TESTING //
+    }
+
+    sfx = () => {
+
+        // Play tick sound
+        let sound = new Howl({ src: [`/sounds/sfx_tick.wav`], volume: 0.15 });
+        sound.play();
     }
 
     handleClick = () => {
 
-        if (sav.event.alert === `Win` || sav.event.alert === `Lose`) {
-            window.location.href = `/`;
+        // Play continue sound
+        let sfx = new Howl({ src: [`/sounds/sfx_continue.wav`], volume: 0.25 });
+        sfx.play();
+
+        // Checks if win or lose
+        if (g.event.alert === `Win` || g.event.alert === `Lose`) {
+            // window.location.href = `/`;
         }
         else {
-            if (sav.event.stat === `Health`) {
+            if (g.event.stat === `Health`) {
                 ////////// ITEM EVENT //////////
-                if (sav.itemCount >= 1 && sav.event.change < 0) sav.health += sav.event.change + 1;
-                else sav.health += sav.event.change;
-                ////////// ITEM EVENT //////////
-            }
-            else if (sav.event.stat === `Oxygen`) {
-                ////////// ITEM EVENT //////////
-                if (sav.itemCount >= 2 && sav.event.change < 0) sav.oxygen += sav.event.change + 1;
-                else sav.oxygen += sav.event.change;
+                if (g.sav.itemCount >= 1 && g.event.change < 0) g.sav.health += g.event.change + 1;
+                else g.sav.health += g.event.change;
                 ////////// ITEM EVENT //////////
             }
-            else if (sav.event.stat === `Fuel`) {
+            else if (g.event.stat === `Oxygen`) {
                 ////////// ITEM EVENT //////////
-                if (sav.itemCount >= 3) sav.fuel += glob.FUELgainI;
-                else sav.fuel += glob.FUELgain;
+                if (g.sav.itemCount >= 2 && g.event.change < 0) g.sav.oxygen += g.event.change + 1;
+                else g.sav.oxygen += g.event.change;
                 ////////// ITEM EVENT //////////
             }
-            else if (sav.event.stat === `Warp Pieces Collected`) {
-                sav.warpCount++;
+            else if (g.event.stat === `Fuel`) {
+                ////////// ITEM EVENT //////////
+                if (g.sav.itemCount >= 3) g.sav.fuel += g.glob.FUELgainI;
+                else g.sav.fuel += g.glob.FUELgain;
+                ////////// ITEM EVENT //////////
             }
-            else if (sav.event.stat === `Items Collected`) {
-                sav.itemCount++;
+            else if (g.event.stat === `Warp Pieces Collected`) {
+                g.sav.warpCount++;
+            }
+            else if (g.event.stat === `Items Collected`) {
+                g.sav.itemCount++;
             }
             else { }
 
@@ -56,23 +69,27 @@ class ModalResult extends React.Component {
 
     render() {
         return (
-            <div className={sav.event.change ? (sav.event.change < 0 ? `mNeg` : `mPos`) : `mNeu`} id="modalEventBox">
-                <p className="lShade" id="modalEventText">{sav.event.text}</p>
-                {sav.event.change ?
+            <div className={g.event.change ? (g.event.change < 0 ? `mNeg` : `mPos`) : `mNeu`} id="modalEventBox">
+                <p className="lShade" id="modalEventText">{g.event.text}</p>
+                {g.event.change ?
                     <div className="modalOutcome">
-                        <p className="anim mShade modalOutcomeText">{sav.event.stat}: </p>
-                        <img className="anim mShade modalOutcomeIcon" src={sav.event.icon} />
+                        <p className="anim mShade modalOutcomeText">{g.event.stat}: </p>
+                        <img className="anim mShade modalOutcomeIcon" src={g.event.icon} />
                         <p className="anim mShade modalOutcomeText">{
-                            (sav.event.stat === `Health` && sav.itemCount >= 1 && sav.event.change < 0) ||
-                            (sav.event.stat === `Oxygen` && sav.itemCount >= 2 && sav.event.change < 0) ||
-                            (sav.event.stat === `Fuel` && sav.itemCount >= 3) ?
-                            sav.event.change + 1 : sav.event.change
+                            (g.event.stat === `Health` && g.sav.itemCount >= 1 && g.event.change < 0) ||
+                                (g.event.stat === `Oxygen` && g.sav.itemCount >= 2 && g.event.change < 0) ||
+                                (g.event.stat === `Fuel` && g.sav.itemCount >= 3) ?
+                                g.event.change + 1 : g.event.change
                         }</p>
                     </div> :
                     <React.Fragment />}
-                <div className="modalBtn" onClick={this.handleClick}>
-                    <p className="modalBtnText">Continue</p>
-                </div>
+                {g.event.alert == `Win` || g.event.alert == `Lose` ?
+                    <Link to="/"><div className="modalBtn" onClick={this.handleClick} onMouseEnter={this.sfx}>
+                        <p className="modalBtnText">Continue</p>
+                    </div></Link> :
+                    <div className="modalBtn" onClick={this.handleClick} onMouseEnter={this.sfx}>
+                        <p className="modalBtnText">Continue</p>
+                    </div>}
             </div>
         )
     }

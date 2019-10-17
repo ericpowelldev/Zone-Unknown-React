@@ -1,6 +1,6 @@
 import React from 'react';
 import Hex from './Hex';
-import sav from '../utils/sav'
+import g from '../utils/globals';
 
 class HexGrid extends React.Component {
 
@@ -9,7 +9,7 @@ class HexGrid extends React.Component {
     }
 
     render() {
-        let myP = sav.planets[sav.planet].hexes;
+        let myP = g.sav.planets[g.sav.planet].hexes;
 
         return (
             <div id="grid" >
