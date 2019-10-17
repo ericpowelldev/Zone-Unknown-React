@@ -13,7 +13,6 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            rdmKey: 0,
             signedIn: false,
             username: null,
             id: null,
@@ -228,7 +227,7 @@ class App extends React.Component {
         return (
             <Router>
                 <Route exact path="/" render={() => <Home fLoadGame={this.loadGame} fNewGame={this.newGame} fSignOut={this.signOut} fSignIn={this.signIn} fSignUp={this.signUp} signedIn={this.state.signedIn} username={this.state.username} />} />
-                <Route exact path="/game" component={() => <Game fSaveGame={this.saveGame} signedIn={this.state.signedIn} username={this.state.username} />} />
+                <Route exact path="/game" component={() => <Game fLoadGame={this.loadGame} fSaveGame={this.saveGame} signedIn={this.state.signedIn} username={this.state.username} />} />
             </Router>
         );
     }
