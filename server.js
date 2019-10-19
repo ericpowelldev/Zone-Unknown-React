@@ -38,14 +38,8 @@ app.use(passport.session()) // calls the deserializeUser
 
 //Socket Connections
 io.on('connection', (client) => {
-	console.log(client.id);
+	console.log(`CLIENT ID SOCKET.IO: ${client.id}`);
 	// interval timer can be removed
-	client.on('subscribeToTimer', (interval) => {
-		console.log('client is subscribing to timer with interval ', interval);
-		setInterval(() => {
-			client.emit('timer', new Date());
-		}, interval);
-	});
 
 	client.on('SEND_MESSAGE', (data) => {
 		console.log("--------------------------------")
