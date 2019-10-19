@@ -40,12 +40,19 @@ class ModalChat extends React.Component {
             this.setState({ message: '' });
             console.log(`MESSAGE SENT FROM CLIENT: ${this.props.username},  ${this.state.message}`);
             this.handleFormSubmit(event);
+            this.scrollToBottom();
         }
     }
 
     // Fills chat with previous messages
     componentDidMount() {
         this.loadMessages();
+    }
+
+    // Scroll chat window down with each new chat
+    scrollToBottom = () => {
+        const objDiv = document.getElementById('chatHistoryStyle');
+        objDiv.scrollTop = objDiv.scrollHeight;
     }
 
     // API call to database for messages
@@ -93,15 +100,13 @@ class ModalChat extends React.Component {
         return (
             <div id="modal">
                 <div className="chatOverlayStyle">
-                    <div className="chatHistoryStyle">
-                        <div className="messageArray">
-                            {this.state.messageArray.map((message, index) => {
-                                return (<p className="chatMessageStyle" key={index}>
-                                    {`${message.author}: ${message.message}`}
-                                </p>)
-                            })}
-                        </div>
-                    </div>
+                    <ul id="chatHistoryStyle">
+                        {this.state.messageArray.map((message, index) => {
+                            return (<li className="chatMessageStyle" key={index}>
+                                {`${message.author}: ${message.message}`}
+                            </li>)
+                        })}
+                    </ul>
                     <div>
                         <form id="chatForm">
                             <input type="text" id="msg_text" name="msg_text" value={this.state.message} onChange={event => this.setState({ message: event.target.value })} />

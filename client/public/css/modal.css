@@ -34,7 +34,7 @@
     width: 19%;
     margin-left: 15px;
 }
-.chatHistoryStyle{
+#chatHistoryStyle{
     background: black;
     border: 2px solid #0080ff;
     height: 480px;
