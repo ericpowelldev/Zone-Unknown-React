@@ -1,18 +1,37 @@
+/* ////////////////////////CHAT///////////////////// */
+
+body{
+  overflow: hidden;
+}
 .chatMessageStyle{
-    color: #0080ff;
+    color: #005dbb;  
     z-index: 40;
     padding: 10px;
     font-size: 20px;
-    border-bottom: dotted 1px grey;
+    border-bottom: double;
+    border-bottom-width: 1px; 
+    border-bottom-color: lightblue;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top: double;
+    border-top-width: 1px; 
+    border-top-color: #00ffA0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-bottom: 2px;
+}
+.chatUser{
+    color: #0080ff;
+    font-weight: bold;
 }
 .chatOverlayStyle {
- position: relative;
- top: 50px;
- width: 87%;
- max-height: 100%;
- text-align: center;
- margin-top: 30px;
- margin: auto;
+    position: relative;
+    top: 50px;
+    width: 87%;
+    max-height: 100%;
+    text-align: center;
+    margin-top: 30px;
+    margin: auto;
 }
 #chatForm {
     margin: 15px;
@@ -37,7 +56,8 @@
 #chatHistoryStyle{
     background: black;
     border: 2px solid #0080ff;
-    height: 480px;
+    border-radius: 10px;
+    height: 450px;
     overflow-y: scroll;
     overflow-x: wrap;
     word-wrap: break-word;
@@ -45,3 +65,66 @@
     text-align: left;
     padding: 5px;
 }
+   /* width */
+   ::-webkit-scrollbar {
+    width: 20px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+    background:black;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #0080ff; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: lightskyblue; 
+  }
+
+  /* /////////////////////MENU////////////////////// */
+
+  .menuModalStyle{
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+    overflow-y: auto;
+    overflow-x: wrap;
+    max-height: 75%;
+
+  }
+
+  .howTo{
+    font-size: 30px;
+    padding: 10px;
+    color: #86b9ec;
+  }
+  
+  .menuPara{
+    padding: 5px;
+    color: #005dbb; 
+    font-size: 18px;    
+  }
+
+  .ulMenu{
+    padding: 5px;
+    text-align: left;
+    color: #0080ff;
+  }
+
+  .olMenu{
+    padding: 5px;
+    text-align: left;
+    color: #0080ff;
+  }
+
+  li{
+    line-height: 18px;
+  }
