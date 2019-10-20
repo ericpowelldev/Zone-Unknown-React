@@ -1,4 +1,5 @@
 import React from 'react';
+import * as ReactDOM from 'react-dom';
 import { Howl, Howler } from 'howler';
 import io from 'socket.io-client';
 import API from '../utils/API';
@@ -49,10 +50,19 @@ class ModalChat extends React.Component {
         this.loadMessages();
     }
 
+    // Updates the scroll every time a message is rendered
+    componentDidUpdate() {
+        this.scrollToBottom();
+    }
+
     // Scroll chat window down with each new chat
     scrollToBottom = () => {
-        const objDiv = document.getElementById('chatHistoryStyle');
-        objDiv.scrollTop = objDiv.scrollHeight;
+        const { messageList } = this.refs;
+        const scrollHeight = messageList.scrollHeight;
+        const height = messageList.clientHeight;
+        const maxScrollTop = scrollHeight - height;
+        ReactDOM.findDOMNode(messageList).scrollTop = maxScrollTop > 0 ?
+            maxScrollTop : 0;
     }
 
     // API call to database for messages
@@ -100,10 +110,10 @@ class ModalChat extends React.Component {
         return (
             <div id="modal">
                 <div className="chatOverlayStyle">
-                    <ul id="chatHistoryStyle">
+                    <ul id="chatHistoryStyle" ref="messageList">
                         {this.state.messageArray.map((message, index) => {
                             return (<li className="chatMessageStyle" key={index}>
-                                {`${message.author}: ${message.message}`}
+                                <span className="chatUser">{`${message.author}:`}</span>{` ${message.message}`}
                             </li>)
                         })}
                     </ul>
