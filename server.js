@@ -16,15 +16,14 @@ const io = require('socket.io')(server);
 const routes = require("./routes");
 
 // Set PORT
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3001;
 
 // Parse as JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // MongoDB connection
-// mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost:27017/zu_db`, { useUnifiedTopology: true, useNewUrlParser: true });
-mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost:27017/zu_db`);
+mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost:27017/zu_db`, { useUnifiedTopology: true, useNewUrlParser: true });
 
 // Sessions
 app.use(
@@ -64,7 +63,6 @@ if (process.env.NODE_ENV === "production") {
 
 // Add API routes
 app.use(routes);
-
 
 // Server listen
 server.listen(PORT, function () {

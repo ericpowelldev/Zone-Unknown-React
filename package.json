@@ -6,16 +6,17 @@
   "license": "ISC",
   "main": "server.js",
   "dependencies": {
+    "axios": "^0.19.0",
     "bcryptjs": "^2.4.3",
     "connect-mongo": "^3.0.0",
     "express": "^4.17.1",
     "express-session": "^1.16.2",
+    "howler": "^2.1.2",
     "http": "0.0.0",
     "if-env": "^1.0.4",
     "mongoose": "^5.7.3",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "react-scroll": "^1.7.14",
     "socket.io": "^2.3.0"
   },
   "devDependencies": {
@@ -31,12 +32,5 @@
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ericpowell3d/Zone-Unknown-React.git"
-  },
-  "bugs": {
-    "url": "https://github.com/ericpowell3d/Zone-Unknown-React/issues"
   }
 }
