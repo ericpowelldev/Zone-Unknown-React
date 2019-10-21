@@ -23,8 +23,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // MongoDB connection
-mongoose.Promise = global.Promise;
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://user1:password1@ds235378.mlab.com:35378/heroku_8zlt8b4d' || 'mongodb://localhost:27017/zu_db', { useUnifiedTopology: true, useNewUrlParser: true });
+// mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost:27017/zu_db`, { useUnifiedTopology: true, useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost:27017/zu_db`);
 
 // Sessions
 app.use(
@@ -34,7 +34,7 @@ app.use(
 		resave: false, //required
 		saveUninitialized: false //required
 	})
-)
+);
 
 // Passport
 app.use(passport.initialize())

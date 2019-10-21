@@ -42,7 +42,7 @@ class App extends React.Component {
             let music = new Howl({ src: [`/sounds/ccm1.mp3`], volume: 0.333, onend: () => this.playTrack2() });
             music.play();
         }
-        else {}
+        else { }
     }
     playTrack2() {
         console.log(`PLAYING TRACK 2`);
@@ -50,7 +50,7 @@ class App extends React.Component {
             let music = new Howl({ src: [`/sounds/ccm2.mp3`], volume: 0.25, onend: () => this.playTrack3() });
             music.play();
         }
-        else {}
+        else { }
     }
     playTrack3() {
         console.log(`PLAYING TRACK 3`);
@@ -58,7 +58,7 @@ class App extends React.Component {
             let music = new Howl({ src: [`/sounds/ccm3.mp3`], volume: 0.25, onend: () => this.playTrack4() });
             music.play();
         }
-        else {}
+        else { }
     }
     playTrack4() {
         console.log(`PLAYING TRACK 4`);
@@ -66,7 +66,7 @@ class App extends React.Component {
             let music = new Howl({ src: [`/sounds/ccm4.mp3`], volume: 0.25, onend: () => this.playTrack1() });
             music.play();
         }
-        else {}
+        else { }
     }
 
 
@@ -223,29 +223,26 @@ class App extends React.Component {
         sfx.play();
 
         if (username && password && confirm && password === confirm) {
-            this.genSav();
-            console.log(`--SIGN UP ATTEMPT--`);
-            axios
-                .post(`/api/users/`, {
-                    username: username,
-                    password: password,
-                    sav: JSON.stringify(g.sav)
-                })
-                .then(res => {
-                    console.log(res.data)
-                    if (!res.data.errmsg) {
-                        this.signIn(username, password);
-                        console.log(`--SIGN UP SUCCESS--`);
-                    }
-                    else {
+            if (username.length >= 3 && password.length >= 3) {
+                this.genSav();
+                console.log(`--SIGN UP ATTEMPT--`);
+                axios
+                    .post(`/api/users/`, {
+                        username: username,
+                        password: password,
+                        sav: JSON.stringify(g.sav)
+                    })
+                    .then(res => {
+                        if (res.status === 200) {
+                            this.signIn(username, password);
+                            console.log(`--SIGN UP SUCCESS--`);
+                        }
+                    })
+                    .catch(error => {
                         console.log(`--SIGN UP ERROR--`);
-                        console.log(`ERROR:\nUsername "${username}" already taken!`);
-                    }
-                })
-                .catch(error => {
-                    console.log(`--SIGN UP ERROR--`);
-                    console.log(`ERROR:\n${error}`);
-                });
+                        console.log(`ERROR:\n${error}`);
+                    });
+            }
         }
     }
 
