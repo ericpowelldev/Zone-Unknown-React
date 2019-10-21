@@ -1,14 +1,14 @@
 // Dependencies
 const express = require(`express`);
 const session = require('express-session');
-const dbConnection = require('./database');
+const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
 const passport = require('./passport');
 
 // Initialize Express
 const app = express();
 
-//Socket.io Server
+// Socket.io Server
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
@@ -22,11 +22,15 @@ const PORT = process.env.PORT || 8080;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// MongoDB connection
+mongoose.Promise = global.Promise;
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://user1:password1@ds235378.mlab.com:35378/heroku_8zlt8b4d' || 'mongodb://localhost:27017/zu_db', { useUnifiedTopology: true, useNewUrlParser: true });
+
 // Sessions
 app.use(
 	session({
 		secret: 'lucky-charms', //pick a random string to make the hash that is generated secure
-		store: new MongoStore({ mongooseConnection: dbConnection }),
+		store: new MongoStore({ mongooseConnection: mongoose.connection }),
 		resave: false, //required
 		saveUninitialized: false //required
 	})

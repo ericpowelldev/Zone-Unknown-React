@@ -1,3 +1,5 @@
+import g from './globals'
+
 // Global positive/negative constants
 const GPOS = 2;
 const GNEG = -4;
@@ -678,7 +680,7 @@ const events = {
             text: `You found the AI Drone Upgrade! This item helps you achieve better outcomes on dynamic O2 events.`
         },
         {
-            text: `You found the Efficiency Tank! This item gives a +5 bonus when replenishing your oxygen at the ship & raises your max oxygen to 30.`
+            text: `You found the Efficiency Tank! This item gives a +${g.glob.O2gainI - g.glob.O2gain} bonus when replenishing your O2 at the ship & raises your max O2 from ${g.glob.O2max} to ${g.glob.O2maxI}.`
         },
     ],
     ship: {

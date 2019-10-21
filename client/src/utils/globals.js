@@ -23,8 +23,8 @@ let g = {
     // Default persistent save object
     sav: {
         version: `0.2.0`, // Version of game the save was created in
-        health: 20, // Health resource
-        oxygen: 20, // Oxygen resource
+        health: 15, // Health resource
+        oxygen: 15, // Oxygen resource
         fuel: 0, // Fuel collected
         warpCount: 0, // Warp drive pieces collected
         itemCount: 0, // Items collected

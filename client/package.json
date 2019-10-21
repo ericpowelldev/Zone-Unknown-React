@@ -2,7 +2,7 @@
   "name": "zone-unknown-react",
   "version": "0.2.0",
   "description": "Zone Unknown React game",
-  "author": "Eric Powell",
+  "author": "The Pompous Assets",
   "license": "ISC",
   "private": true,
   "proxy": "http://localhost:8080/",
