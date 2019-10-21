@@ -1,29 +1,32 @@
 /* ////////////////////////CHAT///////////////////// */
 
-body{
-  overflow: hidden;
+body {
+    overflow: hidden;
 }
-.chatMessageStyle{
-    color: #005dbb;  
+
+.chatMessageStyle {
+    color: #005dbb;
     z-index: 40;
     padding: 10px;
     font-size: 20px;
     border-bottom: double;
-    border-bottom-width: 1px; 
+    border-bottom-width: 1px;
     border-bottom-color: lightblue;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     border-top: double;
-    border-top-width: 1px; 
+    border-top-width: 1px;
     border-top-color: #00ffA0;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     margin-bottom: 2px;
 }
-.chatUser{
+
+.chatUser {
     color: #0080ff;
     font-weight: bold;
 }
+
 .chatOverlayStyle {
     position: relative;
     top: 50px;
@@ -33,15 +36,18 @@ body{
     margin-top: 30px;
     margin: auto;
 }
+
 #chatForm {
     margin: 15px;
 }
+
 #msg_text {
     border: 2px solid #0080ff;
     border-radius: 5px;
     padding: 5px;
     width: 75%;
 }
+
 #submit {
     background: #0080ff;
     border: none;
@@ -53,7 +59,8 @@ body{
     width: 19%;
     margin-left: 15px;
 }
-#chatHistoryStyle{
+
+#chatHistoryStyle {
     background: black;
     border: 2px solid #0080ff;
     border-radius: 10px;
@@ -65,66 +72,65 @@ body{
     text-align: left;
     padding: 5px;
 }
-   /* width */
-   ::-webkit-scrollbar {
+
+/* width */
+
+::-webkit-scrollbar {
     width: 20px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey; 
-    border-radius: 10px;
-    background:black;
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #0080ff; 
-    border-radius: 10px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: lightskyblue; 
-  }
+}
 
-  /* /////////////////////MENU////////////////////// */
+/* Track */
 
-  .menuModalStyle{
-    text-align: center;
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+    background: black;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: #0080ff;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+    background: lightskyblue;
+}
+
+/* /////////////////////MENU////////////////////// */
+
+.menuModalStyle {
     width: 80%;
     margin: auto;
-    margin-top: 30px;
+    margin-top: calc(32px * var(--scale));
     overflow-y: auto;
     overflow-x: wrap;
     max-height: 75%;
+}
 
-  }
-
-  .howTo{
-    font-size: 30px;
-    padding: 10px;
+.howTo {
+    font-size: calc(32px * var(--scale));
+    padding: 12px;
     color: #86b9ec;
-  }
-  
-  .menuPara{
-    padding: 5px;
-    color: #005dbb; 
-    font-size: 18px;    
-  }
+}
 
-  .ulMenu{
-    padding: 5px;
-    text-align: left;
+.menuPara {
+    font-size: calc(21px * var(--scale));
+    padding: 12px;
+    color: #005dbb;
+}
+
+.ulMenu {
+    font-size: calc(18px * var(--scale));
+    padding: 6px;
     color: #0080ff;
-  }
+}
 
-  .olMenu{
-    padding: 5px;
-    text-align: left;
+.olMenu {
+    font-size: calc(18px * var(--scale));
+    padding: 6px;
     color: #0080ff;
-  }
-
-  li{
-    line-height: 18px;
-  }
+}
