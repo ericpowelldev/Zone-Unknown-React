@@ -36,7 +36,7 @@ class ModalMenu extends React.Component {
                     <li>- Save and replenish oxygen requires 3 Fuel, and will replenish 10 oxygen</li>
                     <li>- Save and go to next planet requires you to find the warp piece on that planet before you can continue, and once you are on the third planet you need to find the final warp piece and Uranium before you are able to go home </li>
                 </ul>
-                <p className="menuPara">You will always start the game with 20 HP and 20 Oxygen and no Fuel or Items. You will gather Fuel as you explore the planet. </p>
+                <p className="menuPara">You will always start the game with 15 HP and 15 Oxygen and no Fuel or Items. You will gather Fuel as you explore the planet. </p>
                 <p className="menuPara">Along the way you may also find other items that will increase your chances of survival. There are six items in all that can assist you on your journey.</p>
                 <ol className="olMenu">
                     <li>i. Shield: This item gives a +1 defense bonus on all negative HP events</li>
