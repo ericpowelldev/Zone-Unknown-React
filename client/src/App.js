@@ -78,15 +78,15 @@ class App extends React.Component {
 
                 // If there is a user
                 if (res.data.user) {
-                    this.setState({ signedIn: true, username: res.data.user.username, id: res.data.user._id });
                     console.log(`--GET USER SUCCESS--`);
                     console.log(`USER:`);
                     console.log(res.data.user);
+                    this.setState({ signedIn: true, username: res.data.user.username, id: res.data.user._id });
                 }
                 else {
-                    this.setState({ signedIn: false, username: null, id: null });
                     console.log(`--GET USER ERROR--`);
                     console.log(`ERROR:\nUser not found!`);
+                    this.setState({ signedIn: false, username: null, id: null });
                 }
             })
             .catch(error => {
@@ -100,8 +100,10 @@ class App extends React.Component {
     loadGame = () => {
 
         // Play start sound
-        let sfx = new Howl({ src: [`/sounds/sfx_start.wav`], volume: 0.25 });
-        sfx.play();
+        if (this.state.sound) {
+            let sfx = new Howl({ src: [`/sounds/sfx_start.wav`], volume: 0.25 });
+            sfx.play();
+        }
 
         // Reset coords
         g.sav.coords = [0, 0];
@@ -123,8 +125,10 @@ class App extends React.Component {
     newGame = () => {
 
         // Play start sound
-        let sfx = new Howl({ src: [`/sounds/sfx_start.wav`], volume: 0.25 });
-        sfx.play();
+        if (this.state.sound) {
+            let sfx = new Howl({ src: [`/sounds/sfx_start.wav`], volume: 0.25 });
+            sfx.play();
+        }
 
         // Reset coords
         g.sav.coords = [0, 0];
@@ -146,8 +150,10 @@ class App extends React.Component {
     saveGame = () => {
 
         // Play start sound
-        let sfx = new Howl({ src: [`/sounds/sfx_start.wav`], volume: 0.25 });
-        sfx.play();
+        if (this.state.sound) {
+            let sfx = new Howl({ src: [`/sounds/sfx_start.wav`], volume: 0.25 });
+            sfx.play();
+        }
 
         // Reset coords
         g.sav.coords = [0, 0];
@@ -171,8 +177,10 @@ class App extends React.Component {
     signOut = () => {
 
         // Play back sound
-        let sfx = new Howl({ src: [`/sounds/sfx_back.wav`], volume: 0.25 });
-        sfx.play();
+        if (this.state.sound) {
+            let sfx = new Howl({ src: [`/sounds/sfx_back.wav`], volume: 0.25 });
+            sfx.play();
+        }
 
         console.log(`--SIGN OUT ATTEMPT--`);
         axios
@@ -180,8 +188,8 @@ class App extends React.Component {
             .then(res => {
                 console.log(res.data);
                 if (res.status === 200) {
-                    this.setState({ signedIn: false, username: null, id: null });
                     console.log(`--SIGN OUT SUCCESS--`);
+                    this.setState({ signedIn: false, username: null, id: null });
                 }
             })
             .catch(error => {
@@ -192,8 +200,10 @@ class App extends React.Component {
     signIn = (username, password) => {
 
         // Play continue sound
-        let sfx = new Howl({ src: [`/sounds/sfx_continue.wav`], volume: 0.25 });
-        sfx.play();
+        if (this.state.sound) {
+            let sfx = new Howl({ src: [`/sounds/sfx_continue.wav`], volume: 0.25 });
+            sfx.play();
+        }
 
         if (username && password) {
             console.log(`--SIGN IN ATTEMPT--`);
@@ -204,10 +214,10 @@ class App extends React.Component {
                 })
                 .then(res => {
                     if (res.status === 200) {
-                        this.setState({ signedIn: true, username: username, id: res.data.id });
                         console.log(`--SIGN IN SUCCESS--`);
                         console.log(`USER:`);
                         console.log(res.data.username);
+                        this.setState({ signedIn: true, username: username, id: res.data.id });
                     }
                 })
                 .catch(error => {
@@ -219,8 +229,10 @@ class App extends React.Component {
     signUp = (username, password, confirm) => {
 
         // Play continue sound
-        let sfx = new Howl({ src: [`/sounds/sfx_continue.wav`], volume: 0.25 });
-        sfx.play();
+        if (this.state.sound) {
+            let sfx = new Howl({ src: [`/sounds/sfx_continue.wav`], volume: 0.25 });
+            sfx.play();
+        }
 
         if (username && password && confirm && password === confirm) {
             if (username.length >= 3 && password.length >= 3) {
@@ -234,8 +246,8 @@ class App extends React.Component {
                     })
                     .then(res => {
                         if (res.status === 200) {
-                            this.signIn(username, password);
                             console.log(`--SIGN UP SUCCESS--`);
+                            this.signIn(username, password);
                         }
                     })
                     .catch(error => {

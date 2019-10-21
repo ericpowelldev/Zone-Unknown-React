@@ -15,7 +15,7 @@ class ModalChat extends React.Component {
         };
 
         // Constant server connects Socket.io to Socket.io-client
-        this.socket = io(process.env.PORT || 'localhost:8080');
+        this.socket = io(process.env.PORT || 'localhost:3001');
 
         // Message posts when recieved from server and runs postMessage function
         const postMessage = (data, cb) => {
