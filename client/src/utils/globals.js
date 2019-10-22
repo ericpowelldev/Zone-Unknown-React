@@ -114,7 +114,7 @@ let g = {
                         visited: `false`,
                         reach: `true`,
                         current: `false`,
-                        event: `ship`,
+                        event: ``,
                         class: `hex`
                     },
                     {
@@ -342,7 +342,7 @@ let g = {
                         visited: `false`,
                         reach: `false`,
                         current: `false`,
-                        event: `ship`,
+                        event: ``,
                         class: `hex`
                     },
                     {
@@ -738,7 +738,7 @@ let g = {
                         visited: `false`,
                         reach: `false`,
                         current: `false`,
-                        event: `ship`,
+                        event: ``,
                         class: `hex`
                     },
                     {

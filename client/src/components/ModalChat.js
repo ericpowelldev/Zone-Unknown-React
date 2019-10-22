@@ -1,6 +1,6 @@
 import React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Howl, Howler } from 'howler';
+import { Howl } from 'howler';
 import socketIOClient from 'socket.io-client';
 import API from '../utils/API';
 
@@ -23,7 +23,6 @@ class ModalChat extends React.Component {
         const postMessage = (data, cb) => {
             socket.on('RECEIVE_MESSAGE', message => cb(null, message));
             socket.emit('postMessage', data);
-            console.log(this.state.messageArray);
         };
 
         // Pushes emitted message to messageArray and resets state to update array
@@ -51,7 +50,7 @@ class ModalChat extends React.Component {
             });
 
             this.setState({ message: '' });
-            console.log(`MESSAGE SENT FROM CLIENT: ${this.props.username},  ${this.state.message}`);
+            console.log(`MESSAGE SENT:`);
             this.handleFormSubmit(event);
             this.scrollToBottom();
         }
@@ -62,7 +61,7 @@ class ModalChat extends React.Component {
         this.loadMessages();
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         socket.off()
     }
 
@@ -83,12 +82,11 @@ class ModalChat extends React.Component {
 
     // API call to database for messages
     loadMessages = () => {
-        API.getMessage()
-            .then(res => this.setState({
-                messageArray: res.data.map(item => {
-                    return { author: item.author, message: item.message }
-                })
-            }))
+        API
+            .getMessages()
+            .then(res => {
+                let newArray = res.data.reverse();
+                this.setState({messageArray: newArray.map(item => {return { author: item.author, message: item.message }})})})
             .catch(err => console.log(err));
     }
 
@@ -97,10 +95,11 @@ class ModalChat extends React.Component {
         event.preventDefault();
         // Checks to see if both fields have value
         if (this.props.username && this.state.message) {
-            API.saveMessage({
-                author: this.props.username,
-                message: this.state.message
-            })
+            API
+                .saveMessage({
+                    author: this.props.username,
+                    message: this.state.message
+                })
                 .then(res => console.log(res))
                 .catch(err => console.log(err))
         }
@@ -140,7 +139,7 @@ class ModalChat extends React.Component {
                         </form>
                     </div>
 
-                    <img className="anim mShade" id="modalClose" src="/images/vectors/modal/close.svg" onClick={this.handleClick} onMouseEnter={this.sfx} />
+                    <img className="anim mShade" id="modalClose" alt="Close" src="/images/vectors/modal/close.svg" onClick={this.handleClick} onMouseEnter={this.sfx} />
                 </div>
             </div>
         )

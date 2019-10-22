@@ -1,14 +1,10 @@
 import React from 'react';
-import { Howl, Howler } from 'howler';
+import { Howl } from 'howler';
 import events from '../utils/events';
 import logic from '../utils/logic';
 import g from '../utils/globals';
 
 class Hex extends React.Component {
-
-    constructor(props) {
-        super(props)
-    }
 
     sfx = () => {
 
@@ -142,6 +138,7 @@ class Hex extends React.Component {
         }
         else {
             console.log(`Begone demon!`);
+            window.location.href = `/`;
         }
 
         // Assign local event object to new global event object
@@ -172,9 +169,9 @@ class Hex extends React.Component {
                 onClick={this.handleClick}
                 onMouseEnter={this.sfx}>
                 {this.props.coords === `0, 0` ?
-                    <img id="hexShip" src="/images/vectors/game/ship.svg" /> :
+                    <img id="hexShip" alt="" src="/images/vectors/game/ship.svg" /> :
                     (this.props.coords === `${g.sav.coords[0]}, ${g.sav.coords[1]}` ?
-                        <img id="hexPlayer" src="/images/vectors/game/player.svg" /> :
+                        <img id="hexPlayer" alt="" src="/images/vectors/game/player.svg" /> :
                         <React.Fragment />)}
             </div>
         )

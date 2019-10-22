@@ -2,22 +2,23 @@ import React from 'react';
 import Sky from '../components/Sky';
 import ModalEvent from '../components/ModalEvent';
 import ModalMenu from '../components/ModalMenu';
+import ModalHowTo from '../components/ModalHowTo';
 import ModalChat from '../components/ModalChat';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import MenuBar from '../components/MenuBar';
 import ResourceBar from '../components/ResourceBar';
 import HexGrid from '../components/HexGrid';
-import Sound from '../components/Sound';
 import logic from '../utils/logic';
 import g from '../utils/globals';
 
 class Game extends React.Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.showModalEvent = this.showModalEvent.bind(this);
         this.showModalMenu = this.showModalMenu.bind(this);
+        this.showModalHowTo = this.showModalHowTo.bind(this);
         this.showModalChat = this.showModalChat.bind(this);
         this.hideModals = this.hideModals.bind(this);
     }
@@ -25,6 +26,7 @@ class Game extends React.Component {
     state = {
         showModalEvent: false,
         showModalMenu: false,
+        showModalHowTo: false,
         showModalChat: false,
         key: 0
     }
@@ -34,19 +36,23 @@ class Game extends React.Component {
     }
 
     showModalEvent() {
-        this.setState({ showModalEvent: true, showModalMenu: false, showModalChat: false });
+        this.setState({ showModalEvent: true, showModalMenu: false, showModalHowTo: false, showModalChat: false });
         this.generateReach();
     }
     showModalMenu() {
-        this.setState({ showModalEvent: false, showModalMenu: true, showModalChat: false });
+        this.setState({ showModalEvent: false, showModalMenu: true, showModalHowTo: false, showModalChat: false });
+        this.generateReach();
+    }
+    showModalHowTo() {
+        this.setState({ showModalEvent: false, showModalMenu: false, showModalHowTo: true, showModalChat: false });
         this.generateReach();
     }
     showModalChat() {
-        this.setState({ showModalEvent: false, showModalMenu: false, showModalChat: true });
+        this.setState({ showModalEvent: false, showModalMenu: false, showModalHowTo: false, showModalChat: true });
         this.generateReach();
     }
     hideModals() {
-        this.setState({ showModalEvent: false, showModalMenu: false, showModalChat: false });
+        this.setState({ showModalEvent: false, showModalMenu: false, showModalHowTo: false, showModalChat: false });
         this.statCheck();
         this.generateReach();
     }
@@ -92,7 +98,6 @@ class Game extends React.Component {
         for (let i = 0; i < myP.length; i++) {
 
             // Coordinates of current hex
-            let thisXY = myP[i].hexXY;
             let thisX = myP[i].hexXY[0];
             let thisY = myP[i].hexXY[1];
 
@@ -152,19 +157,21 @@ class Game extends React.Component {
         return (
             <React.Fragment>
                 <Sky page="game" />
-                <Sound />
                 <div id="mainDrop">
                     {this.state.showModalEvent ?
-                        <ModalEvent fSaveGame={this.props.fSaveGame} showModalEvent={this.showModalEvent} hideModals={this.hideModals} /> :
+                        <ModalEvent fChangePage={this.props.fChangePage} fSaveGame={this.props.fSaveGame} showModalEvent={this.showModalEvent} hideModals={this.hideModals} /> :
                         <React.Fragment />}
                     {this.state.showModalMenu ?
                         <ModalMenu showModalMenu={this.showModalMenu} hideModals={this.hideModals} /> :
                         <React.Fragment />}
+                    {this.state.showModalHowTo ?
+                        <ModalHowTo showModalHowTo={this.showModalHowTo} hideModals={this.hideModals} /> :
+                        <React.Fragment />}
                     {this.state.showModalChat ?
                         <ModalChat showModalChat={this.showModalChat} hideModals={this.hideModals} username={this.props.username} /> :
                         <React.Fragment />}
-                    <Nav page="game" />
-                    <MenuBar showModalMenu={this.showModalMenu} showModalChat={this.showModalChat} />
+                    <Nav fChangePage={this.props.fChangePage} page="game" />
+                    <MenuBar page="game" showModalMenu={this.showModalMenu} showModalHowTo={this.showModalHowTo} showModalChat={this.showModalChat} />
                     <ResourceBar />
                     <HexGrid showModalEvent={this.showModalEvent} hideModals={this.hideModals} />
                     <Footer page="game" />

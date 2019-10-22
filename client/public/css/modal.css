@@ -5,25 +5,25 @@ body {
 }
 
 .chatMessageStyle {
-    color: #005dbb;
+    color: #dcdcffa0;
     z-index: 40;
     padding: 10px;
     font-size: 20px;
     border-bottom: double;
     border-bottom-width: 1px;
-    border-bottom-color: lightblue;
+    border-bottom-color: #dcdcff;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     border-top: double;
     border-top-width: 1px;
-    border-top-color: #00ffA0;
+    border-top-color: #dcdcff;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     margin-bottom: 2px;
 }
 
 .chatUser {
-    color: #0080ff;
+    color: #dcdcff;
     font-weight: bold;
 }
 
@@ -42,7 +42,7 @@ body {
 }
 
 #msg_text {
-    border: 2px solid #0080ff;
+    border: 2px solid #dcdcff;
     border-radius: 5px;
     padding: 5px;
     width: 75%;
@@ -104,33 +104,34 @@ body {
 
 .menuModalStyle {
     width: 80%;
+    max-height: 80%;
     margin: auto;
     margin-top: calc(32px * var(--scale));
     overflow-y: auto;
     overflow-x: wrap;
-    max-height: 75%;
+    line-height: calc(24px * var(--scale));
 }
 
 .howTo {
     font-size: calc(32px * var(--scale));
     padding: 12px;
-    color: #86b9ec;
+    color: #dcdcff;
 }
 
 .menuPara {
     font-size: calc(21px * var(--scale));
     padding: 12px;
-    color: #005dbb;
+    color: #ffffff;
 }
 
 .ulMenu {
     font-size: calc(18px * var(--scale));
     padding: 6px;
-    color: #0080ff;
+    color: #dcdcff;
 }
 
 .olMenu {
     font-size: calc(18px * var(--scale));
     padding: 6px;
-    color: #0080ff;
+    color: #dcdcff;
 }

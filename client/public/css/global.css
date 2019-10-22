@@ -24,6 +24,10 @@
     background: #0050ff;
 }
 
+::placeholder {
+    color: #ffffff64;
+}
+
 .anim, a {
     transition: 0.2s ease-in-out;
 }
@@ -37,6 +41,10 @@
 .hShade {
     filter: drop-shadow(calc(4px * var(--scale)) calc(4px * var(--scale)) calc(3px * var(--scale)) #18181ea0);
 }
+
+ul {
+    list-style-type: disc;
+}
   
 body {
     font-family: 'Rajdhani', sans-serif;
@@ -46,23 +54,6 @@ body {
     background: #000;
     background-attachment: fixed;
     overflow-y: auto;
-}
-
-
-
-#sound {
-    z-index: 11;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    max-width: calc(80px * var(--scale));
-    max-height: calc(80px * var(--scale));
-    padding: calc(12px * var(--scale));
-    opacity: 0.5;
-}
-#sound:hover {
-    cursor: pointer;
-    opacity: 1;
 }
 
 
@@ -90,6 +81,9 @@ nav {
     max-height: calc(100px * var(--scale));
     padding: calc(16px * var(--scale)) 0;
     /* mix-blend-mode: multiply; */
+}
+#navHead:hover {
+    cursor: pointer;
 }
 
 footer {
@@ -179,7 +173,7 @@ footer a:hover {
     transition: 0.2s ease-in-out;
 }
 #mainMenuExplain {
-    font-size: calc(16px * var(--mScale));
+    font-size: calc(18px * var(--mScale));
     font-weight: 400;
     line-height: calc(24px * var(--mScale));
     margin-bottom: calc(32px * var(--mScale));
@@ -200,12 +194,26 @@ footer a:hover {
 .mainMenuBtnText {
     transition: none;
 }
-#mainMenuImgS {
+.mainMenuImg1 {
     position: absolute;
-    bottom: calc(55px * var(--mScale));
-    right: calc(64px * var(--mScale));
-    max-width: calc(40px * var(--mScale));
-    max-height: calc(40px * var(--mScale));
+    bottom: calc(197px * var(--mScale));
+    right: calc(68px * var(--mScale));
+    max-width: calc(36px * var(--mScale));
+    max-height: calc(36px * var(--mScale));
+}
+.mainMenuImg2 {
+    position: absolute;
+    bottom: calc(127px * var(--mScale));
+    right: calc(68px * var(--mScale));
+    max-width: calc(36px * var(--mScale));
+    max-height: calc(36px * var(--mScale));
+}
+.mainMenuImg3 {
+    position: absolute;
+    bottom: calc(57px * var(--mScale));
+    right: calc(68px * var(--mScale));
+    max-width: calc(36px * var(--mScale));
+    max-height: calc(36px * var(--mScale));
 }
 
 #loadBtn {
@@ -229,14 +237,14 @@ footer a:hover {
     background: #0080ff;
 }
 #signOutBtn {
-    border: calc(3px * var(--mScale)) solid #ff004040;
+    border: calc(3px * var(--mScale)) solid #ff006040;
     color: #fff;
-    background: #ff004040;
+    background: #ff006040;
 }
 #signOutBtn:hover {
     border-color: #00000000;
     color: #fff;
-    background: #ff0040;
+    background: #ff0050;
 }
 #signInBtn {
     border: calc(3px * var(--mScale)) solid #00ffa040;
@@ -262,10 +270,11 @@ footer a:hover {
 
 
 #menu {
-    z-index: 5;
+    z-index: 11;
     position: fixed;
     top: calc(12px * var(--scale));
     left: calc(12px * var(--scale));
+    max-width: calc(128px * var(--scale));
     /* background: #ffffff20; */
 }
 #menuBar {
@@ -275,12 +284,6 @@ footer a:hover {
     margin-bottom: calc(12px * var(--scale));
     background: #00000064;
 }
-#menuImg {
-    display: block;
-    width: calc(96px * var(--scale));
-    height: calc(96px * var(--scale));
-    margin: calc(8px * var(--scale));
-}
 .menuBtn {
     display: inline-block;
     vertical-align: top;
@@ -288,7 +291,6 @@ footer a:hover {
     height: calc(40px * var(--scale));
     margin: calc(8px * var(--scale));
     opacity: 0.5;
-    transition: 0.2s ease-in-out;
 }
 .menuBtn:hover {
     cursor: pointer;
@@ -296,7 +298,7 @@ footer a:hover {
 }
 
 #resource {
-    z-index: 5;
+    z-index: 11;
     position: fixed;
     top: calc(12px * var(--scale));
     right: calc(12px * var(--scale));
@@ -331,7 +333,7 @@ footer a:hover {
     /* background: #ffffff32; */
 }
 .low {
-    background: #ff002064;
+    background: #ff004064;
 }
 .norm {
     background: #ffffff32;
@@ -355,8 +357,8 @@ footer a:hover {
     background: #00ffa040;
 }
 .mNeg {
-    border: calc(3px * var(--mScale)) solid #ff004040;
-    background: #ff004040;
+    border: calc(3px * var(--mScale)) solid #ff006040;
+    background: #ff006040;
 }
 .mNeu {
     border: calc(3px * var(--mScale)) solid #ffffff40;
@@ -490,7 +492,7 @@ footer a:hover {
     transform-origin: 0% 50%;
     left: 50%;
     height: 60%;
-    margin: calc(1.5 * var(--gScale)) 0;
+    margin: calc(1.55 * var(--gScale)) 0;
     transition: 0.2s ease-in-out;
 }
 
@@ -537,6 +539,7 @@ footer a:hover {
 }
 .hex:hover img {
     opacity: 1;
+    filter: brightness(0);
 }
 
 .hex-current {

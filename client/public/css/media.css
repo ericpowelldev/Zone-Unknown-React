@@ -46,7 +46,10 @@
         bottom: calc(68px * var(--scale));
         left: 50%;
         transform: translateX(-50%);
-        width: max-content;
+        max-width: max-content;
+    }
+    #menuBar {
+        padding: calc(8px * var(--scale));
     }
 
     #resource {
