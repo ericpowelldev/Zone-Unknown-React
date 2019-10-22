@@ -48,21 +48,28 @@ io.on('connection', (client) => {
 		console.log("--------------------------------")
 		console.log("sent by client server side: ", data)
 		client.emit('RECEIVE_MESSAGE', data);
-	})
+	});
 
 	client.on('error', function (err) {
 		console.log('received error from client:', client.id)
 		console.log(err)
-	})
+	});
 
 	client.on("disconnect", () => {
 		console.log("user disconnected");
-	})
+	});
+
+	client.on('subscribeToTimer', (interval) => {
+		console.log('client is subscribing to timer with interval ', interval);
+		setInterval(() => {
+			client.emit('timer', new Date());
+		}, interval);
+	});
 });
 
 // Public static folder
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static("client/build"));
+	app.use(express.static("client/build"));
 }
 
 // Add API routes
@@ -70,7 +77,7 @@ app.use(routes);
 
 // Server listen
 server.listen(PORT, function () {
-    console.log(`\n---------- Listening on http://localhost:${PORT} ----------\n`);
+	console.log(`\n---------- Listening on http://localhost:${PORT} ----------\n`);
 });
 
 module.exports = app;
