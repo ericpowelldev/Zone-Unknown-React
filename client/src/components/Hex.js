@@ -162,21 +162,21 @@ class Hex extends React.Component {
     // Called whenever state changes & when a parent component is rendered
     render() {
         return (
-            <React.Fragment>
-                <div
-                    className={this.props.class}
-                    data-index={this.props.index}
-                    data-coords={this.props.coords}
-                    data-visited={this.props.visited}
-                    data-reach={this.props.reach}
-                    data-current={this.props.current}
-                    onClick={this.handleClick}
-                    onMouseEnter={this.sfx}>
-                </div>
-                {/* {this.props.coords === `0, 0` ?
-                    <img src="/images/vectors/game/ship.svg" /> :
-                    <React.Fragment />} */}
-            </React.Fragment>
+            <div
+                className={this.props.class}
+                data-index={this.props.index}
+                data-coords={this.props.coords}
+                data-visited={this.props.visited}
+                data-reach={this.props.reach}
+                data-current={this.props.current}
+                onClick={this.handleClick}
+                onMouseEnter={this.sfx}>
+                {this.props.coords === `0, 0` ?
+                    <img id="hexShip" src="/images/vectors/game/ship.svg" /> :
+                    (this.props.coords === `${g.sav.coords[0]}, ${g.sav.coords[1]}` ?
+                        <img id="hexPlayer" src="/images/vectors/game/player.svg" /> :
+                        <React.Fragment />)}
+            </div>
         )
     }
 }
