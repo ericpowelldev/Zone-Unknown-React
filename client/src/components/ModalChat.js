@@ -12,7 +12,7 @@ class ModalChat extends React.Component {
         super(props)
 
         this.state = {
-            message: '',
+            message: ``,
             messageArray: [],
             timestamp: null
         };
@@ -23,7 +23,7 @@ class ModalChat extends React.Component {
         const postMessage = (data, cb) => {
             socket.on('RECEIVE_MESSAGE', message => cb(null, message));
             socket.emit('postMessage', data);
-            console.log(this.state.messageArray)
+            console.log(this.state.messageArray);
         };
 
         // Pushes emitted message to messageArray and resets state to update array
@@ -33,10 +33,13 @@ class ModalChat extends React.Component {
 
         const subscribeToTimer = (interval, cb) => {
             socket.on('timer', timestamp => cb(null, timestamp));
-            socket.emit('subscribeToTimer', 1000);
-            // this.loadMessages();
+            socket.emit('subscribeToTimer', 5000);
         }
-        subscribeToTimer(1000, (err, timestamp) => this.setState({ timestamp }));
+        subscribeToTimer(5000, (err, timestamp) => {
+            // console.log(this.state.timestamp);
+            this.loadMessages();
+            this.setState({ timestamp: timestamp });
+        });
 
         //On message submit
         this.sendMessage = (event, cb) => {
