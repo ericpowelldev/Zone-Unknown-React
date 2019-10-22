@@ -15,10 +15,10 @@ class ModalChat extends React.Component {
             message: '',
             messageArray: [],
             //creating a socket client and exporting
-            endpoint: 'http://localhost:3001/'
+            // endpoint: 'https://zone-unknown-react.herokuapp.com/'
         };
 
-        socket = socketIOClient(this.state.endpoint);
+        socket = socketIOClient.connect();
 
         // Constant server connects Socket.io to Socket.io-client
         // this.socket = io(process.env.PORT || 'localhost:8080');
