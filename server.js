@@ -1,14 +1,14 @@
 // Dependencies
 const express = require(`express`);
 const session = require('express-session');
-const dbConnection = require('./database');
+const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
 const passport = require('./passport');
 
 // Initialize Express
 const app = express();
 
-//Socket.io Server
+// Socket.io Server
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
@@ -16,21 +16,24 @@ const io = require('socket.io')(server);
 const routes = require("./routes");
 
 // Set PORT
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3001;
 
 // Parse as JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// MongoDB connection
+mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost:27017/zu_db`, { useUnifiedTopology: true, useNewUrlParser: true });
+
 // Sessions
 app.use(
 	session({
 		secret: 'lucky-charms', //pick a random string to make the hash that is generated secure
-		store: new MongoStore({ mongooseConnection: dbConnection }),
+		store: new MongoStore({ mongooseConnection: mongoose.connection }),
 		resave: false, //required
 		saveUninitialized: false //required
 	})
-)
+);
 
 // Passport
 app.use(passport.initialize())
@@ -64,7 +67,6 @@ if (process.env.NODE_ENV === "production") {
 
 // Add API routes
 app.use(routes);
-
 
 // Server listen
 server.listen(PORT, function () {

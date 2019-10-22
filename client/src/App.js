@@ -39,34 +39,34 @@ class App extends React.Component {
     playTrack1() {
         console.log(`PLAYING TRACK 1`);
         if (this.state.sound) {
-            let music = new Howl({ src: [`/sounds/ccm1.mp3`], volume: 0.25, onend: () => this.playTrack2() });
+            let music = new Howl({ src: [`/sounds/ccm1.mp3`], volume: 0.333, onend: () => this.playTrack2() });
             music.play();
         }
-        else {}
+        else { }
     }
     playTrack2() {
         console.log(`PLAYING TRACK 2`);
         if (this.state.sound) {
-            let music = new Howl({ src: [`/sounds/ccm2.mp3`], volume: 0.2, onend: () => this.playTrack3() });
+            let music = new Howl({ src: [`/sounds/ccm2.mp3`], volume: 0.25, onend: () => this.playTrack3() });
             music.play();
         }
-        else {}
+        else { }
     }
     playTrack3() {
         console.log(`PLAYING TRACK 3`);
         if (this.state.sound) {
-            let music = new Howl({ src: [`/sounds/ccm3.mp3`], volume: 0.2, onend: () => this.playTrack4() });
+            let music = new Howl({ src: [`/sounds/ccm3.mp3`], volume: 0.25, onend: () => this.playTrack4() });
             music.play();
         }
-        else {}
+        else { }
     }
     playTrack4() {
         console.log(`PLAYING TRACK 4`);
         if (this.state.sound) {
-            let music = new Howl({ src: [`/sounds/ccm4.mp3`], volume: 0.2, onend: () => this.playTrack1() });
+            let music = new Howl({ src: [`/sounds/ccm4.mp3`], volume: 0.25, onend: () => this.playTrack1() });
             music.play();
         }
-        else {}
+        else { }
     }
 
 
@@ -74,18 +74,24 @@ class App extends React.Component {
     getUser() {
         axios.get(`api/users/`)
             .then(res => {
-                console.log(`GET USER`);
+                console.log(`--GET USER ATTEMPT--`);
 
                 // If there is a user
                 if (res.data.user) {
-                    console.log(`USER FOUND`);
+                    console.log(`--GET USER SUCCESS--`);
+                    console.log(`USER:`);
                     console.log(res.data.user);
                     this.setState({ signedIn: true, username: res.data.user.username, id: res.data.user._id });
                 }
                 else {
-                    console.log('USER NOT FOUND');
+                    console.log(`--GET USER ERROR--`);
+                    console.log(`ERROR:\nUser not found!`);
                     this.setState({ signedIn: false, username: null, id: null });
                 }
+            })
+            .catch(error => {
+                console.log(`--GET USER ERROR--`);
+                console.log(`ERROR:\n${error}`);
             });
     }
 
@@ -94,54 +100,75 @@ class App extends React.Component {
     loadGame = () => {
 
         // Play start sound
-        let sfx = new Howl({ src: [`/sounds/sfx_start.wav`], volume: 0.25 });
-        sfx.play();
+        if (this.state.sound) {
+            let sfx = new Howl({ src: [`/sounds/sfx_start.wav`], volume: 0.25 });
+            sfx.play();
+        }
 
+        // Reset coords
+        g.sav.coords = [0, 0];
+
+        console.log(`--LOAD GAME ATTEMPT--`);
         axios
             .get(`/api/users/${this.state.id}`)
             .then(res => {
-                // console.log(res.data.sav);
-                console.log(`--BEFORE LOAD--`);
-                console.log(g.sav);
                 g.sav = JSON.parse(res.data.sav);
-                console.log(`--AFTER LOAD--`);
+                console.log(`--LOAD GAME SUCCESS--`);
+                console.log(`GAME:`);
                 console.log(g.sav);
-            }).catch(error => {
-                console.log('ERROR:');
-                console.log(error);
+            })
+            .catch(error => {
+                console.log('--LOAD GAME ERROR--');
+                console.log(`ERROR:\n${error}`);
             });
     }
     newGame = () => {
 
         // Play start sound
-        let sfx = new Howl({ src: [`/sounds/sfx_start.wav`], volume: 0.25 });
-        sfx.play();
+        if (this.state.sound) {
+            let sfx = new Howl({ src: [`/sounds/sfx_start.wav`], volume: 0.25 });
+            sfx.play();
+        }
+
+        // Reset coords
+        g.sav.coords = [0, 0];
 
         this.genSav();
-        console.log(`--NEW GAME--`);
-        console.log(g.sav);
-
+        console.log(`--NEW GAME ATTEMPT--`);
         axios
             .put(`/api/users/${this.state.id}`, {
                 sav: JSON.stringify(g.sav)
             })
             .then(res => {
-                console.log(`<<< GAME SAVED >>>`);
-            }).catch(error => {
-                console.log('ERROR:');
-                console.log(error);
+                console.log(`--NEW GAME SUCCESS--`);
+            })
+            .catch(error => {
+                console.log('--NEW GAME ERROR--');
+                console.log(`ERROR:\n${error}`);
             });
     }
     saveGame = () => {
+
+        // Play start sound
+        if (this.state.sound) {
+            let sfx = new Howl({ src: [`/sounds/sfx_start.wav`], volume: 0.25 });
+            sfx.play();
+        }
+
+        // Reset coords
+        g.sav.coords = [0, 0];
+
+        console.log(`--SAVE GAME ATTEMPT--`);
         axios
             .put(`/api/users/${this.state.id}`, {
                 sav: JSON.stringify(g.sav)
             })
             .then(res => {
-                console.log(`<<< GAME SAVED >>>`);
-            }).catch(error => {
-                console.log('ERROR:');
-                console.log(error);
+                console.log(`--SAVE GAME SUCCESS--`);
+            })
+            .catch(error => {
+                console.log('--SAVE GAME ERROR--');
+                console.log(`ERROR:\n${error}`);
             });
     }
 
@@ -150,29 +177,36 @@ class App extends React.Component {
     signOut = () => {
 
         // Play back sound
-        let sfx = new Howl({ src: [`/sounds/sfx_back.wav`], volume: 0.25 });
-        sfx.play();
+        if (this.state.sound) {
+            let sfx = new Howl({ src: [`/sounds/sfx_back.wav`], volume: 0.25 });
+            sfx.play();
+        }
 
+        console.log(`--SIGN OUT ATTEMPT--`);
         axios
             .post(`/api/users/logout`)
             .then(res => {
                 console.log(res.data);
                 if (res.status === 200) {
+                    console.log(`--SIGN OUT SUCCESS--`);
                     this.setState({ signedIn: false, username: null, id: null });
-                    console.log('SUCCESSFUL SIGN OUT');
                 }
-            }).catch(error => {
-                console.log('ERROR:');
-                console.log(error);
+            })
+            .catch(error => {
+                console.log(`--SIGN OUT ERROR--`);
+                console.log(`ERROR:\n${error}`);
             });
     }
     signIn = (username, password) => {
 
         // Play continue sound
-        let sfx = new Howl({ src: [`/sounds/sfx_continue.wav`], volume: 0.25 });
-        sfx.play();
+        if (this.state.sound) {
+            let sfx = new Howl({ src: [`/sounds/sfx_continue.wav`], volume: 0.25 });
+            sfx.play();
+        }
 
         if (username && password) {
+            console.log(`--SIGN IN ATTEMPT--`);
             axios
                 .post(`/api/users/login`, {
                     username: username,
@@ -180,46 +214,47 @@ class App extends React.Component {
                 })
                 .then(res => {
                     if (res.status === 200) {
+                        console.log(`--SIGN IN SUCCESS--`);
+                        console.log(`USER:`);
+                        console.log(res.data.username);
                         this.setState({ signedIn: true, username: username, id: res.data.id });
-                        console.log('SUCCESSFUL SIGN IN');
-                        console.log(`USER: ${res.data.username}`);
                     }
-                }).catch(error => {
-                    console.log('ERROR:');
-                    console.log(error);
+                })
+                .catch(error => {
+                    console.log(`--SIGN IN ERROR--`);
+                    console.log(`ERROR:\n${error}`);
                 });
         }
     }
     signUp = (username, password, confirm) => {
 
         // Play continue sound
-        let sfx = new Howl({ src: [`/sounds/sfx_continue.wav`], volume: 0.25 });
-        sfx.play();
+        if (this.state.sound) {
+            let sfx = new Howl({ src: [`/sounds/sfx_continue.wav`], volume: 0.25 });
+            sfx.play();
+        }
 
         if (username && password && confirm && password === confirm) {
-            this.genSav();
-            // console.log(`--SIGN UP--`);
-            // console.log(g.sav);
-
-            axios
-                .post(`/api/users/`, {
-                    username: username,
-                    password: password,
-                    sav: JSON.stringify(g.sav)
-                })
-                .then(res => {
-                    console.log(res.data)
-                    if (!res.data.errmsg) {
-                        this.signIn(username, password);
-                        console.log('SUCCESSFUL SIGN UP');
-                    }
-                    else {
-                        console.log('Username already taken...');
-                    }
-                }).catch(error => {
-                    console.log('ERROR:');
-                    console.log(error);
-                });
+            if (username.length >= 3 && password.length >= 3) {
+                this.genSav();
+                console.log(`--SIGN UP ATTEMPT--`);
+                axios
+                    .post(`/api/users/`, {
+                        username: username,
+                        password: password,
+                        sav: JSON.stringify(g.sav)
+                    })
+                    .then(res => {
+                        if (res.status === 200) {
+                            console.log(`--SIGN UP SUCCESS--`);
+                            this.signIn(username, password);
+                        }
+                    })
+                    .catch(error => {
+                        console.log(`--SIGN UP ERROR--`);
+                        console.log(`ERROR:\n${error}`);
+                    });
+            }
         }
     }
 
@@ -416,21 +451,10 @@ class App extends React.Component {
 
         // TESTING //
         // console.log(`\n`);
-        // console.log(`PLANET 1:`);
-        // console.log(g.sav.planets[0].hexes);
-        // console.log(`\n`);
-        // console.log(`PLANET 2:`);
-        // console.log(g.sav.planets[1].hexes);
-        // console.log(`\n`);
-        // console.log(`PLANET 3:`);
-        // console.log(g.sav.planets[2].hexes);
-        // console.log(`\n`);
-        // console.log(`------------------------------`);
+        // console.log(`--GEN SAVE--`);
+        // console.log(g.sav);
         // console.log(`\n`);
         // TESTING //
-
-        console.log(`--GEN SAVE--`);
-        console.log(g.sav);
     }
 }
 

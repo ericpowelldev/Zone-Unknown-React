@@ -30,26 +30,24 @@ class MainForm extends React.Component {
         this.setState({ [event.target.name]: event.target.value });
     }
     handleSignIn = () => {
-        this.props.fSignIn(this.state.username, this.state.password);
+        this.props.fSignIn(this.state.username.toLowerCase(), this.state.password);
     }
     handleSignUp = () => {
-        this.props.fSignUp(this.state.username, this.state.password, this.state.confirm);
+        this.props.fSignUp(this.state.username.toLowerCase(), this.state.password, this.state.confirm);
     }
 
     render() {
         return (
             <div id="mainMenuBox">
                 <h1 className="hShade" id="mainMenuHeader">Welcome to ZONE UNKNOWN</h1>
-                {/* <label className="mainMenuLabel" htmlFor="username" >Username: </label> */}
                 <input 
                 className="mainMenuInput"
                 id="usernameInput"
                 type="text"
                 name="username"
                 placeholder="Username"
-                value={this.state.username}
+                value={this.state.username.toLowerCase()}
                 onChange={this.handleChange} />
-                {/* <label className="mainMenuLabel" htmlFor="password" >Password: </label> */}
                 <input 
                 className="mainMenuInput"
                 id="passwordInput"
@@ -58,7 +56,6 @@ class MainForm extends React.Component {
                 placeholder="Password"
                 value={this.state.password}
                 onChange={this.handleChange} />
-                {/* <label className="mainMenuLabel" htmlFor="password" >*Confirm Password (Only if signing up): </label> */}
                 <input 
                 className="mainMenuInput"
                 id="confirmInput"

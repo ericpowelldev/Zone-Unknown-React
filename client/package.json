@@ -2,7 +2,7 @@
   "name": "zone-unknown-react",
   "version": "0.2.0",
   "description": "Zone Unknown React game",
-  "author": "Eric Powell",
+  "author": "The Pompous Assets",
   "license": "ISC",
   "private": true,
   "proxy": "http://localhost:3001/",
@@ -13,6 +13,7 @@
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.1.0",
     "react-scripts": "3.1.2",
+    "react-scroll": "^1.7.14",
     "socket.io-client": "^2.3.0"
   },
   "scripts": {
@@ -35,12 +36,5 @@
   },
   "eslintConfig": {
     "extends": "react-app"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ericpowell3d/Zone-Unknown-React.git"
-  },
-  "bugs": {
-    "url": "https://github.com/ericpowell3d/Zone-Unknown-React/issues"
   }
 }
