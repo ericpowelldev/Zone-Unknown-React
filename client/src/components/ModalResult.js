@@ -1,23 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Howl, Howler } from 'howler';
+import { Howl } from 'howler';
 import g from '../utils/globals';
 
 class ModalResult extends React.Component {
-
-    constructor(props) {
-        super(props)
-    }
-
-    componentDidMount() {
-        // TESTING //
-        // console.log(`RESULT EVENT:`);
-        // console.log(g.event);
-        // console.log(`\n`);
-        // console.log(`------------------------------`);
-        // console.log(`\n`);
-        // TESTING //
-    }
 
     sfx = () => {
 
@@ -34,7 +19,9 @@ class ModalResult extends React.Component {
 
         // Checks if win or lose
         if (g.event.alert === `Win` || g.event.alert === `Lose`) {
-            // window.location.href = `/`;
+
+            // Go to home page
+            this.props.fChangePage(`home`);
         }
         else {
             if (g.event.stat === `Health`) {
@@ -74,7 +61,7 @@ class ModalResult extends React.Component {
                 {g.event.change ?
                     <div className="modalOutcome">
                         <p className="anim mShade modalOutcomeText">{g.event.stat}: </p>
-                        <img className="anim mShade modalOutcomeIcon" src={g.event.icon} />
+                        <img className="anim mShade modalOutcomeIcon" alt="" src={g.event.icon} />
                         <p className="anim mShade modalOutcomeText">{
                             (g.event.stat === `Health` && g.sav.itemCount >= 1 && g.event.change < 0) ||
                                 (g.event.stat === `Oxygen` && g.sav.itemCount >= 2 && g.event.change < 0) ||
@@ -83,10 +70,10 @@ class ModalResult extends React.Component {
                         }</p>
                     </div> :
                     <React.Fragment />}
-                {g.event.alert == `Win` || g.event.alert == `Lose` ?
-                    <Link to="/"><div className="modalBtn" onClick={this.handleClick} onMouseEnter={this.sfx}>
+                {g.event.alert === `Win` || g.event.alert === `Lose` ?
+                    <div className="modalBtn" onClick={this.handleClick} onMouseEnter={this.sfx}>
                         <p className="modalBtnText">Continue</p>
-                    </div></Link> :
+                    </div> :
                     <div className="modalBtn" onClick={this.handleClick} onMouseEnter={this.sfx}>
                         <p className="modalBtnText">Continue</p>
                     </div>}

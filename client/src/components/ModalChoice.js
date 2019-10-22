@@ -1,13 +1,9 @@
 import React from 'react';
-import { Howl, Howler } from 'howler';
+import { Howl } from 'howler';
 import logic from '../utils/logic';
 import g from '../utils/globals';
 
 class ModalChoice extends React.Component {
-
-    constructor(props) {
-        super(props);
-    }
 
     sfx = () => {
 

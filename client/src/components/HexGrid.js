@@ -4,10 +4,6 @@ import g from '../utils/globals';
 
 class HexGrid extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         let myP = g.sav.planets[g.sav.planet].hexes;
 

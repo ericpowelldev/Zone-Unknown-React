@@ -1,12 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import axios from 'axios';
-import { Howl, Howler } from 'howler';
+import { Howl } from 'howler';
 import Home from './pages/Home';
 import Game from './pages/Game';
 import logic from './utils/logic';
 import g from './utils/globals';
-import API from './utils/API';
 
 class App extends React.Component {
 
@@ -15,10 +14,12 @@ class App extends React.Component {
         this.state = {
             signedIn: false,
             username: null,
-            id: null
+            id: null,
+            page: `home`
         };
         this.componentDidMount = this.componentDidMount.bind(this);
-        this.getUser = this.getUser.bind(this);
+        this.changePage = this.changePage.bind(this);
+        this.loadSession = this.loadSession.bind(this);
         this.loadGame = this.loadGame.bind(this);
         this.newGame = this.newGame.bind(this);
         this.saveGame = this.saveGame.bind(this);
@@ -30,55 +31,61 @@ class App extends React.Component {
 
     componentDidMount() {
         this.playTrack1();
-        this.getUser();
+        this.loadSession();
+    }
+
+    changePage = (str) => {
+        this.setState({ page: str });
     }
 
 
-    
+
     playTrack1() {
-        console.log(`PLAYING TRACK 1`);
         let music = new Howl({ src: [`/sounds/ccm1.mp3`], volume: 0.333, onend: () => this.playTrack2() });
         music.play();
+        // console.log(`PLAYING TRACK 1`);
     }
     playTrack2() {
-        console.log(`PLAYING TRACK 2`);
         let music = new Howl({ src: [`/sounds/ccm2.mp3`], volume: 0.25, onend: () => this.playTrack3() });
         music.play();
+        // console.log(`PLAYING TRACK 2`);
     }
     playTrack3() {
-        console.log(`PLAYING TRACK 3`);
         let music = new Howl({ src: [`/sounds/ccm3.mp3`], volume: 0.25, onend: () => this.playTrack4() });
         music.play();
+        // console.log(`PLAYING TRACK 3`);
     }
     playTrack4() {
-        console.log(`PLAYING TRACK 4`);
         let music = new Howl({ src: [`/sounds/ccm4.mp3`], volume: 0.25, onend: () => this.playTrack1() });
         music.play();
+        // console.log(`PLAYING TRACK 4`);
     }
 
 
 
-    getUser() {
+    loadSession() {
+
+        // Play tick sound
+        let sfx = new Howl({ src: [`/sounds/sfx_tick.wav`], volume: 0.1 });
+        sfx.play();
+
+        console.log(`-- LOAD SESSION ATTEMPT --`);
         axios.get(`api/users/`)
             .then(res => {
-                console.log(`--GET USER ATTEMPT--`);
-
-                // If there is a user
                 if (res.data.user) {
-                    console.log(`--GET USER SUCCESS--`);
-                    console.log(`USER:`);
+                    console.log(`<< LOAD SESSION SUCCESS >>`);
                     console.log(res.data.user);
                     this.setState({ signedIn: true, username: res.data.user.username, id: res.data.user._id });
                 }
                 else {
-                    console.log(`--GET USER ERROR--`);
-                    console.log(`ERROR:\nUser not found!`);
+                    console.log(`>> LOAD SESSION ERROR <<`);
+                    console.log(`Session not found!`);
                     this.setState({ signedIn: false, username: null, id: null });
                 }
             })
             .catch(error => {
-                console.log(`--GET USER ERROR--`);
-                console.log(`ERROR:\n${error}`);
+                console.log(`>> LOAD SESSION ERROR <<`);
+                console.log(error);
             });
     }
 
@@ -93,18 +100,18 @@ class App extends React.Component {
         // Reset coords
         g.sav.coords = [0, 0];
 
-        console.log(`--LOAD GAME ATTEMPT--`);
+        console.log(`-- LOAD GAME ATTEMPT --`);
         axios
             .get(`/api/users/${this.state.id}`)
             .then(res => {
                 g.sav = JSON.parse(res.data.sav);
-                console.log(`--LOAD GAME SUCCESS--`);
-                console.log(`GAME:`);
+                console.log(`<< LOAD GAME SUCCESS >>`);
                 console.log(g.sav);
+                this.changePage(`game`);
             })
             .catch(error => {
-                console.log('--LOAD GAME ERROR--');
-                console.log(`ERROR:\n${error}`);
+                console.log('>> LOAD GAME ERROR <<');
+                console.log(error);
             });
     }
     newGame = () => {
@@ -117,17 +124,19 @@ class App extends React.Component {
         g.sav.coords = [0, 0];
 
         this.genSav();
-        console.log(`--NEW GAME ATTEMPT--`);
+        console.log(`-- NEW GAME ATTEMPT --`);
         axios
             .put(`/api/users/${this.state.id}`, {
                 sav: JSON.stringify(g.sav)
             })
             .then(res => {
-                console.log(`--NEW GAME SUCCESS--`);
+                console.log(`<< NEW GAME SUCCESS >>`);
+                console.log(g.sav);
+                this.changePage(`game`);
             })
             .catch(error => {
-                console.log('--NEW GAME ERROR--');
-                console.log(`ERROR:\n${error}`);
+                console.log('>> NEW GAME ERROR <<');
+                console.log(error);
             });
     }
     saveGame = () => {
@@ -139,17 +148,18 @@ class App extends React.Component {
         // Reset coords
         g.sav.coords = [0, 0];
 
-        console.log(`--SAVE GAME ATTEMPT--`);
+        console.log(`-- SAVE GAME ATTEMPT --`);
         axios
             .put(`/api/users/${this.state.id}`, {
                 sav: JSON.stringify(g.sav)
             })
             .then(res => {
-                console.log(`--SAVE GAME SUCCESS--`);
+                console.log(`<< SAVE GAME SUCCESS >>`);
+                console.log(g.sav);
             })
             .catch(error => {
-                console.log('--SAVE GAME ERROR--');
-                console.log(`ERROR:\n${error}`);
+                console.log('>> SAVE GAME ERROR <<');
+                console.log(error);
             });
     }
 
@@ -161,19 +171,18 @@ class App extends React.Component {
         let sfx = new Howl({ src: [`/sounds/sfx_back.wav`], volume: 0.25 });
         sfx.play();
 
-        console.log(`--SIGN OUT ATTEMPT--`);
+        console.log(`-- SIGN OUT ATTEMPT --`);
         axios
             .post(`/api/users/logout`)
             .then(res => {
-                console.log(res.data);
                 if (res.status === 200) {
-                    console.log(`--SIGN OUT SUCCESS--`);
+                    console.log(`<< SIGN OUT SUCCESS >>`);
                     this.setState({ signedIn: false, username: null, id: null });
                 }
             })
             .catch(error => {
-                console.log(`--SIGN OUT ERROR--`);
-                console.log(`ERROR:\n${error}`);
+                console.log(`>> SIGN OUT ERROR <<`);
+                console.log(error);
             });
     }
     signIn = (username, password) => {
@@ -183,7 +192,7 @@ class App extends React.Component {
         sfx.play();
 
         if (username && password) {
-            console.log(`--SIGN IN ATTEMPT--`);
+            console.log(`-- SIGN IN ATTEMPT --`);
             axios
                 .post(`/api/users/login`, {
                     username: username,
@@ -191,16 +200,14 @@ class App extends React.Component {
                 })
                 .then(res => {
                     if (res.status === 200) {
-                        console.log(`--SIGN IN SUCCESS--`);
-                        console.log(`USER:`);
-                        console.log(res.data.username);
+                        console.log(`<< SIGN IN SUCCESS >>`);
                         this.setState({ signedIn: true, username: username, id: res.data.id });
                     }
                 })
                 .catch(error => {
+                    console.log(`>> SIGN IN ERROR <<`);
+                    console.log(error);
                     alert(`Please make sure your username & password are correct!`);
-                    console.log(`--SIGN IN ERROR--`);
-                    console.log(`ERROR:\n${error}`);
                 });
         }
     }
@@ -214,7 +221,7 @@ class App extends React.Component {
             if (username.length >= 3 && username.length <= 25) {
                 if (password.length >= 6 && password.length <= 25) {
                     this.genSav();
-                    console.log(`--SIGN UP ATTEMPT--`);
+                    console.log(`-- SIGN UP ATTEMPT --`);
                     axios
                         .post(`/api/users/`, {
                             username: username,
@@ -223,13 +230,13 @@ class App extends React.Component {
                         })
                         .then(res => {
                             if (res.status === 200) {
-                                console.log(`--SIGN UP SUCCESS--`);
+                                console.log(`<< SIGN UP SUCCESS >>`);
                                 this.signIn(username, password);
                             }
                         })
                         .catch(error => {
-                            console.log(`--SIGN UP ERROR--`);
-                            console.log(`ERROR:\n${error}`);
+                            console.log(`>> SIGN UP ERROR <<`);
+                            console.log(error);
                         });
                 }
                 else {
@@ -248,8 +255,9 @@ class App extends React.Component {
     render() {
         return (
             <Router>
-                <Route exact path="/" render={() => <Home fLoadGame={this.loadGame} fNewGame={this.newGame} fSignOut={this.signOut} fSignIn={this.signIn} fSignUp={this.signUp} signedIn={this.state.signedIn} username={this.state.username} />} />
-                <Route exact path="/game" component={() => <Game fLoadGame={this.loadGame} fSaveGame={this.saveGame} signedIn={this.state.signedIn} username={this.state.username} />} />
+                <Route path="/" component={() => this.state.page === `home` ?
+                    <Home fChangePage={this.changePage} fLoadGame={this.loadGame} fNewGame={this.newGame} fSignOut={this.signOut} fSignIn={this.signIn} fSignUp={this.signUp} signedIn={this.state.signedIn} username={this.state.username} /> :
+                    <Game fChangePage={this.changePage} fLoadGame={this.loadGame} fSaveGame={this.saveGame} signedIn={this.state.signedIn} username={this.state.username} />} />
             </Router>
         );
     }

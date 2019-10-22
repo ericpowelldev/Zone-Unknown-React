@@ -10,7 +10,7 @@ export default {
         return axios.get("/api/users/" + id);
     },
     // Creates a user in the database
-    postUser: function (data) {
+    createUser: function (data) {
         return axios.post("/api/users", data);
     },
     // Saves the user's savegame to the database
@@ -22,7 +22,7 @@ export default {
         return axios.delete("/api/users/" + id);
     },
     // Gets all messages for socket
-    getMessage: function () {
+    getMessages: function () {
         return axios.get("/api/messages");
     },
     // Saves a message to the database for socket
