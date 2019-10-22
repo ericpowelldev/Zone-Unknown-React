@@ -14,14 +14,10 @@ class ModalChat extends React.Component {
         this.state = {
             message: '',
             messageArray: [],
-            //creating a socket client and exporting
-            // endpoint: 'https://zone-unknown-react.herokuapp.com/'
+            timestamp: null
         };
 
         socket = socketIOClient.connect();
-
-        // Constant server connects Socket.io to Socket.io-client
-        // this.socket = io(process.env.PORT || 'localhost:8080');
 
         // Message posts when recieved from server and runs postMessage function
         const postMessage = (data, cb) => {
@@ -34,6 +30,13 @@ class ModalChat extends React.Component {
         postMessage(this.state.messageArray, (err, data) => this.setState({
             messageArray: [...this.state.messageArray, data]
         }));
+
+        const subscribeToTimer = (interval, cb) => {
+            socket.on('timer', timestamp => cb(null, timestamp));
+            socket.emit('subscribeToTimer', 1000);
+            // this.loadMessages();
+        }
+        subscribeToTimer(1000, (err, timestamp) => this.setState({ timestamp }));
 
         //On message submit
         this.sendMessage = (event, cb) => {
