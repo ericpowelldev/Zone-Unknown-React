@@ -51,6 +51,10 @@ io.on('connection', (client) => {
 		console.log('received error from client:', client.id)
 		console.log(err)
 	})
+
+	client.on("disconnect", () => {
+		console.log("user disconnected");
+	})
 });
 
 // Public static folder
