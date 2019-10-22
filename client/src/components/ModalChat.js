@@ -1,8 +1,10 @@
 import React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Howl, Howler } from 'howler';
-import io from 'socket.io-client';
+import socketIOClient from 'socket.io-client';
 import API from '../utils/API';
+
+var socket;
 
 class ModalChat extends React.Component {
 
@@ -11,16 +13,20 @@ class ModalChat extends React.Component {
 
         this.state = {
             message: '',
-            messageArray: []
+            messageArray: [],
+            //creating a socket client and exporting
+            endpoint: 'http://localhost:3001/'
         };
 
+        socket = socketIOClient(this.state.endpoint);
+
         // Constant server connects Socket.io to Socket.io-client
-        this.socket = io(process.env.PORT || `localhost:3001`);
+        // this.socket = io(process.env.PORT || 'localhost:8080');
 
         // Message posts when recieved from server and runs postMessage function
         const postMessage = (data, cb) => {
-            this.socket.on('RECEIVE_MESSAGE', message => cb(null, message));
-            this.socket.emit('postMessage', data);
+            socket.on('RECEIVE_MESSAGE', message => cb(null, message));
+            socket.emit('postMessage', data);
             console.log(this.state.messageArray)
         };
 
@@ -33,7 +39,7 @@ class ModalChat extends React.Component {
         this.sendMessage = (event, cb) => {
             event.preventDefault();
             //sends message to server socket.io with username and message
-            this.socket.emit('SEND_MESSAGE', {
+            socket.emit('SEND_MESSAGE', {
                 author: this.props.username,
                 message: this.state.message
             });
@@ -48,6 +54,10 @@ class ModalChat extends React.Component {
     // Fills chat with previous messages
     componentDidMount() {
         this.loadMessages();
+    }
+
+    componentWillUnmount(){
+        socket.off()
     }
 
     // Updates the scroll every time a message is rendered
