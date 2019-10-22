@@ -8,6 +8,7 @@ import Footer from '../components/Footer';
 import MenuBar from '../components/MenuBar';
 import ResourceBar from '../components/ResourceBar';
 import HexGrid from '../components/HexGrid';
+import Sound from '../components/Sound';
 import logic from '../utils/logic';
 import g from '../utils/globals';
 
@@ -151,6 +152,7 @@ class Game extends React.Component {
         return (
             <React.Fragment>
                 <Sky page="game" />
+                <Sound />
                 <div id="mainDrop">
                     {this.state.showModalEvent ?
                         <ModalEvent fSaveGame={this.props.fSaveGame} showModalEvent={this.showModalEvent} hideModals={this.hideModals} /> :

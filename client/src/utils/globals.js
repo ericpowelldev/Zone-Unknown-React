@@ -1,5 +1,9 @@
 // Default persistent global object
 let g = {
+
+    // Sound state
+    sound: true,
+
     // Default static global values object
     glob: {
         HPstart: 15,

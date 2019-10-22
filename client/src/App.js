@@ -15,8 +15,7 @@ class App extends React.Component {
         this.state = {
             signedIn: false,
             username: null,
-            id: null,
-            sound: true
+            id: null
         };
         this.componentDidMount = this.componentDidMount.bind(this);
         this.getUser = this.getUser.bind(this);
@@ -35,38 +34,26 @@ class App extends React.Component {
     }
 
 
-
+    
     playTrack1() {
         console.log(`PLAYING TRACK 1`);
-        if (this.state.sound) {
-            let music = new Howl({ src: [`/sounds/ccm1.mp3`], volume: 0.333, onend: () => this.playTrack2() });
-            music.play();
-        }
-        else { }
+        let music = new Howl({ src: [`/sounds/ccm1.mp3`], volume: 0.333, onend: () => this.playTrack2() });
+        music.play();
     }
     playTrack2() {
         console.log(`PLAYING TRACK 2`);
-        if (this.state.sound) {
-            let music = new Howl({ src: [`/sounds/ccm2.mp3`], volume: 0.25, onend: () => this.playTrack3() });
-            music.play();
-        }
-        else { }
+        let music = new Howl({ src: [`/sounds/ccm2.mp3`], volume: 0.25, onend: () => this.playTrack3() });
+        music.play();
     }
     playTrack3() {
         console.log(`PLAYING TRACK 3`);
-        if (this.state.sound) {
-            let music = new Howl({ src: [`/sounds/ccm3.mp3`], volume: 0.25, onend: () => this.playTrack4() });
-            music.play();
-        }
-        else { }
+        let music = new Howl({ src: [`/sounds/ccm3.mp3`], volume: 0.25, onend: () => this.playTrack4() });
+        music.play();
     }
     playTrack4() {
         console.log(`PLAYING TRACK 4`);
-        if (this.state.sound) {
-            let music = new Howl({ src: [`/sounds/ccm4.mp3`], volume: 0.25, onend: () => this.playTrack1() });
-            music.play();
-        }
-        else { }
+        let music = new Howl({ src: [`/sounds/ccm4.mp3`], volume: 0.25, onend: () => this.playTrack1() });
+        music.play();
     }
 
 
@@ -100,10 +87,8 @@ class App extends React.Component {
     loadGame = () => {
 
         // Play start sound
-        if (this.state.sound) {
-            let sfx = new Howl({ src: [`/sounds/sfx_start.wav`], volume: 0.25 });
-            sfx.play();
-        }
+        let sfx = new Howl({ src: [`/sounds/sfx_start.wav`], volume: 0.25 });
+        sfx.play();
 
         // Reset coords
         g.sav.coords = [0, 0];
@@ -125,10 +110,8 @@ class App extends React.Component {
     newGame = () => {
 
         // Play start sound
-        if (this.state.sound) {
-            let sfx = new Howl({ src: [`/sounds/sfx_start.wav`], volume: 0.25 });
-            sfx.play();
-        }
+        let sfx = new Howl({ src: [`/sounds/sfx_start.wav`], volume: 0.25 });
+        sfx.play();
 
         // Reset coords
         g.sav.coords = [0, 0];
@@ -150,10 +133,8 @@ class App extends React.Component {
     saveGame = () => {
 
         // Play start sound
-        if (this.state.sound) {
-            let sfx = new Howl({ src: [`/sounds/sfx_start.wav`], volume: 0.25 });
-            sfx.play();
-        }
+        let sfx = new Howl({ src: [`/sounds/sfx_start.wav`], volume: 0.25 });
+        sfx.play();
 
         // Reset coords
         g.sav.coords = [0, 0];
@@ -177,10 +158,8 @@ class App extends React.Component {
     signOut = () => {
 
         // Play back sound
-        if (this.state.sound) {
-            let sfx = new Howl({ src: [`/sounds/sfx_back.wav`], volume: 0.25 });
-            sfx.play();
-        }
+        let sfx = new Howl({ src: [`/sounds/sfx_back.wav`], volume: 0.25 });
+        sfx.play();
 
         console.log(`--SIGN OUT ATTEMPT--`);
         axios
@@ -200,10 +179,8 @@ class App extends React.Component {
     signIn = (username, password) => {
 
         // Play continue sound
-        if (this.state.sound) {
-            let sfx = new Howl({ src: [`/sounds/sfx_continue.wav`], volume: 0.25 });
-            sfx.play();
-        }
+        let sfx = new Howl({ src: [`/sounds/sfx_continue.wav`], volume: 0.25 });
+        sfx.play();
 
         if (username && password) {
             console.log(`--SIGN IN ATTEMPT--`);
@@ -221,6 +198,7 @@ class App extends React.Component {
                     }
                 })
                 .catch(error => {
+                    alert(`Please make sure your username & password are correct!`);
                     console.log(`--SIGN IN ERROR--`);
                     console.log(`ERROR:\n${error}`);
                 });
@@ -229,44 +207,50 @@ class App extends React.Component {
     signUp = (username, password, confirm) => {
 
         // Play continue sound
-        if (this.state.sound) {
-            let sfx = new Howl({ src: [`/sounds/sfx_continue.wav`], volume: 0.25 });
-            sfx.play();
-        }
+        let sfx = new Howl({ src: [`/sounds/sfx_continue.wav`], volume: 0.25 });
+        sfx.play();
 
         if (username && password && confirm && password === confirm) {
-            if (username.length >= 3 && password.length >= 3) {
-                this.genSav();
-                console.log(`--SIGN UP ATTEMPT--`);
-                axios
-                    .post(`/api/users/`, {
-                        username: username,
-                        password: password,
-                        sav: JSON.stringify(g.sav)
-                    })
-                    .then(res => {
-                        if (res.status === 200) {
-                            console.log(`--SIGN UP SUCCESS--`);
-                            this.signIn(username, password);
-                        }
-                    })
-                    .catch(error => {
-                        console.log(`--SIGN UP ERROR--`);
-                        console.log(`ERROR:\n${error}`);
-                    });
+            if (username.length >= 3 && username.length <= 25) {
+                if (password.length >= 6 && password.length <= 25) {
+                    this.genSav();
+                    console.log(`--SIGN UP ATTEMPT--`);
+                    axios
+                        .post(`/api/users/`, {
+                            username: username,
+                            password: password,
+                            sav: JSON.stringify(g.sav)
+                        })
+                        .then(res => {
+                            if (res.status === 200) {
+                                console.log(`--SIGN UP SUCCESS--`);
+                                this.signIn(username, password);
+                            }
+                        })
+                        .catch(error => {
+                            console.log(`--SIGN UP ERROR--`);
+                            console.log(`ERROR:\n${error}`);
+                        });
+                }
+                else {
+                    alert(`Please make sure your password is between 6 and 25 characters!`);
+                }
             }
+            else {
+                alert(`Please make sure your username is between 3 and 25 characters!`);
+            }
+        }
+        else {
+            alert(`Please make sure all fields are filled and the password confirms!`);
         }
     }
 
     render() {
         return (
-            <React.Fragment>
-                <img id="sound" src={this.state.sound ? "/images/vectors/other/soundOn" : "/images/vectors/other/soundOff"} />
-                <Router>
-                    <Route exact path="/" render={() => <Home fLoadGame={this.loadGame} fNewGame={this.newGame} fSignOut={this.signOut} fSignIn={this.signIn} fSignUp={this.signUp} signedIn={this.state.signedIn} username={this.state.username} />} />
-                    <Route exact path="/game" component={() => <Game fLoadGame={this.loadGame} fSaveGame={this.saveGame} signedIn={this.state.signedIn} username={this.state.username} />} />
-                </Router>
-            </React.Fragment>
+            <Router>
+                <Route exact path="/" render={() => <Home fLoadGame={this.loadGame} fNewGame={this.newGame} fSignOut={this.signOut} fSignIn={this.signIn} fSignUp={this.signUp} signedIn={this.state.signedIn} username={this.state.username} />} />
+                <Route exact path="/game" component={() => <Game fLoadGame={this.loadGame} fSaveGame={this.saveGame} signedIn={this.state.signedIn} username={this.state.username} />} />
+            </Router>
         );
     }
 
