@@ -48,11 +48,24 @@ body {
     overflow-y: auto;
 }
 
+
+
 #sound {
-    z-index: 20;
-    max-width: 128px;
-    max-height: 128px;
+    z-index: 11;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    max-width: calc(80px * var(--scale));
+    max-height: calc(80px * var(--scale));
+    padding: calc(12px * var(--scale));
+    opacity: 0.5;
 }
+#sound:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+
 
 nav {
     z-index: 10;
@@ -434,6 +447,8 @@ footer a:hover {
     cursor: pointer;
     opacity: 1;
 }
+
+
 
 #grid {
     z-index: 3;
