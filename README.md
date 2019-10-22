@@ -2,7 +2,7 @@
 ![ZONE UNKNOWN](/client/public/images/zu_text_color1.png)
 ![ZONE UNKNOWN LOGO](/client/public/images/zu_logo_color1.png)
 
-Welcome to ZONE UNKNOWN, an adventure game based on survival. You find yourself stranded in a solar system due to your warp drive breaking down. Explore 3 planets and find parts to rebuild your warp drive. Along the way, you will encounter harsh events that will test your survival skills. Some you will have to make tough choices to hopefully survive long enough to get back home. You need to manage your HEALTH, OXYGEN and FUEL. You lose 1 OXYGEN per turn and will need 3 FUEL to replenish your O2 at the ship (middle hex). When your HEALTH hits 0, you lose! To advance to the next planet, collect the warp drive piece and return to your ship. Good luck on your journey!
+Welcome to ZONE UNKNOWN, an adventure game based on survival. You find yourself stranded in a solar system due to your warp drive breaking down. Explore 3 planets and find parts to rebuild your warp drive. Along the way, you will encounter harsh events that will test your survival skills. Some will require tough decisions that may make the difference between life and death. You need to manage your HEALTH, OXYGEN and FUEL. You lose 1 OXYGEN per turn and will need 3 FUEL to replenish your O2 at the ship (middle hex). When your HEALTH hits 0, you lose! To advance to the next planet, collect the warp drive piece and return to your ship. Good luck on your journey!
 
 ### Link to GitHub
 https://github.com/ericpowell3d/Zone-Unknown-React
@@ -16,7 +16,7 @@ https://docs.google.com/presentation/d/1VJiLkdt-cI696KgL47I4Zy2lpoYuaOwEHiDqwTaF
 - - -
 
 ## Description
-Zone Unknown is a interactive adventure where you're given random events and interesting choices. These events & choices affect your journey in unique ways each time you play, making every playthrough your own personal experience. As you progress, survival becomes essential. The difficulty between planets curves dramatically and is designed to allow for close calls. If there is ever a time when you get stuck, there is a user chat to help you along the way. Learn how others have achieved survival, or just trash talk each other...
+Zone Unknown is an interactive adventure where you're given random events and interesting choices. These events & choices affect your journey in unique ways each time you play, making every playthrough your own personal experience. As you progress, survival becomes essential. The difficulty between planets curves dramatically and is designed to allow for close calls. If there is ever a time when you get stuck, there is a user chat to help you along the way. Learn how others have achieved survival, or just trash talk each other...
 
 Upon entering the site, you are presented with a login. Here, you may sign in or create a new account with a unique username. This account will store your saved progress & be used for the game chat. From there, you may load your game, start a new game, or sign out. Getting into the game, the page will render the planet you were last on. On the left, you will see the menu bar, in which you are given a series of buttons to interact with. On the right, you will see your resources that you will have to manage in order to survive. Clicking on the hexes will pop up a modal that has an event assigned to it. Depending on the outcome, your stats will change.
 
