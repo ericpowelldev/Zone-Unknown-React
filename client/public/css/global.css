@@ -48,6 +48,12 @@ body {
     overflow-y: auto;
 }
 
+#sound {
+    z-index: 20;
+    max-width: 128px;
+    max-height: 128px;
+}
+
 nav {
     z-index: 10;
     position: fixed;
