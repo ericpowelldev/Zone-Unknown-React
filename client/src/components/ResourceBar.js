@@ -7,6 +7,7 @@ function Resource() {
 
     return (
         <div id="resource">
+            <h1 className="anim mShade barTxt" >RESOURCES</h1>
             <ResourceHP />
             <ResourceO2 />
             <ResourceFUEL />

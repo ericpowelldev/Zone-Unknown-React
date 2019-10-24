@@ -1,22 +1,23 @@
 import React from 'react';
-import { Howl } from 'howler';
 import logic from '../utils/logic';
 import g from '../utils/globals';
 
 class ModalChoice extends React.Component {
 
-    sfx = () => {
-
-        // Play tick sound
-        let sound = new Howl({ src: [`/sounds/sfx_tick.wav`], volume: 0.15 });
-        sound.play();
+    componentDidMount() {
+        document.addEventListener("keyup", this.keyPress, false);
+    }
+    componentWillUnmount() {
+        document.removeEventListener("keyup", this.keyPress, false);
+    }
+    keyPress = (event) => {
+        if (event.keyCode === 13) {
+            this.handleClick(0);
+        }
     }
 
     handleClick = (index) => {
-
-        // Play back sound
-        let sfx = new Howl({ src: [`/sounds/sfx_back.wav`], volume: 0.25 });
-        sfx.play();
+        logic.sfx_back();
 
         // Checks if on the ship hex
         if (g.event.stat !== `Ship`) {
@@ -135,7 +136,7 @@ class ModalChoice extends React.Component {
             <div className="mChance" id="modalEventBox">
                 <p className="lShade" id="modalEventText">{g.event.obj.text}</p>
                 {g.event.obj.choices.map((item, index) => (
-                    <div key={index} className="modalBtn" onClick={() => this.handleClick(index)} onMouseEnter={this.sfx}>
+                    <div key={index} className="modalBtn" onClick={() => this.handleClick(index)} onMouseEnter={logic.sfx_tick}>
                         <p className="modalBtnText">{item.text}</p>
                     </div>
                 ))

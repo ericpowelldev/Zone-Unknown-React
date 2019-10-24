@@ -1,95 +1,298 @@
-/* Standard media queries */
-@media screen and (max-width: 3840px) {
-    :root {
-        --scale: 1.6;
-        --mScale: 1.6;
-    }
-}
-@media screen and (max-width: 2560px) {
-    :root {
-        --scale: 1.25;
-        --mScale: 1.25;
-    }
-}
-@media screen and (max-width: 1920px) {
-    :root {
-        --scale: 1;
-        --mScale: 1;
-    }
-}
-@media screen and (max-width: 1600px) {
-    :root {
-        --scale: 0.9;
-        --mScale: 0.85;
-    }
-}
-@media screen and (max-width: 1280px) {
-    :root {
-        --scale: 0.8;
-        --mScale: 0.7;
-    }
-}
-@media screen and (max-width: 960px) {
-    :root {
-        --scale: 0.7;
-        --mScale: 0.55;
-    }
-}
-@media screen and (max-width: 640px) {
-    :root {
-        --scale: 0.6;
-        --mScale: 0.45;
-    }
+/* Portrait Mode */
 
-    #menu {
-        top: initial;
-        bottom: calc(68px * var(--scale));
-        left: 50%;
-        transform: translateX(-50%);
-        max-width: max-content;
-    }
-    #menuBar {
-        padding: calc(8px * var(--scale));
-    }
-
-    #resource {
-        position: relative;
-        top: calc(80px * var(--scale));
-        left: 50%;
-        right: initial;
-        transform: translateX(-50%);
-        width: max-content;
-    }
-    .resourceBar {
-        display: inline-block;
-        margin-bottom: calc(32px * var(--scale));
-        margin-left: calc(8px * var(--scale));
-        margin-right: calc(8px * var(--scale));
-    }
-}
-@media screen and (max-width: 360px) {
-    :root {
-        --scale: 0.5;
-        --mScale: 0.4;
-    }
-
-    #menuImg {
-        display: none;
-    }
-}
-
-/* Hex scale modifier */
 @media screen and (max-aspect-ratio: 1/1) {
     :root {
-        --gScale: 1.2vw;
+        --gScale: 0.75vw;
     }
-
     #grid {
-        margin-bottom: calc(264px * var(--scale));
+        margin-top: calc(172px * var(--scale));
+        margin-bottom: calc(180px * var(--scale));
+    }
+    @media screen and (min-width: 1921px) {
+        :root {
+            --scale: 1.25;
+            --mScale: 1.25;
+            --cScale: 1.25;
+        }
+        #modalChatMessages, #modalChatForm {
+            width: 60%;
+        }
+    }
+    @media screen and (max-width: 1920px) {
+        :root {
+            --scale: 1;
+            --mScale: 1;
+            --cScale: 1;
+        }
+        #modalChatMessages, #modalChatForm {
+            width: 65%;
+        }
+    }
+    @media screen and (max-width: 1600px) {
+        :root {
+            --scale: 0.9;
+            --mScale: 0.85;
+        }
+        #modalChatMessages, #modalChatForm {
+            width: 70%;
+        }
+    }
+    @media screen and (max-width: 1280px) {
+        :root {
+            --scale: 0.8;
+            --mScale: 0.7;
+        }
+        #modalChatMessages, #modalChatForm {
+            width: 75%;
+        }
+    }
+    @media screen and (max-width: 1024px) {
+        :root {
+            --scale: 1;
+            --mScale: 1;
+            --cScale: 1;
+        }
+        #modalChatMessages, #modalChatForm {
+            width: 80%;
+        }
+    }
+    @media screen and (max-width: 960px) {
+        :root {
+            --scale: 0.9;
+            --mScale: 0.9;
+            --cScale: 0.95;
+        }
+        #modalChatMessages, #modalChatForm {
+            width: 85%;
+        }
+    }
+    @media screen and (max-width: 850px) {
+        :root {
+            --scale: 0.8;
+            --mScale: 0.8;
+            --cScale: 0.9;
+        }
+        #footerShape {
+            max-width: calc(340px * var(--scale));
+        }
+        #modalChatMessages, #modalChatForm {
+            width: 90%;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        :root {
+            --scale: 0.7;
+            --mScale: 0.7;
+            --cScale: 0.85;
+        }
+        #modalChatMessages, #modalChatForm {
+            width: 95%;
+        }
+    }
+    @media screen and (max-width: 664px) {
+        :root {
+            --gScale: 1vw;
+            --scale: 0.8;
+            --mScale: 0.7;
+            --cScale: 0.8;
+        }
+        #footerShape {
+            max-width: calc(360px * var(--scale));
+        }
+        #mainMenuBox {
+            margin-bottom: calc(180px * var(--scale));
+        }
+        .barTxt {
+            display: none;
+        }
+        #menu {
+            top: initial;
+            bottom: calc(68px * var(--scale));
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: max-content;
+        }
+        #menuBar {
+            padding: calc(8px * var(--scale));
+        }
+        #resource {
+            right: initial;
+            top: calc(80px * var(--scale));
+            left: 50%;
+            transform: translateX(-50%);
+            width: max-content;
+        }
+        .resourceBar {
+            display: inline-block;
+            margin-bottom: calc(32px * var(--scale));
+            margin-left: calc(8px * var(--scale));
+            margin-right: calc(8px * var(--scale));
+        }
+        #warp, #item {
+            display: none;
+        }
+    }
+    @media screen and (max-width: 600px) {
+        :root {
+            --gScale: 1.2vw;
+            --scale: 0.7;
+            --mScale: 0.6;
+            --cScale: 0.75;
+        }
+    }
+    @media screen and (max-width: 480px) {
+        :root {
+            --scale: 0.6;
+            --mScale: 0.5;
+            --cScale: 0.7;
+        }
+    }
+    @media screen and (max-width: 360px) {
+        :root {
+            --scale: 0.5;
+            --mScale: 0.4;
+            --cScale: 0.65;
+        }
+    }
+    @media screen and (max-width: 300px) {
+        :root {
+            --scale: 0.4;
+            --mScale: 0.3;
+            --cScale: 0.6;
+        }
+        #footerShape {
+            max-width: calc(420px * var(--scale));
+        }
     }
 }
+
+/* Landscape Mode */
+
 @media screen and (min-aspect-ratio: 1/1) {
     :root {
         --gScale: 0.8vh;
+    }
+    #grid {
+        margin-top: calc(80px * var(--scale));
+        margin-bottom: calc(72px * var(--scale));
+    }
+    @media screen and (min-width: 3841px) {
+        :root {
+            --scale: 2;
+            --mScale: 2;
+            --cScale: 1.6;
+        }
+        #modalChatMessages, #modalChatForm {
+            width: 50%;
+        }
+    }
+    @media screen and (max-width: 3840px) {
+        :root {
+            --scale: 1.6;
+            --mScale: 1.6;
+            --cScale: 1.3;
+        }
+        #modalChatMessages, #modalChatForm {
+            width: 50%;
+        }
+    }
+    @media screen and (max-width: 2560px) {
+        :root {
+            --scale: 1.25;
+            --mScale: 1.25;
+            --cScale: 1.15;
+        }
+        #modalChatMessages, #modalChatForm {
+            width: 55%;
+        }
+    }
+    @media screen and (max-width: 1920px) {
+        :root {
+            --scale: 1;
+            --mScale: 1;
+            --cScale: 1;
+        }
+        #modalChatMessages, #modalChatForm {
+            width: 60%;
+        }
+    }
+    @media screen and (max-width: 1600px) {
+        :root {
+            --scale: 0.9;
+            --mScale: 0.85;
+            --cScale: 0.9;
+        }
+        #modalChatMessages, #modalChatForm {
+            width: 65%;
+        }
+    }
+    @media screen and (max-width: 1280px) {
+        :root {
+            --scale: 0.8;
+            --mScale: 0.7;
+            --cScale: 0.85;
+        }
+        #modalChatMessages, #modalChatForm {
+            width: 70%;
+        }
+    }
+    @media screen and (max-width: 1024px) {
+        :root {
+            --scale: 0.7;
+            --mScale: 0.65;
+            --cScale: 0.8;
+        }
+        #modalChatMessages, #modalChatForm {
+            width: 75%;
+        }
+    }
+    @media screen and (max-width: 960px) {
+        :root {
+            --scale: 0.65;
+            --mScale: 0.6;
+            --cScale: 0.75;
+        }
+        #modalChatMessages, #modalChatForm {
+            width: 80%;
+        }
+    }
+    @media screen and (max-width: 850px) {
+        :root {
+            --scale: 0.55;
+            --mScale: 0.55;
+            --cScale: 0.7;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        :root {
+            --scale: 0.5;
+            --mScale: 0.5;
+            --cScale: 0.65;
+        }
+        #footerShape {
+            max-width: calc(420px * var(--scale));
+        }
+    }
+    @media screen and (max-width: 664px) {
+        :root {
+            --scale: 0.45;
+            --mScale: 0.5;
+            --cScale: 0.6;
+        }
+    }
+    @media screen and (max-width: 600px) {
+        :root {
+            --scale: 0.4;
+            --mScale: 0.45;
+        }
+        .barTxt {
+            display: none;
+        }
+    }
+    @media screen and (min-width: 360px) and (max-width: 480px) {
+        :root {
+            --scale: 0.4;
+            --mScale: 0.4;
+        }
     }
 }

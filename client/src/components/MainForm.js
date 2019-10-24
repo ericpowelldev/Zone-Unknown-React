@@ -1,5 +1,5 @@
 import React from 'react';
-import { Howl } from 'howler';
+import logic from '../utils/logic';
 
 class MainForm extends React.Component {
 
@@ -17,15 +17,19 @@ class MainForm extends React.Component {
         this.handleSignUp = this.handleSignUp.bind(this);
     }
 
-    sfx = () => {
-
-        // Play tick sound
-        let sfx = new Howl({ src: [`/sounds/sfx_tick.wav`], volume: 0.25 });
-        sfx.play();
+    componentDidMount() {
+        document.addEventListener("keyup", this.keyPress, false);
+    }
+    componentWillUnmount() {
+        document.removeEventListener("keyup", this.keyPress, false);
+    }
+    keyPress = (event) => {
+        if (event.keyCode === 13) {
+            this.handleSignIn();
+        }
     }
 
     handleChange(event) {
-        this.sfx();
         this.setState({ [event.target.name]: event.target.value });
     }
     handleSignIn = () => {
@@ -63,12 +67,12 @@ class MainForm extends React.Component {
                     placeholder="*Confirm Password (Sign up only)"
                     value={this.state.confirm}
                     onChange={this.handleChange} />
-                <div className="mainMenuBtn" id="signInBtn" onClick={this.handleSignIn} onMouseEnter={this.sfx}>
-                    <img className="mainMenuImg2" alt="" src="/images/vectors/home/signIn.svg" />
+                <div className="mainMenuBtn" id="signInBtn" onClick={this.handleSignIn} onMouseEnter={logic.sfx_tick}>
+                    <img className="mainMenuImg" alt="" src="/images/vectors/home/signIn.svg" />
                     <p className="mainMenuBtnText">Sign In</p>
                 </div>
-                <div className="mainMenuBtn" id="signUpBtn" onClick={this.handleSignUp} onMouseEnter={this.sfx}>
-                    <img className="mainMenuImg3" alt="" src="/images/vectors/home/signUp.svg" />
+                <div className="mainMenuBtn" id="signUpBtn" onClick={this.handleSignUp} onMouseEnter={logic.sfx_tick}>
+                    <img className="mainMenuImg" alt="" src="/images/vectors/home/signUp.svg" />
                     <p className="mainMenuBtnText">Sign Up</p>
                 </div>
             </div>
