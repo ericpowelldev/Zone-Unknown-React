@@ -1,5 +1,5 @@
 import React from 'react';
-import { Howl, Howler } from 'howler';
+import logic from '../utils/logic';
 import g from '../utils/globals';
 
 class MenuBar extends React.Component {
@@ -11,64 +11,36 @@ class MenuBar extends React.Component {
         };
     }
 
-    sfx = () => {
-
-        // Play tick sound
-        let sfx = new Howl({ src: [`/sounds/sfx_tick.wav`], volume: 0.15 });
-        sfx.play();
-    }
-
     handleClickSound = () => {
-
-        // Play select sound
-        let sfx = new Howl({ src: [`/sounds/sfx_select.wav`], volume: 0.15 });
-        sfx.play();
-
-        if (g.sound) {
-            Howler.volume(0);
-        }
-        else {
-            Howler.volume(1);
-        }
-        g.sound = !g.sound;
+        logic.sfx_select();
+        logic.toggleMute();
         this.setState({ sound: g.sound });
     }
     handleClickMenu = () => {
-
-        // Play select sound
-        let sfx = new Howl({ src: [`/sounds/sfx_select.wav`], volume: 0.15 });
-        sfx.play();
-
+        logic.sfx_select();
         this.props.showModalMenu();
     }
     handleClickHowTo = () => {
-
-        // Play select sound
-        let sfx = new Howl({ src: [`/sounds/sfx_select.wav`], volume: 0.15 });
-        sfx.play();
-
+        logic.sfx_select();
         this.props.showModalHowTo();
     }
     handleClickChat = () => {
-
-        // Play select sound
-        let sfx = new Howl({ src: [`/sounds/sfx_select.wav`], volume: 0.15 });
-        sfx.play();
-
+        logic.sfx_select();
         this.props.showModalChat();
     }
 
     render() {
         return (
             <div id="menu">
+                <h1 className="anim mShade barTxt" >MENU</h1>
                 <div id="menuBar">
                     {this.props.page === `home` ?
-                        <img className="anim mShade menuBtn" alt="Sound" src={this.state.sound ? "/images/vectors/other/soundOn.svg" : "/images/vectors/other/soundOff.svg"} onClick={this.handleClickSound} onMouseEnter={this.sfx} /> :
+                        <img className="anim mShade menuBtn" alt="Sound" src={this.state.sound ? "/images/vectors/other/soundOn.svg" : "/images/vectors/other/soundOff.svg"} onClick={this.handleClickSound} onMouseEnter={logic.sfx_tick} /> :
                         <React.Fragment>
-                            <img className="anim mShade menuBtn" alt="Sound" src={this.state.sound ? "/images/vectors/other/soundOn.svg" : "/images/vectors/other/soundOff.svg"} onClick={this.handleClickSound} onMouseEnter={this.sfx} />
-                            <img className="anim mShade menuBtn" alt="Chat" src="/images/vectors/game/chat.svg" onClick={this.handleClickChat} onMouseEnter={this.sfx} />
-                            <img className="anim mShade menuBtn" alt="Menu" src="/images/vectors/game/menu.svg" onClick={this.handleClickMenu} onMouseEnter={this.sfx} />
-                            <img className="anim mShade menuBtn" alt="Cog" src="/images/vectors/game/cog.svg" onClick={this.handleClickHowTo} onMouseEnter={this.sfx} />
+                            <img className="anim mShade menuBtn" alt="Sound" src={this.state.sound ? "/images/vectors/other/soundOn.svg" : "/images/vectors/other/soundOff.svg"} onClick={this.handleClickSound} onMouseEnter={logic.sfx_tick} />
+                            <img className="anim mShade menuBtn" alt="Chat" src="/images/vectors/game/chat.svg" onClick={this.handleClickChat} onMouseEnter={logic.sfx_tick} />
+                            <img className="anim mShade menuBtn" alt="Menu" src="/images/vectors/game/menu.svg" onClick={this.handleClickMenu} onMouseEnter={logic.sfx_tick} />
+                            <img className="anim mShade menuBtn" alt="Cog" src="/images/vectors/game/cog.svg" onClick={this.handleClickHowTo} onMouseEnter={logic.sfx_tick} />
                         </React.Fragment>}
                 </div>
             </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Howl } from 'howler';
 import socketIOClient from 'socket.io-client';
+import logic from '../utils/logic';
 import API from '../utils/API';
 
 var socket;
@@ -41,8 +41,9 @@ class ModalChat extends React.Component {
         });
 
         //On message submit
-        this.sendMessage = (event, cb) => {
-            event.preventDefault();
+        this.sendMessage = () => {
+            logic.sfx_continue();
+
             //sends message to server socket.io with username and message
             socket.emit('SEND_MESSAGE', {
                 author: this.props.username,
@@ -51,7 +52,7 @@ class ModalChat extends React.Component {
 
             this.setState({ message: '' });
             console.log(`MESSAGE SENT:`);
-            this.handleFormSubmit(event);
+            this.handleFormSubmit();
             this.scrollToBottom();
         }
     }
@@ -62,11 +63,12 @@ class ModalChat extends React.Component {
     }
 
     componentWillUnmount() {
-        socket.off()
+        socket.off();
     }
 
     // Updates the scroll every time a message is rendered
     componentDidUpdate() {
+        // logic.sfx_tick();
         this.scrollToBottom();
     }
 
@@ -86,13 +88,13 @@ class ModalChat extends React.Component {
             .getMessages()
             .then(res => {
                 let newArray = res.data.reverse();
-                this.setState({messageArray: newArray.map(item => {return { author: item.author, message: item.message }})})})
+                this.setState({ messageArray: newArray.map(item => { return { author: item.author, message: item.message } }) })
+            })
             .catch(err => console.log(err));
     }
 
     // API saves message to database called on message submit by socket.io
-    handleFormSubmit = event => {
-        event.preventDefault();
+    handleFormSubmit = () => {
         // Checks to see if both fields have value
         if (this.props.username && this.state.message) {
             API
@@ -105,42 +107,36 @@ class ModalChat extends React.Component {
         }
     };
 
-    sfx = () => {
-
-        // Play tick sound
-        let sfx = new Howl({ src: [`/sounds/sfx_tick.wav`], volume: 0.15 });
-        sfx.play();
+    handleClick = () => {
+        logic.sfx_back();
+        this.props.hideModals();
     }
 
-    handleClick = () => {
-
-        // Play back sound
-        let sfx = new Howl({ src: [`/sounds/sfx_back.wav`], volume: 0.15 });
-        sfx.play();
-
-        this.props.hideModals();
+    keyPress = (event) => {
+        if (event.keyCode === 13) {
+            this.sendMessage();
+        }
     }
 
     render() {
         return (
             <div id="modal">
-                <div className="chatOverlayStyle">
-                    <ul id="chatHistoryStyle" ref="messageList">
-                        {this.state.messageArray.map((message, index) => {
-                            return (<li className="chatMessageStyle" key={index}>
-                                <span className="chatUser">{`${message.author}:`}</span>{` ${message.message}`}
-                            </li>)
+                <div id="modalChat">
+                    <ol id="modalChatMessages" ref="messageList">
+                        {this.state.messageArray.map((item, index) => {
+                            return (
+                                <li className="modalChatItem" key={index}>
+                                    <span className="modalChatUser">{`${item.author}:`}</span>{` ${item.message}`}
+                                </li>
+                            )
                         })}
-                    </ul>
-                    <div>
-                        <form id="chatForm">
-                            <input type="text" id="msg_text" name="msg_text" value={this.state.message} onChange={event => this.setState({ message: event.target.value })} />
-                            <input onClick={this.sendMessage} type="submit" id="submit" value="Send!" />
-                        </form>
+                    </ol>
+                    <div id="modalChatForm">
+                        <input id="modalChatInput" name="msg_text" value={this.state.message} placeholder="Say something..." onChange={event => this.setState({ message: event.target.value })} onKeyUp={this.keyPress} />
+                        <img id="modalChatSend" alt="Send" src="/images/vectors/modal/send.svg" onClick={this.sendMessage} onMouseEnter={logic.sfx_tick} />
                     </div>
-
-                    <img className="anim mShade" id="modalClose" alt="Close" src="/images/vectors/modal/close.svg" onClick={this.handleClick} onMouseEnter={this.sfx} />
                 </div>
+                <img className="anim mShade modalClose" alt="Close" src="/images/vectors/modal/close.svg" onClick={this.handleClick} onMouseEnter={logic.sfx_tick} />
             </div>
         )
     }

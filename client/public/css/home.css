@@ -1,0 +1,155 @@
+/* MAIN MENU */
+
+#mainMenuBox {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(720px * var(--mScale));
+    padding: calc(48px * var(--mScale));
+    border: calc(3px * var(--mScale)) solid #ffffff64;
+    border-radius: calc(64px * var(--mScale)) calc(4px * var(--mScale));
+    margin-top: calc(100px * var(--scale));
+    margin-bottom: calc(100px * var(--scale));
+    background: #00000064;
+}
+
+#mainMenuHeader {
+    text-align: center;
+    font-size: calc(36px * var(--cScale));
+    font-weight: 600;
+}
+
+.mainMenuLabel {
+    font-size: calc(20px * var(--mScale));
+    font-weight: 500;
+    line-height: calc(24px * var(--mScale));
+    margin-bottom: calc(32px * var(--mScale));
+}
+
+.mainMenuInput {
+    width: 100%;
+    padding: calc(12px * var(--mScale)) calc(16px * var(--mScale));
+    border: calc(2px * var(--mScale)) solid #ffffff80;
+    text-align: center;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: calc(24px * var(--mScale));
+    font-weight: 400;
+    color: #fff;
+    background: #ffffff40;
+    transition: 0.2s ease-in-out;
+}
+
+#usernameInput {
+    border-radius: calc(24px * var(--mScale)) calc(24px * var(--mScale)) 0 0;
+    margin-top: calc(32px * var(--mScale));
+}
+
+#passwordInput {
+    border-radius: 0;
+    margin: calc(4px * var(--mScale)) 0;
+}
+
+#confirmInput {
+    border-radius: 0 0 calc(24px * var(--mScale)) calc(24px * var(--mScale));
+    margin-bottom: calc(24px * var(--mScale));
+}
+
+#mainMenuExplain {
+    font-size: calc(18px * var(--cScale));
+    font-weight: 400;
+    line-height: calc(24px * var(--cScale));
+    margin-top: calc(24px * var(--mScale));
+    margin-bottom: calc(32px * var(--mScale));
+}
+
+.mainMenuBtn {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    padding: calc(12px * var(--mScale)) calc(16px * var(--mScale));
+    border-radius: calc(24px * var(--mScale)) calc(2px * var(--mScale));
+    margin-top: calc(12px * var(--mScale));
+    text-align: center;
+    font-size: calc(24px * var(--mScale));
+    font-weight: 600;
+    transition: 0.2s ease-in-out;
+}
+
+.mainMenuBtn:hover {
+    cursor: pointer;
+}
+
+.mainMenuBtnText {
+    transition: none;
+}
+
+.mainMenuImg {
+    position: absolute;
+    top: calc(6px * var(--mScale));
+    right: calc(16px * var(--mScale));
+    width: calc(36px * var(--mScale));
+    height: calc(36px * var(--mScale));
+}
+
+/* MAIN MENU BUTTONS */
+
+#loadBtn {
+    border: calc(3px * var(--mScale)) solid #00ffa040;
+    color: #fff;
+    background: #00ffa040;
+}
+
+#loadBtn:hover {
+    border-color: #00000000;
+    color: #fff;
+    background: #00cc70;
+}
+
+#newBtn {
+    border: calc(3px * var(--mScale)) solid #0080ff40;
+    color: #fff;
+    background: #0080ff40;
+}
+
+#newBtn:hover {
+    border-color: #00000000;
+    color: #fff;
+    background: #0080ff;
+}
+
+#signOutBtn {
+    border: calc(3px * var(--mScale)) solid #ff006040;
+    color: #fff;
+    background: #ff006040;
+}
+
+#signOutBtn:hover {
+    border-color: #00000000;
+    color: #fff;
+    background: #ff0050;
+}
+
+#signInBtn {
+    border: calc(3px * var(--mScale)) solid #00ffa040;
+    color: #fff;
+    background: #00ffa040;
+}
+
+#signInBtn:hover {
+    border-color: #00000000;
+    color: #fff;
+    background: #00cc70;
+}
+
+#signUpBtn {
+    border: calc(3px * var(--mScale)) solid #0080ff40;
+    color: #fff;
+    background: #0080ff40;
+}
+
+#signUpBtn:hover {
+    border-color: #00000000;
+    color: #fff;
+    background: #0080ff;
+}

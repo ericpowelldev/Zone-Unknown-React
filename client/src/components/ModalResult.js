@@ -1,21 +1,23 @@
 import React from 'react';
-import { Howl } from 'howler';
+import logic from '../utils/logic';
 import g from '../utils/globals';
 
 class ModalResult extends React.Component {
 
-    sfx = () => {
-
-        // Play tick sound
-        let sound = new Howl({ src: [`/sounds/sfx_tick.wav`], volume: 0.15 });
-        sound.play();
+    componentDidMount() {
+        document.addEventListener("keyup", this.keyPress, false);
+    }
+    componentWillUnmount() {
+        document.removeEventListener("keyup", this.keyPress, false);
+    }
+    keyPress = (event) => {
+        if (event.keyCode === 13) {
+            this.handleClick();
+        }
     }
 
     handleClick = () => {
-
-        // Play continue sound
-        let sfx = new Howl({ src: [`/sounds/sfx_continue.wav`], volume: 0.25 });
-        sfx.play();
+        logic.sfx_continue();
 
         // Checks if win or lose
         if (g.event.alert === `Win` || g.event.alert === `Lose`) {
@@ -71,10 +73,10 @@ class ModalResult extends React.Component {
                     </div> :
                     <React.Fragment />}
                 {g.event.alert === `Win` || g.event.alert === `Lose` ?
-                    <div className="modalBtn" onClick={this.handleClick} onMouseEnter={this.sfx}>
+                    <div className="modalBtn" onClick={this.handleClick} onMouseEnter={logic.sfx_tick}>
                         <p className="modalBtnText">Continue</p>
                     </div> :
-                    <div className="modalBtn" onClick={this.handleClick} onMouseEnter={this.sfx}>
+                    <div className="modalBtn" onClick={this.handleClick} onMouseEnter={logic.sfx_tick}>
                         <p className="modalBtnText">Continue</p>
                     </div>}
             </div>

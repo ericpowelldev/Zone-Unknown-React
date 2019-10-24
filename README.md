@@ -4,11 +4,11 @@
 
 Welcome to ZONE UNKNOWN, an adventure game based on survival. You find yourself stranded in a solar system due to your warp drive breaking down. Explore 3 planets and find parts to rebuild your warp drive. Along the way, you will encounter harsh events that will test your survival skills. Some will require tough decisions that may make the difference between life and death. You need to manage your HEALTH, OXYGEN and FUEL. You lose 1 OXYGEN per turn and will need 3 FUEL to replenish your O2 at the ship (middle hex). When your HEALTH hits 0, you lose! To advance to the next planet, collect the warp drive piece and return to your ship. Good luck on your journey!
 
-### Link to GitHub
-https://github.com/ericpowell3d/Zone-Unknown-React
-
 ### Link to Deployed Site
 https://zone-unknown-react.herokuapp.com/
+
+### Link to GitHub
+https://github.com/ericpowell3d/Zone-Unknown-React
 
 ### Link to Presentation
 https://docs.google.com/presentation/d/1VJiLkdt-cI696KgL47I4Zy2lpoYuaOwEHiDqwTaFYZk/edit?usp=sharing

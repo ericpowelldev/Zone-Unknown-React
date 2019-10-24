@@ -8,6 +8,8 @@ import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import MenuBar from '../components/MenuBar';
 import ResourceBar from '../components/ResourceBar';
+import WarpBar from '../components/WarpBar';
+import ItemBar from '../components/ItemBar';
 import HexGrid from '../components/HexGrid';
 import logic from '../utils/logic';
 import g from '../utils/globals';
@@ -173,6 +175,8 @@ class Game extends React.Component {
                     <Nav fChangePage={this.props.fChangePage} page="game" />
                     <MenuBar page="game" showModalMenu={this.showModalMenu} showModalHowTo={this.showModalHowTo} showModalChat={this.showModalChat} />
                     <ResourceBar />
+                    <WarpBar />
+                    <ItemBar />
                     <HexGrid showModalEvent={this.showModalEvent} hideModals={this.hideModals} />
                     <Footer page="game" />
                 </div>

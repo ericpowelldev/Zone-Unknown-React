@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import axios from 'axios';
-import { Howl } from 'howler';
 import Home from './pages/Home';
 import Game from './pages/Game';
 import logic from './utils/logic';
@@ -30,7 +29,7 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        this.playTrack1();
+        logic.playTrack1();
         this.loadSession();
     }
 
@@ -40,34 +39,8 @@ class App extends React.Component {
 
 
 
-    playTrack1() {
-        let music = new Howl({ src: [`/sounds/ccm1.mp3`], volume: 0.333, onend: () => this.playTrack2() });
-        music.play();
-        // console.log(`PLAYING TRACK 1`);
-    }
-    playTrack2() {
-        let music = new Howl({ src: [`/sounds/ccm2.mp3`], volume: 0.25, onend: () => this.playTrack3() });
-        music.play();
-        // console.log(`PLAYING TRACK 2`);
-    }
-    playTrack3() {
-        let music = new Howl({ src: [`/sounds/ccm3.mp3`], volume: 0.25, onend: () => this.playTrack4() });
-        music.play();
-        // console.log(`PLAYING TRACK 3`);
-    }
-    playTrack4() {
-        let music = new Howl({ src: [`/sounds/ccm4.mp3`], volume: 0.25, onend: () => this.playTrack1() });
-        music.play();
-        // console.log(`PLAYING TRACK 4`);
-    }
-
-
-
     loadSession() {
-
-        // Play tick sound
-        let sfx = new Howl({ src: [`/sounds/sfx_tick.wav`], volume: 0.1 });
-        sfx.play();
+        logic.sfx_tick();
 
         console.log(`-- LOAD SESSION ATTEMPT --`);
         axios.get(`api/users/`)
@@ -92,10 +65,7 @@ class App extends React.Component {
 
 
     loadGame = () => {
-
-        // Play start sound
-        let sfx = new Howl({ src: [`/sounds/sfx_start.wav`], volume: 0.25 });
-        sfx.play();
+        logic.sfx_start();
 
         // Reset coords
         g.sav.coords = [0, 0];
@@ -115,10 +85,7 @@ class App extends React.Component {
             });
     }
     newGame = () => {
-
-        // Play start sound
-        let sfx = new Howl({ src: [`/sounds/sfx_start.wav`], volume: 0.25 });
-        sfx.play();
+        logic.sfx_start();
 
         // Reset coords
         g.sav.coords = [0, 0];
@@ -140,10 +107,7 @@ class App extends React.Component {
             });
     }
     saveGame = () => {
-
-        // Play start sound
-        let sfx = new Howl({ src: [`/sounds/sfx_start.wav`], volume: 0.25 });
-        sfx.play();
+        logic.sfx_start();
 
         // Reset coords
         g.sav.coords = [0, 0];
@@ -166,10 +130,7 @@ class App extends React.Component {
 
 
     signOut = () => {
-
-        // Play back sound
-        let sfx = new Howl({ src: [`/sounds/sfx_back.wav`], volume: 0.25 });
-        sfx.play();
+        logic.sfx_back();
 
         console.log(`-- SIGN OUT ATTEMPT --`);
         axios
@@ -186,10 +147,7 @@ class App extends React.Component {
             });
     }
     signIn = (username, password) => {
-
-        // Play continue sound
-        let sfx = new Howl({ src: [`/sounds/sfx_continue.wav`], volume: 0.25 });
-        sfx.play();
+        logic.sfx_continue();
 
         if (username && password) {
             console.log(`-- SIGN IN ATTEMPT --`);
@@ -212,10 +170,7 @@ class App extends React.Component {
         }
     }
     signUp = (username, password, confirm) => {
-
-        // Play continue sound
-        let sfx = new Howl({ src: [`/sounds/sfx_continue.wav`], volume: 0.25 });
-        sfx.play();
+        logic.sfx_continue();
 
         if (username && password && confirm && password === confirm) {
             if (username.length >= 3 && username.length <= 25) {

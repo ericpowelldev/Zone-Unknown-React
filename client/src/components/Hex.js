@@ -1,24 +1,13 @@
 import React from 'react';
-import { Howl } from 'howler';
 import events from '../utils/events';
 import logic from '../utils/logic';
 import g from '../utils/globals';
 
 class Hex extends React.Component {
 
-    sfx = () => {
-
-        // Play tick sound
-        let sfx = new Howl({ src: [`/sounds/sfx_tick.wav`], volume: 0.15 });
-        sfx.play();
-    }
-
     // Called when any hex is clicked
     handleClick = () => {
-
-        // Play select sound
-        let sfx = new Howl({ src: [`/sounds/sfx_select.wav`], volume: 0.25 });
-        sfx.play();
+        logic.sfx_select();
 
         // If the player can reach this hex
         if (this.props.reach === "true") {
@@ -167,7 +156,7 @@ class Hex extends React.Component {
                 data-reach={this.props.reach}
                 data-current={this.props.current}
                 onClick={this.handleClick}
-                onMouseEnter={this.sfx}>
+                onMouseEnter={logic.sfx_tick}>
                 {this.props.coords === `0, 0` ?
                     <img id="hexShip" alt="" src="/images/vectors/game/ship.svg" /> :
                     (this.props.coords === `${g.sav.coords[0]}, ${g.sav.coords[1]}` ?
