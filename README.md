@@ -8,7 +8,7 @@ Welcome to ZONE UNKNOWN, an adventure game based on survival. You find yourself 
 https://zone-unknown-react.herokuapp.com/
 
 ### Link to GitHub
-https://github.com/ericpowell3d/Zone-Unknown-React
+https://github.com/ericpowelldev/Zone-Unknown-React
 
 ### Link to Presentation
 https://docs.google.com/presentation/d/1VJiLkdt-cI696KgL47I4Zy2lpoYuaOwEHiDqwTaFYZk/edit?usp=sharing
@@ -22,7 +22,7 @@ Upon entering the site, you are presented with a login. Here, you may sign in or
 
 HEALTH (or HP) is used to measure how close you are to dying. If HP drops down to 0, you die. OXYGEN (or O2) is used as a timer. Every hex you move to will subtract 1 O2 whether you have been there or not. Having negative O2 will subtract your HP by that specific amount at the end of the turn. FUEL is used to replenish your oxygen by a set amount. Once the FUEL indicator turns blue, you may return to the ship and refill your O2. ITEMS are important to collect as they increase your chances of survival. WARP PIECES are essential to collect to progress through the game. Once you find all of them, plus the uranium to fuel the warp drive, you may escape the system and return home.
 
-This version of the game was our first attempt at using ReactJS & is a continuation of our previous version of the game (which was made using jQuery & Express-Handlebars). The repo for the old project can be found [HERE](https://github.com/ericpowell3d/Zone-Unknown) as well as the deployed site [HERE](https://zone-unknown.herokuapp.com/).
+This version of the game was our first attempt at using ReactJS & is a continuation of our previous version of the game (which was made using jQuery & Express-Handlebars). The repo for the old project can be found [HERE](https://github.com/ericpowelldev/Zone-Unknown) as well as the deployed site [HERE](https://zone-unknown.herokuapp.com/).
 
 - - -
 
@@ -53,7 +53,7 @@ The Pompous Assets - Amber Charnley, Eric Powell, Stu Eliades
 
 ## Contributions
 * Amber Charnley (Passport/Bcrypt Authentication, Socket-io Live Chat, Server & API Integration) - [Portfolio Site](https://2mlcmonkeys.github.io/Profile/)
-* Eric Powell (Game Logic, Graphics & Vectors, Sounds, Server & API Integration, Polish) - [Portfolio Site](https://ericpowell3d.com/)
+* Eric Powell (Game Logic, Graphics & Vectors, Sounds, Server & API Integration, Polish) - [Portfolio Site](https://ericpowell.dev/)
 * Stu Eliades (Game Logic, Task Manager, Sound Integration) - [Portfolio Site](https://seliades.github.io/Stu_Portfolio/)
 
 ### Special Credit

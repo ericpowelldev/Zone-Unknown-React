@@ -1,6 +1,6 @@
 {
   "name": "zone-unknown-react",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Zone Unknown React game",
   "author": "The Pompous Assets",
   "license": "ISC",
@@ -12,7 +12,7 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.1.0",
-    "react-scripts": "3.1.2",
+    "react-scripts": "^3.4.1",
     "socket.io-client": "^2.3.0"
   },
   "scripts": {
