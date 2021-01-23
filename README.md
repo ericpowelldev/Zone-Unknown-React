@@ -5,7 +5,7 @@
 Welcome to ZONE UNKNOWN, an adventure game based on survival. You find yourself stranded in a solar system due to your warp drive breaking down. Explore 3 planets and find parts to rebuild your warp drive. Along the way, you will encounter harsh events that will test your survival skills. Some will require tough decisions that may make the difference between life and death. You need to manage your HEALTH, OXYGEN and FUEL. You lose 1 OXYGEN per turn and will need 3 FUEL to replenish your O2 at the ship (middle hex). When your HEALTH hits 0, you lose! To advance to the next planet, collect the warp drive piece and return to your ship. Good luck on your journey!
 
 ### Link to Deployed Site
-https://zone-unknown-react.herokuapp.com/
+https://zone-unknown.netlify.app/
 
 ### Link to GitHub
 https://github.com/ericpowelldev/Zone-Unknown-React
@@ -35,6 +35,7 @@ This version of the game was our first attempt at using ReactJS & is a continuat
 - `express-session`
 - `howler`
 - `if-env`
+- `moment`
 - `mongoose`
 - `nodemon`
 - `passport`
@@ -53,7 +54,7 @@ The Pompous Assets - Amber Charnley, Eric Powell, Stu Eliades
 
 ## Contributions
 * Amber Charnley (Passport/Bcrypt Authentication, Socket-io Live Chat, Server & API Integration) - [Portfolio Site](https://2mlcmonkeys.github.io/Profile/)
-* Eric Powell (Game Logic, Graphics & Vectors, Sounds, Server & API Integration, Polish) - [Portfolio Site](https://ericpowell.dev/)
+* Eric Powell (Game Logic, Graphics & Vectors, Sounds, Server & API Integration, Polish, Fixes) - [Portfolio Site](https://ericpowell.dev/)
 * Stu Eliades (Game Logic, Task Manager, Sound Integration) - [Portfolio Site](https://seliades.github.io/Stu_Portfolio/)
 
 ### Special Credit
