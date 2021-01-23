@@ -1,21 +1,23 @@
 {
   "name": "zone-unknown-react",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Zone Unknown React game",
   "author": "The Pompous Assets",
   "license": "ISC",
+  "private": true,
   "main": "server.js",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "connect-mongo": "^3.2.0",
     "express": "^4.17.1",
-    "express-session": "^1.16.2",
+    "express-session": "^1.17.1",
     "if-env": "^1.0.4",
-    "mongoose": "^5.9.5",
+    "moment": "^2.29.1",
+    "mongoose": "^5.11.13",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.4.1"
   },
   "devDependencies": {
     "concurrently": "^4.1.2",
